@@ -10,5 +10,6 @@ import Foundation
 
 
 public func printText() {
-    print("print text sampel ok")
+    print("print text sampel - ok")
 }
+
