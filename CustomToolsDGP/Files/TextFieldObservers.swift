@@ -14,6 +14,8 @@ public protocol TextFieldProtocol {
 
 public class TextFieldObservers {
     
+    public init() {}
+    
     // VARIABLES
     private var delegateTextField: TextFieldProtocol?
     private var variableInt: CGFloat = 0
