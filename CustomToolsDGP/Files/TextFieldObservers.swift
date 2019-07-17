@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol TextFieldProtocol {
+public protocol TextFieldProtocol {
     func passObjectToMove(insets: UIEdgeInsets, variableInt: CGFloat)
 }
 
-class TextFieldObservers {
+public class TextFieldObservers {
     
     // VARIABLES
     private var delegateTextField: TextFieldProtocol?
