@@ -19,13 +19,13 @@ public class TextFieldObservers {
     private var variableInt: CGFloat = 0
     
     //step.1 fill paremeters
-    func setVariables(delegate: TextFieldProtocol, variableInt: CGFloat = 0) {
+    public func setVariables(delegate: TextFieldProtocol, variableInt: CGFloat = 0) {
         self.delegateTextField = delegate
         self.variableInt = variableInt
     }
     
     //step.2 Add observers for 'UIKeyboardWillShow' and 'UIKeyboardWillHide' notification.
-    func createObservers() {
+    public func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -51,7 +51,7 @@ public class TextFieldObservers {
     }
     
     //step.5 Method to remove observers
-    func removeObservers() {
+    public func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
