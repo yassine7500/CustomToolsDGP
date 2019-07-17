@@ -13,3 +13,6 @@ public func printText() {
     print("print text sampel - ok")
 }
 
+class <#name#>: <#super class#> {
+    <#code#>
+}
