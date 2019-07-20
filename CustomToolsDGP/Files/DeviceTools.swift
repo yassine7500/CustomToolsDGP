@@ -19,7 +19,7 @@ public class DeviceTools {
     public func getDeviceModel() -> String {
         
         let deviceModel = UIDevice().type
-        print(" > Device model: \(deviceModel.rawValue) <")
+        print("\n >>> Device model: \(deviceModel.rawValue)\n")
         return deviceModel.rawValue
     }
     
@@ -43,7 +43,7 @@ public class DeviceTools {
             result = "unknown"
         }
         
-        print(" > Device type: \(result) <")
+        print("\n >>> Device type: \(result)\n")
         return result
     }
     
