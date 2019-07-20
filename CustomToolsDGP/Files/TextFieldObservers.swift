@@ -14,6 +14,12 @@ public protocol TextFieldProtocol {
 
 public class TextFieldObservers {
     
+    enum testEnumTF {
+        case one
+        case two
+        case three
+    }
+    
     public init() {}
     
     // VARIABLES
