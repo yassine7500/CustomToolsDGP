@@ -17,7 +17,7 @@ public class AnimationsCustom {
     }
     
     // Standard animation for init popup.
-    func animationScalePopup(viewContainer: UIView, _ action: @escaping ()->Void) {
+    public func animationScalePopup(viewContainer: UIView, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
@@ -39,7 +39,7 @@ public class AnimationsCustom {
         })
     }
     
-    func animationAppearFromBottom(viewContainer: UIView, _ action: @escaping ()->Void) {
+    public func animationAppearFromBottom(viewContainer: UIView, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
