@@ -14,7 +14,7 @@ public protocol TextFieldProtocol {
 
 public class TextFieldObservers {
     
-    enum testEnumTF {
+    public enum testEnumTF {
         case one
         case two
         case three
