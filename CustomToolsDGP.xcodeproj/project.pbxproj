@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082A22E323270053BD47 /* AnimationsCustom.swift */; };
+		963E082D22E324820053BD47 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082C22E324820053BD47 /* TestVC.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
 /* End PBXBuildFile section */
 
@@ -15,6 +17,8 @@
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96317BB222AD325E00AC830B /* CustomToolsDGP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToolsDGP.h; sourceTree = "<group>"; };
 		96317BB322AD325E00AC830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		963E082A22E323270053BD47 /* AnimationsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsCustom.swift; sourceTree = "<group>"; };
+		963E082C22E324820053BD47 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,9 +52,10 @@
 		96317BB122AD325E00AC830B /* CustomToolsDGP */ = {
 			isa = PBXGroup;
 			children = (
-				96317BBA22AD326500AC830B /* Files */,
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
+				963E082C22E324820053BD47 /* TestVC.swift */,
+				96317BBA22AD326500AC830B /* Files */,
 			);
 			path = CustomToolsDGP;
 			sourceTree = "<group>";
@@ -58,6 +63,7 @@
 		96317BBA22AD326500AC830B /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 			);
 			path = Files;
@@ -143,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
+				963E082D22E324820053BD47 /* TestVC.swift in Sources */,
+				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
