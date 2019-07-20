@@ -1,5 +1,5 @@
 //
-//  BorderCorner.swift
+//  CornerTools.swift
 //  CustomToolsDGP
 //
 //  Created by David Galán on 20/07/2019.
