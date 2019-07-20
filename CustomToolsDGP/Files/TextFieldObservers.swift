@@ -9,31 +9,19 @@
 import UIKit
 
 public protocol TextFieldProtocol {
-    func passObjectToMove(insets: UIEdgeInsets, variableInt: CGFloat)
-}
-
-public enum TextFieldObserversOptions: String {
-    case one
-    case two
-    case three
+    func passInsetToMoveKeyboard(insets: UIEdgeInsets)
 }
 
 public class TextFieldObservers {
     
-
-    
-    public init() {}
-    
     // VARIABLES
     private var delegateTextField: TextFieldProtocol?
-    private var variableInt: CGFloat = 0
     
     //step.1 fill paremeters
-    public func setVariables(delegate: TextFieldProtocol, variableInt: CGFloat = 0) {
+    public init(delegate: TextFieldProtocol) {
         self.delegateTextField = delegate
-        self.variableInt = variableInt
     }
-    
+
     //step.2 Add observers for 'UIKeyboardWillShow' and 'UIKeyboardWillHide' notification.
     public func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -50,14 +38,14 @@ public class TextFieldObservers {
         }
         
         let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
-        delegateTextField?.passObjectToMove(insets: contentInset, variableInt: self.variableInt)
+        delegateTextField?.passInsetToMoveKeyboard(insets: contentInset)
     }
     
     //step.4 Method to reset view/scrollview when keyboard is hidden.
     @objc func keyboardWillHide(notification: NSNotification) {
         print("keyboardWillHide")
         
-        delegateTextField?.passObjectToMove(insets: UIEdgeInsets.zero, variableInt: self.variableInt)
+        delegateTextField?.passInsetToMoveKeyboard(insets: UIEdgeInsets.zero)
     }
     
     //step.5 Method to remove observers
@@ -68,4 +56,19 @@ public class TextFieldObservers {
     
 }
 
+extension TextFieldObservers {
+    
+    public func moveViewWithInsets(view: UIView, insets: UIEdgeInsets, variable: CGFloat = 0.0) {
+        view.frame.origin.y = (-insets.bottom) + variable
+    }
+    
+    public func moveScrollViewWithInsets(scrollView: UIScrollView, insets: UIEdgeInsets) {
+        scrollView.contentInset = insets
+    }
+    
+    public func moveTableViewWithInsets(tableView: UITableView, insets: UIEdgeInsets) {
+        tableView.contentInset = insets
+    }
+    
+}
 
