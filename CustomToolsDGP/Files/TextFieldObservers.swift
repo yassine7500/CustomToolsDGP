@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol TextFieldProtocol {
-    func passInsetToMoveKeyboard(insets: UIEdgeInsets)
+    func passInsetsToMoveKeyboard(insets: UIEdgeInsets)
 }
 
 public class TextFieldObservers {
@@ -38,14 +38,14 @@ public class TextFieldObservers {
         }
         
         let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
-        delegateTextField?.passInsetToMoveKeyboard(insets: contentInset)
+        delegateTextField?.passInsetsToMoveKeyboard(insets: contentInset)
     }
     
     //step.4 Method to reset view/scrollview when keyboard is hidden.
     @objc func keyboardWillHide(notification: NSNotification) {
         print("keyboardWillHide")
         
-        delegateTextField?.passInsetToMoveKeyboard(insets: UIEdgeInsets.zero)
+        delegateTextField?.passInsetsToMoveKeyboard(insets: UIEdgeInsets.zero)
     }
     
     //step.5 Method to remove observers
