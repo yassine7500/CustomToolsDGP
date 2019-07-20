@@ -12,13 +12,15 @@ public protocol TextFieldProtocol {
     func passObjectToMove(insets: UIEdgeInsets, variableInt: CGFloat)
 }
 
+public enum TextFieldObserversOptions: String {
+    case one
+    case two
+    case three
+}
+
 public class TextFieldObservers {
     
-    public enum testEnumTF {
-        case one
-        case two
-        case three
-    }
+
     
     public init() {}
     

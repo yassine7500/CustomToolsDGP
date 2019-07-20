@@ -11,5 +11,8 @@ import Foundation
 
 public func printText() {
     print("print text sampel - ok")
+    
+    
+    let obj = TextFieldObservers()
 }
 
