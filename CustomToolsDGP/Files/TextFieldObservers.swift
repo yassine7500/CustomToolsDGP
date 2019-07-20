@@ -6,7 +6,6 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
-import UIKit
 
 public protocol TextFieldProtocol {
     func passInsetsToMoveKeyboard(insets: UIEdgeInsets)
