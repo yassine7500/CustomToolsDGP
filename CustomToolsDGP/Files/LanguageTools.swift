@@ -14,8 +14,8 @@ public enum LanguageCodeType: String {
 }
 
 // MARK: VARIABLES
-public var bundleLanguage = Bundle()
-public let appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
+var bundleLanguage = Bundle()
+public var appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
 
 // MARK: DEFAULTS REFERENCES
 
@@ -81,7 +81,7 @@ public func setBundleLanguage() {
     bundleLanguage = Bundle(path: path!)!
 }
 
-public func controlInitialLanguage() {
+func controlInitialLanguage() {
     var languageFounded = false
     if !languageCodeEdited {
         for language in appLanguages {
@@ -97,7 +97,7 @@ public func controlInitialLanguage() {
     }
 }
 
-public func controlCodes() {
+func controlCodes() {
     
     switch languageCodeApp {
         //    case "ca":
