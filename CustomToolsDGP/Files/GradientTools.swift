@@ -6,8 +6,6 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
-import Foundation
-
 public class GradientTools {
     
     public init() {
