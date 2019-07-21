@@ -7,19 +7,19 @@
 //
 
 // MARK: LANGUAGES CODES
-enum LanguageCodeType: String {
+public enum LanguageCodeType: String {
     case cat = "ca" //optional: "ca-ES"
     case cas = "es"
     case eng = "en"
 }
 
 // MARK: VARIABLES
-var bundleLanguage = Bundle()
-let appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
+public var bundleLanguage = Bundle()
+public let appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
 
 // MARK: DEFAULTS REFERENCES
 
-var languageCodeEdited: Bool {
+public var languageCodeEdited: Bool {
     set {
         UserDefaults.standard.set(newValue, forKey: "languageCodeEdited")
     }
@@ -28,7 +28,7 @@ var languageCodeEdited: Bool {
     }
 }
 
-var languageCodeApp: String {
+public var languageCodeApp: String {
     set {
         UserDefaults.standard.set(newValue, forKey: "languageCodeApp")
     }
@@ -38,34 +38,34 @@ var languageCodeApp: String {
 }
 
 // MARK: METHODS TO WORK
-class LangStr {
+public class LangStr {
     
-    class func langStr(_ text: String) -> String {
+    public class func langStr(_ text: String) -> String {
         //        return NSLocalizedString(text, comment: text) // Old method to change language texts
         return  setLanguage(key: text)
     }
 }
 
 
-func getLocaleLanguage() -> String {
+public func getLocaleLanguage() -> String {
     return Locale.preferredLanguages[0]
 }
 
-func setLanguage(key: String) -> String {
+public func setLanguage(key: String) -> String {
     return bundleLanguage.localizedString(forKey: key, value: nil, table: nil)
 }
 
-func setLanguagelUppercase(label: UILabel, keyText: String) {
+public func setLanguagelUppercase(label: UILabel, keyText: String) {
     label.text = setLanguage(key: keyText).uppercased()
 }
 
-func setLanguageExtra(label: UILabel, keyText: String, extraText: String = "") {
+public func setLanguageExtra(label: UILabel, keyText: String, extraText: String = "") {
     label.text = setLanguage(key: keyText) + extraText
 }
 
 // MARK: BUNDLE
 
-func setBundleLanguage() {
+public func setBundleLanguage() {
     
     print("LanguageCodeEdited: \(languageCodeEdited)")
     if !languageCodeEdited {
@@ -81,7 +81,7 @@ func setBundleLanguage() {
     bundleLanguage = Bundle(path: path!)!
 }
 
-func controlInitialLanguage() {
+public func controlInitialLanguage() {
     var languageFounded = false
     if !languageCodeEdited {
         for language in appLanguages {
@@ -97,7 +97,7 @@ func controlInitialLanguage() {
     }
 }
 
-func controlCodes() {
+public func controlCodes() {
     
     switch languageCodeApp {
         //    case "ca":
@@ -113,7 +113,7 @@ func controlCodes() {
     }
 }
 
-func getLanguageText(language: String) -> String {
+public func getLanguageText(language: String) -> String {
     
     switch language {
     case LanguageCodeType.eng.rawValue:
@@ -127,11 +127,11 @@ func getLanguageText(language: String) -> String {
     }
 }
 
-func getCurrentLanguageText() -> String {
+public func getCurrentLanguageText() -> String {
     return getLanguageText(language: languageCodeApp)
 }
 
-func getLanguageId() -> Int {
+public func getLanguageId() -> Int {
     
     // id's language according to name and description order in array product data from server.
     switch languageCodeApp {
@@ -146,7 +146,7 @@ func getLanguageId() -> Int {
     }
 }
 
-func updateLanguageFromWSData(languageData: String) {
+public func updateLanguageFromWSData(languageData: String) {
     for language in appLanguages {
         if language.rawValue == languageData {
             languageCodeEdited = true
