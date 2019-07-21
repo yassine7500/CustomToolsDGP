@@ -10,32 +10,53 @@
 public enum DateFormatType: String {
     
     /// yyyy-MM-dd HH:mm:ss Z
-    case standard = "yyyy-MM-dd HH:mm:ss Z" /// yyyy-MM-dd HH:mm:ss Z
+    case standard = "yyyy-MM-dd HH:mm:ss Z"
     
+    /// yyyy-MM-dd
     case date = "yyyy-MM-dd"
+    /// EEEE, yyyy-MM-dd HH:mm
     case dateCompleteDay = "EEEE, yyyy-MM-dd HH:mm"
+    /// yyyy-MM-dd HH:mm
     case dateComplete = "yyyy-MM-dd HH:mm"
+    /// yyyy-MM-dd HH:mm:ss
     case dateCompleteSeconds = "yyyy-MM-dd HH:mm:ss"
     
+    /// dd-MM-yyyy HH:mm
     case dateCompleteReverse = "dd-MM-yyyy HH:mm"
+    /// EEEE, dd-MM-yyyy HH:mm
     case dateCompleteReverseDay = "EEEE, dd-MM-yyyy HH:mm"
+    /// dd-MM-yyyy HH:mm:ss
     case dateCompleteSecondsReverse = "dd-MM-yyyy HH:mm:ss"
+    /// dd-MM-yyyy
     case dateReverse = "dd-MM-yyyy"
     
+    /// dd/MM/yyyy HH:mm
     case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
+    /// EEEE, dd/MM/yyyy HH:mm
     case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
+    /// dd/MM/yyyy HH:mm:ss
     case dateCompleteSecondsReverseAgainstBar = "dd/MM/yyyy HH:mm:ss"
+    /// dd/MM/yyyy
     case dateReverseAgainstBar = "dd/MM/yyyy"
+    /// MM/yyyy
     case dateMonthYearAgainstBar = "MM/yyyy"
     
+    /// HH:mm:ss
     case hourSeconds = "HH:mm:ss"
+    /// HH:mm
     case hour = "HH:mm"
     
+    /// dd
     case justDay = "dd"
+    /// EEEE
     case justDayWeek = "EEEE"
+    /// MM
     case justMonth = "MM"
+    /// yyyy
     case justYear = "yyyy"
+    /// HH
     case justHour = "HH"
+    /// mm
     case justMinutes = "mm"
 }
 
