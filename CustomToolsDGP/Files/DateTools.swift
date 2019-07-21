@@ -6,39 +6,6 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
-
-/// Date Format type
-public enum DateFormatType: String {
-    
-    case standard = "yyyy-MM-dd HH:mm:ss Z"
-    
-    case date = "yyyy-MM-dd"
-    case dateCompleteDay = "EEEE, yyyy-MM-dd HH:mm"
-    case dateComplete = "yyyy-MM-dd HH:mm"
-    case dateCompleteSeconds = "yyyy-MM-dd HH:mm:ss"
-    
-    case dateCompleteReverse = "dd-MM-yyyy HH:mm"
-    case dateCompleteReverseDay = "EEEE, dd-MM-yyyy HH:mm"
-    case dateCompleteSecondsReverse = "dd-MM-yyyy HH:mm:ss"
-    case dateReverse = "dd-MM-yyyy"
-    
-    case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
-    case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
-    case dateCompleteSecondsReverseAgainstBar = "dd/MM/yyyy HH:mm:ss"
-    case dateReverseAgainstBar = "dd/MM/yyyy"
-    case dateMonthYearAgainstBar = "MM/yyyy"
-    
-    case hourSeconds = "HH:mm:ss"
-    case hour = "HH:mm"
-    
-    case justDay = "dd"
-    case justDayWeek = "EEEE"
-    case justMonth = "MM"
-    case justYear = "yyyy"
-    case justHour = "HH"
-    case justMinutes = "mm"
-}
-
 public var globalStartDate = Date()
 public var globalEndDate = Date()
 public var globalIdDate = ""
@@ -47,6 +14,38 @@ public class DateTools {
     
     public init() {
         
+    }
+    
+    /// Date Format type
+    public enum DateFormatType: String {
+        
+        case standard = "yyyy-MM-dd HH:mm:ss Z"
+        
+        case date = "yyyy-MM-dd"
+        case dateCompleteDay = "EEEE, yyyy-MM-dd HH:mm"
+        case dateComplete = "yyyy-MM-dd HH:mm"
+        case dateCompleteSeconds = "yyyy-MM-dd HH:mm:ss"
+        
+        case dateCompleteReverse = "dd-MM-yyyy HH:mm"
+        case dateCompleteReverseDay = "EEEE, dd-MM-yyyy HH:mm"
+        case dateCompleteSecondsReverse = "dd-MM-yyyy HH:mm:ss"
+        case dateReverse = "dd-MM-yyyy"
+        
+        case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
+        case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
+        case dateCompleteSecondsReverseAgainstBar = "dd/MM/yyyy HH:mm:ss"
+        case dateReverseAgainstBar = "dd/MM/yyyy"
+        case dateMonthYearAgainstBar = "MM/yyyy"
+        
+        case hourSeconds = "HH:mm:ss"
+        case hour = "HH:mm"
+        
+        case justDay = "dd"
+        case justDayWeek = "EEEE"
+        case justMonth = "MM"
+        case justYear = "yyyy"
+        case justHour = "HH"
+        case justMinutes = "mm"
     }
 
     var dateFormatter = DateFormatter()
@@ -174,10 +173,10 @@ public class DateTools {
 // MARK: VALIDATOR
 extension String {
     
-    public func isCorrectDateFormat(dateFormat: DateFormatType) -> Bool {
+    public func isCorrectDateFormat(dateFormat: String) -> Bool {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat.rawValue
+        dateFormatter.dateFormat = dateFormat
         
         if dateFormatter.date(from: self) != nil {
             return true
