@@ -20,6 +20,7 @@
 		9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C422E483AB00BBA1DB /* StringTools.swift */; };
 		9673C9C722E485F200BBA1DB /* LanguageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C622E485F200BBA1DB /* LanguageTools.swift */; };
 		9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C822E4894F00BBA1DB /* LocationTools.swift */; };
+		9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9CA22E491A400BBA1DB /* MapTools.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		9673C9C422E483AB00BBA1DB /* StringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTools.swift; sourceTree = "<group>"; };
 		9673C9C622E485F200BBA1DB /* LanguageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTools.swift; sourceTree = "<group>"; };
 		9673C9C822E4894F00BBA1DB /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
+		9673C9CA22E491A400BBA1DB /* MapTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTools.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
+				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
