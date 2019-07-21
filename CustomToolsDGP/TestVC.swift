@@ -6,22 +6,22 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
-//import UIKit
-//
-//class TestVC: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//
-//        let animationsCustom = AnimationsCustom(delegate: self)
-//        animationsCustom.animationAppearFromBottom(viewContainer: self.view) {
-//            print("ok")
-//        }
-//        
-//        
-//    }
-//    
-//
-//
-//}
+import UIKit
+
+class TestVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
+        print("??".isCorrectDateFormat(dateFormat: .date))
+        
+        
+        
+        
+        
+    }
+    
+
+
+}
