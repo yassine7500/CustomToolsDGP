@@ -15,7 +15,7 @@ public enum LanguageCodeType: String {
 
 // MARK: VARIABLES
 var bundleLanguage = Bundle()
-public var appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
+public let appLanguages = [LanguageCodeType.cat, LanguageCodeType.cas, LanguageCodeType.eng]
 
 // MARK: DEFAULTS REFERENCES
 
