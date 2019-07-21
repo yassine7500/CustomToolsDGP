@@ -19,6 +19,7 @@
 		9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */; };
 		9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C422E483AB00BBA1DB /* StringTools.swift */; };
 		9673C9C722E485F200BBA1DB /* LanguageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C622E485F200BBA1DB /* LanguageTools.swift */; };
+		9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C822E4894F00BBA1DB /* LocationTools.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlToStringFormatter.swift; sourceTree = "<group>"; };
 		9673C9C422E483AB00BBA1DB /* StringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTools.swift; sourceTree = "<group>"; };
 		9673C9C622E485F200BBA1DB /* LanguageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTools.swift; sourceTree = "<group>"; };
+		9673C9C822E4894F00BBA1DB /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,9 +91,10 @@
 				963E083622E332F00053BD47 /* GestureRecognizerTools.swift */,
 				9673C9C022E47BA500BBA1DB /* GradientTools.swift */,
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
+				9673C9C622E485F200BBA1DB /* LanguageTools.swift */,
+				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
-				9673C9C622E485F200BBA1DB /* LanguageTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageTools.swift in Sources */,
 				963E082D22E324820053BD47 /* TestVC.swift in Sources */,
+				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
