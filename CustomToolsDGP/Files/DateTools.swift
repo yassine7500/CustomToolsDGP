@@ -9,7 +9,8 @@
 /// Date Format type
 public enum DateFormatType: String {
     
-    case standard = "yyyy-MM-dd HH:mm:ss Z" // yyyy-MM-dd HH:mm:ss Z
+    // yyyy-MM-dd HH:mm:ss Z
+    case standard = "yyyy-MM-dd HH:mm:ss Z"
     
     case date = "yyyy-MM-dd"
     case dateCompleteDay = "EEEE, yyyy-MM-dd HH:mm"
