@@ -22,6 +22,7 @@
 		9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C822E4894F00BBA1DB /* LocationTools.swift */; };
 		9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9CA22E491A400BBA1DB /* MapTools.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
+		96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9673C9C822E4894F00BBA1DB /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		9673C9CA22E491A400BBA1DB /* MapTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTools.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
+		96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
+				96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
 				963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */,
 				9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */,
+				96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
