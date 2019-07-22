@@ -21,10 +21,4 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
     
-    public func setBorderLikeTextField() {
-        self.layer.cornerRadius = 4
-        self.layer.borderWidth = 0.9
-        self.layer.borderColor = #colorLiteral(red: 0.8235294118, green: 0.8235294118, blue: 0.8235294118, alpha: 1)
-    }
-    
 }
