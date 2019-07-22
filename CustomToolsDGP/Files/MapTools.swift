@@ -12,7 +12,7 @@ public class MapTools {
     
     var mapView: MKMapView?
     
-    public init(map: MKMapView) {
+    public init(map: MKMapView?) {
         self.mapView = map
     }
     
