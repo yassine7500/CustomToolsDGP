@@ -7,7 +7,7 @@
 //
 
 
-public class ShadowTools: UIView {
+extension UIView {
     
     public func setShadow(offsetWidth: CGFloat = 0, offsetHeight: CGFloat = 10, shadowOpacity: Float = 0.4, shadowRadius: CGFloat = 16, shadowColor: CGColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)) {
         self.layer.shadowOffset = CGSize(width: offsetWidth, height: offsetHeight)
@@ -25,6 +25,6 @@ public class ShadowTools: UIView {
         self.layer.cornerRadius = 4
         self.layer.borderWidth = 0.9
         self.layer.borderColor = #colorLiteral(red: 0.8235294118, green: 0.8235294118, blue: 0.8235294118, alpha: 1)
-    }    
+    }
     
 }
