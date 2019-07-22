@@ -14,7 +14,7 @@ public class CustomImageViewTool: UIImageView {
     var imageNotFoundName = "icon"
     var imageUrlString: String?
     
-    func loadImageUrlString(urlString: String?, nameImageNotFound: String) {
+    public func loadImageUrlString(urlString: String?, nameImageNotFound: String) {
         
         self.alpha = 1
         imageNotFoundName = nameImageNotFound
