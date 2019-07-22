@@ -127,6 +127,7 @@
 				963E082E22E328C50053BD47 /* CornerTools.swift */,
 				963E083422E32DB80053BD47 /* DateTools.swift */,
 				963E083222E32C830053BD47 /* DeviceTools.swift */,
+				9657EF9B22E5EDD2002A9196 /* EmailTools.swift */,
 				963E083622E332F00053BD47 /* GestureRecognizerTools.swift */,
 				9673C9C022E47BA500BBA1DB /* GradientTools.swift */,
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
@@ -146,7 +147,6 @@
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
-				9657EF9B22E5EDD2002A9196 /* EmailTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
