@@ -89,7 +89,7 @@ public class MapTools {
         return anView
     }
     
-    class CustomPointAnnotation: MKPointAnnotation {
+    public class CustomPointAnnotation: MKPointAnnotation {
         var image: String!
     }
     
