@@ -14,8 +14,8 @@ public protocol TextFieldProtocol {
 public class TextFieldObservers {
     
     // VARIABLES
-    private var delegateTextField: TextFieldProtocol?
-    private var keyboardHeight = -1
+    var delegateTextField: TextFieldProtocol?
+    var keyboardHeight = -1
     
     //step.1 fill paremeters
     public init(delegate: TextFieldProtocol) {
