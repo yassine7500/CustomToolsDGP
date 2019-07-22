@@ -26,6 +26,7 @@
 		96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505122E5BCC900C18D72 /* NumberTools.swift */; };
 		96CB505422E5BFF900C18D72 /* PermissionToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */; };
 		96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505622E5C09400C18D72 /* RandomTools.swift */; };
+		96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505822E5C10000C18D72 /* SegueTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		96CB505122E5BCC900C18D72 /* NumberTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTools.swift; sourceTree = "<group>"; };
 		96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionToolsSample.swift; sourceTree = "<group>"; };
 		96CB505622E5C09400C18D72 /* RandomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTools.swift; sourceTree = "<group>"; };
+		96CB505822E5C10000C18D72 /* SegueTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				96CB505622E5C09400C18D72 /* RandomTools.swift */,
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
+				96CB505822E5C10000C18D72 /* SegueTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
+				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
