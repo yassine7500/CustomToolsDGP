@@ -24,6 +24,8 @@
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
 		96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */; };
 		96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505122E5BCC900C18D72 /* NumberTools.swift */; };
+		96CB505422E5BFF900C18D72 /* PermissionToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */; };
+		96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505622E5C09400C18D72 /* RandomTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
 		96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTools.swift; sourceTree = "<group>"; };
 		96CB505122E5BCC900C18D72 /* NumberTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTools.swift; sourceTree = "<group>"; };
+		96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionToolsSample.swift; sourceTree = "<group>"; };
+		96CB505622E5C09400C18D72 /* RandomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				96317BB322AD325E00AC830B /* Info.plist */,
 				963E082C22E324820053BD47 /* TestVC.swift */,
 				96317BBA22AD326500AC830B /* Files */,
+				96CB505522E5C03D00C18D72 /* Samples */,
 			);
 			path = CustomToolsDGP;
 			sourceTree = "<group>";
@@ -99,13 +104,22 @@
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
 				9673C9C622E485F200BBA1DB /* LanguageTools.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
-				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
-				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
 				96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */,
 				96CB505122E5BCC900C18D72 /* NumberTools.swift */,
+				96CB505622E5C09400C18D72 /* RandomTools.swift */,
+				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
+				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		96CB505522E5C03D00C18D72 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */,
+			);
+			path = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +206,8 @@
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageTools.swift in Sources */,
+				96CB505422E5BFF900C18D72 /* PermissionToolsSample.swift in Sources */,
+				96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */,
 				963E082D22E324820053BD47 /* TestVC.swift in Sources */,
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
