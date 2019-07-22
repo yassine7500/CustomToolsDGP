@@ -8,13 +8,14 @@
 
 
 public protocol TextFieldProtocol {
-    func passInsetsToMoveKeyboard(insets: UIEdgeInsets)
+    func passInsetsToMoveKeyboard(insets: UIEdgeInsets, keyboardHeight: Int)
 }
 
 public class TextFieldObservers {
     
     // VARIABLES
     private var delegateTextField: TextFieldProtocol?
+    private var keyboardHeight = -1
     
     //step.1 fill paremeters
     public init(delegate: TextFieldProtocol) {
@@ -36,15 +37,21 @@ public class TextFieldObservers {
                 return
         }
         
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight : Int = Int(keyboardSize.height)
+            print(" ??? keyboardHeight: \(keyboardHeight)")
+            self.keyboardHeight = keyboardHeight
+        }
+        
         let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
-        delegateTextField?.passInsetsToMoveKeyboard(insets: contentInset)
+        delegateTextField?.passInsetsToMoveKeyboard(insets: contentInset, keyboardHeight: keyboardHeight)
     }
     
     //step.4 Method to reset view/scrollview when keyboard is hidden.
     @objc func keyboardWillHide(notification: NSNotification) {
         print("keyboardWillHide")
         
-        delegateTextField?.passInsetsToMoveKeyboard(insets: UIEdgeInsets.zero)
+        delegateTextField?.passInsetsToMoveKeyboard(insets: UIEdgeInsets.zero, keyboardHeight: keyboardHeight)
     }
     
     //step.5 Method to remove observers
