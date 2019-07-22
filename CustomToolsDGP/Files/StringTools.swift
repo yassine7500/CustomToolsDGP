@@ -29,7 +29,7 @@ extension String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
     
-    public mutating func capitalizeFirstLetter() {
+    mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
     
