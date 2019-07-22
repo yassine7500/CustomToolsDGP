@@ -7,7 +7,7 @@
 //
 
 
-let imageCache = NSCache<NSString, UIImage>()
+public let imageCache = NSCache<NSString, UIImage>()
 
 public class CustomImageViewTool: UIImageView {
     
