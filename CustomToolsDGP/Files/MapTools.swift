@@ -92,7 +92,7 @@ public class MapTools {
 }
 
 public class CustomPointAnnotation: MKPointAnnotation {
-    var image: String!
+    public var image: String!
 }
 
 extension MapTools {
