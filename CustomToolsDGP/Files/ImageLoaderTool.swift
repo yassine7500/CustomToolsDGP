@@ -9,7 +9,7 @@
 
 let imageCache = NSCache<NSString, UIImage>()
 
-class CustomImageViewTool: UIImageView {
+public class CustomImageViewTool: UIImageView {
     
     var imageNotFoundName = "icon"
     var imageUrlString: String?
