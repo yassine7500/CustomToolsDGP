@@ -15,6 +15,8 @@
 		963E083322E32C830053BD47 /* DeviceTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083222E32C830053BD47 /* DeviceTools.swift */; };
 		963E083522E32DB80053BD47 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083422E32DB80053BD47 /* DateTools.swift */; };
 		963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083622E332F00053BD47 /* GestureRecognizerTools.swift */; };
+		9657EF9222E5DA55002A9196 /* ImageLoaderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderTool.swift */; };
+		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C022E47BA500BBA1DB /* GradientTools.swift */; };
 		9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */; };
 		9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C422E483AB00BBA1DB /* StringTools.swift */; };
@@ -47,6 +49,8 @@
 		963E083222E32C830053BD47 /* DeviceTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTools.swift; sourceTree = "<group>"; };
 		963E083422E32DB80053BD47 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		963E083622E332F00053BD47 /* GestureRecognizerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerTools.swift; sourceTree = "<group>"; };
+		9657EF9122E5DA55002A9196 /* ImageLoaderTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTool.swift; sourceTree = "<group>"; };
+		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9673C9C022E47BA500BBA1DB /* GradientTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTools.swift; sourceTree = "<group>"; };
 		9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlToStringFormatter.swift; sourceTree = "<group>"; };
 		9673C9C422E483AB00BBA1DB /* StringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTools.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			children = (
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
+				9657EF9322E5DA7D002A9196 /* TestSB.storyboard */,
 				963E082C22E324820053BD47 /* TestVC.swift */,
 				96317BBA22AD326500AC830B /* Files */,
 				96CB505522E5C03D00C18D72 /* Samples */,
@@ -119,6 +124,7 @@
 				963E083622E332F00053BD47 /* GestureRecognizerTools.swift */,
 				9673C9C022E47BA500BBA1DB /* GradientTools.swift */,
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
+				9657EF9122E5DA55002A9196 /* ImageLoaderTool.swift */,
 				9673C9C622E485F200BBA1DB /* LanguageTools.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
@@ -216,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CB506122E5C5E000C18D72 /* AlertCustomSample.storyboard in Resources */,
+				9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +245,7 @@
 				96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */,
 				96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */,
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
+				9657EF9222E5DA55002A9196 /* ImageLoaderTool.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
