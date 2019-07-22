@@ -58,7 +58,9 @@ public class MapTools {
             
             let destinyAnnotation = MKPointAnnotation()
             destinyAnnotation.coordinate = location
-            destinyAnnotation.title = LangStr.langStr("ustedEstaAqui")
+            if title != "" {
+                destinyAnnotation.title = title
+            }
             self.mapView?.addAnnotation(destinyAnnotation)
             
         }
