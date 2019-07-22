@@ -28,6 +28,7 @@
 		96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505622E5C09400C18D72 /* RandomTools.swift */; };
 		96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505822E5C10000C18D72 /* SegueTools.swift */; };
 		96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505A22E5C15900C18D72 /* ShadowTools.swift */; };
+		96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505C22E5C30A00C18D72 /* SoundVibrationTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		96CB505622E5C09400C18D72 /* RandomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTools.swift; sourceTree = "<group>"; };
 		96CB505822E5C10000C18D72 /* SegueTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueTools.swift; sourceTree = "<group>"; };
 		96CB505A22E5C15900C18D72 /* ShadowTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTools.swift; sourceTree = "<group>"; };
+		96CB505C22E5C30A00C18D72 /* SoundVibrationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundVibrationTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				96CB505822E5C10000C18D72 /* SegueTools.swift */,
 				96CB505A22E5C15900C18D72 /* ShadowTools.swift */,
+				96CB505C22E5C30A00C18D72 /* SoundVibrationTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
+				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
