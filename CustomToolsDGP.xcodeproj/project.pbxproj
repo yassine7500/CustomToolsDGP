@@ -18,6 +18,7 @@
 		9657EF9222E5DA55002A9196 /* ImageLoaderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderTool.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
+		9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9922E5ED41002A9196 /* PhoneTools.swift */; };
 		9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C022E47BA500BBA1DB /* GradientTools.swift */; };
 		9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */; };
 		9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C422E483AB00BBA1DB /* StringTools.swift */; };
@@ -53,6 +54,7 @@
 		9657EF9122E5DA55002A9196 /* ImageLoaderTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTool.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
+		9657EF9922E5ED41002A9196 /* PhoneTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTools.swift; sourceTree = "<group>"; };
 		9673C9C022E47BA500BBA1DB /* GradientTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTools.swift; sourceTree = "<group>"; };
 		9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlToStringFormatter.swift; sourceTree = "<group>"; };
 		9673C9C422E483AB00BBA1DB /* StringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTools.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
 				96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */,
 				96CB505122E5BCC900C18D72 /* NumberTools.swift */,
+				9657EF9922E5ED41002A9196 /* PhoneTools.swift */,
 				96CB505622E5C09400C18D72 /* RandomTools.swift */,
 				96CB505822E5C10000C18D72 /* SegueTools.swift */,
 				96CB505A22E5C15900C18D72 /* ShadowTools.swift */,
@@ -254,6 +257,7 @@
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
+				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
