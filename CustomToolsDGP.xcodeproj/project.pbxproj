@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082A22E323270053BD47 /* AnimationsCustom.swift */; };
-		963E082D22E324820053BD47 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082C22E324820053BD47 /* TestVC.swift */; };
 		963E082F22E328C50053BD47 /* CornerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082E22E328C50053BD47 /* CornerTools.swift */; };
 		963E083122E32B640053BD47 /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083022E32B640053BD47 /* ColorTools.swift */; };
 		963E083322E32C830053BD47 /* DeviceTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083222E32C830053BD47 /* DeviceTools.swift */; };
@@ -25,7 +24,6 @@
 		964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */; };
 		964412A222E72CBC0028A062 /* RadialGradientToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
-		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
 		9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9922E5ED41002A9196 /* PhoneTools.swift */; };
 		9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9B22E5EDD2002A9196 /* EmailTools.swift */; };
@@ -57,7 +55,6 @@
 		96317BB222AD325E00AC830B /* CustomToolsDGP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToolsDGP.h; sourceTree = "<group>"; };
 		96317BB322AD325E00AC830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		963E082A22E323270053BD47 /* AnimationsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsCustom.swift; sourceTree = "<group>"; };
-		963E082C22E324820053BD47 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		963E082E22E328C50053BD47 /* CornerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerTools.swift; sourceTree = "<group>"; };
 		963E083022E32B640053BD47 /* ColorTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTools.swift; sourceTree = "<group>"; };
 		963E083222E32C830053BD47 /* DeviceTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTools.swift; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 		9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGlossGradientViewSample.swift; sourceTree = "<group>"; };
 		964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientToolsSample.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
-		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
 		9657EF9922E5ED41002A9196 /* PhoneTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTools.swift; sourceTree = "<group>"; };
 		9657EF9B22E5EDD2002A9196 /* EmailTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTools.swift; sourceTree = "<group>"; };
@@ -132,8 +128,6 @@
 			children = (
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
-				9657EF9322E5DA7D002A9196 /* TestSB.storyboard */,
-				963E082C22E324820053BD47 /* TestVC.swift */,
 				96317BBA22AD326500AC830B /* Files */,
 				96CB505522E5C03D00C18D72 /* Samples */,
 			);
@@ -255,6 +249,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 96317BA522AD325E00AC830B;
 			productRefGroup = 96317BB022AD325E00AC830B /* Products */;
@@ -272,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CB506122E5C5E000C18D72 /* AlertCustomSample.storyboard in Resources */,
-				9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +287,6 @@
 				9673C9C722E485F200BBA1DB /* LanguageToolsSample.swift in Sources */,
 				96CB505422E5BFF900C18D72 /* PermissionToolsSample.swift in Sources */,
 				96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */,
-				963E082D22E324820053BD47 /* TestVC.swift in Sources */,
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */,
 				9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */,
