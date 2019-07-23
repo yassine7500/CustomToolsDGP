@@ -17,6 +17,8 @@
 		963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083622E332F00053BD47 /* GestureRecognizerTools.swift */; };
 		9644129022E7243C0028A062 /* CellTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644128F22E7243C0028A062 /* CellTools.swift */; };
 		9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129122E725190028A062 /* InternetConnectionTool.swift */; };
+		9644129422E725A50028A062 /* Md5hashTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129322E725A50028A062 /* Md5hashTool.swift */; };
+		9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
@@ -56,6 +58,8 @@
 		963E083622E332F00053BD47 /* GestureRecognizerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerTools.swift; sourceTree = "<group>"; };
 		9644128F22E7243C0028A062 /* CellTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTools.swift; sourceTree = "<group>"; };
 		9644129122E725190028A062 /* InternetConnectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionTool.swift; sourceTree = "<group>"; };
+		9644129322E725A50028A062 /* Md5hashTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Md5hashTool.swift; sourceTree = "<group>"; };
+		9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingDocumentsValidator.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
 				9644129122E725190028A062 /* InternetConnectionTool.swift */,
+				9644129322E725A50028A062 /* Md5hashTool.swift */,
+				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
+				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
 				9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
+				9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
 				9644129022E7243C0028A062 /* CellTools.swift in Sources */,
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
@@ -429,6 +437,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidgalan.CustomToolsDGP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,6 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidgalan.CustomToolsDGP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

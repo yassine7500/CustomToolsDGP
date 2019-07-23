@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CommonCrypto/CommonCrypto.h>
 
 //! Project version number for CustomToolsDGP.
 FOUNDATION_EXPORT double CustomToolsDGPVersionNumber;

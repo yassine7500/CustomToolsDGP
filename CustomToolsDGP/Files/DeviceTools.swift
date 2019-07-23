@@ -47,6 +47,26 @@ public class DeviceTools {
         return result
     }
     
+    // for ipad pro 12.9 device
+    public var isPadPro129: Bool {
+        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+            && UIScreen.main.nativeBounds.size.height == 2732) {
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    // for ipad pro 10.5 device
+    public var isPadPro105: Bool {
+        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+            && UIScreen.main.nativeBounds.size.height == 2224) {
+            return true
+        }
+        return false
+    }
+    
 }
 
 
