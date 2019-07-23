@@ -19,6 +19,7 @@
 		9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129122E725190028A062 /* InternetConnectionTool.swift */; };
 		9644129422E725A50028A062 /* Md5hashTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129322E725A50028A062 /* Md5hashTool.swift */; };
 		9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */; };
+		9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129922E72A3E0028A062 /* TextFieldTools.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
@@ -60,6 +61,7 @@
 		9644129122E725190028A062 /* InternetConnectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionTool.swift; sourceTree = "<group>"; };
 		9644129322E725A50028A062 /* Md5hashTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Md5hashTool.swift; sourceTree = "<group>"; };
 		9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingDocumentsValidator.swift; sourceTree = "<group>"; };
+		9644129922E72A3E0028A062 /* TextFieldTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTools.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
+				9644128F22E7243C0028A062 /* CellTools.swift */,
 				963E083022E32B640053BD47 /* ColorTools.swift */,
 				963E082E22E328C50053BD47 /* CornerTools.swift */,
 				963E083422E32DB80053BD47 /* DateTools.swift */,
@@ -139,8 +142,11 @@
 				963E083622E332F00053BD47 /* GestureRecognizerTools.swift */,
 				9673C9C022E47BA500BBA1DB /* GradientTools.swift */,
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
+				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
+				9644129122E725190028A062 /* InternetConnectionTool.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
+				9644129322E725A50028A062 /* Md5hashTool.swift */,
 				96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */,
 				96CB505122E5BCC900C18D72 /* NumberTools.swift */,
 				9657EF9922E5ED41002A9196 /* PhoneTools.swift */,
@@ -153,10 +159,7 @@
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
-				9644128F22E7243C0028A062 /* CellTools.swift */,
-				9644129122E725190028A062 /* InternetConnectionTool.swift */,
-				9644129322E725A50028A062 /* Md5hashTool.swift */,
-				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
+				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
 				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
+				9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
 				9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
