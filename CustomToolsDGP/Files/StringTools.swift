@@ -40,6 +40,12 @@ extension String {
         return attributedText
     }
     
+    public func isValidPassword() -> Bool {
+        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{6,}"
+        let passowrdTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
+        return passowrdTest.evaluate(with: self)
+    }
+    
 }
 
 public class StringTools {

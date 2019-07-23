@@ -20,6 +20,8 @@
 		9644129422E725A50028A062 /* Md5hashTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129322E725A50028A062 /* Md5hashTool.swift */; };
 		9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */; };
 		9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129922E72A3E0028A062 /* TextFieldTools.swift */; };
+		9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */; };
+		9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
@@ -62,6 +64,8 @@
 		9644129322E725A50028A062 /* Md5hashTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Md5hashTool.swift; sourceTree = "<group>"; };
 		9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingDocumentsValidator.swift; sourceTree = "<group>"; };
 		9644129922E72A3E0028A062 /* TextFieldTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTools.swift; sourceTree = "<group>"; };
+		9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPaddingSample.swift; sourceTree = "<group>"; };
+		9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPaddingSample.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */,
 				9673C9C622E485F200BBA1DB /* LanguageToolsSample.swift */,
 				96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */,
+				9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */,
+				9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */,
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
+				9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageToolsSample.swift in Sources */,
@@ -274,6 +281,7 @@
 				9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
+				9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
