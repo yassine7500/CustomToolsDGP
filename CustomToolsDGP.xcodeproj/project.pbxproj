@@ -143,7 +143,6 @@
 		96317BBA22AD326500AC830B /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				967257DB22E73F4B00263560 /* API */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
@@ -171,8 +170,9 @@
 				9657EF9722E5ECEF002A9196 /* SubstringTools.swift */,
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
-				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
+				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
+				967257DB22E73F4B00263560 /* API */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -193,11 +193,11 @@
 				96CB506222E5C66500C18D72 /* AlertCustomVCSample.swift */,
 				9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */,
 				9673C9C622E485F200BBA1DB /* LanguageToolsSample.swift */,
+				9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */,
 				96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */,
+				964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */,
 				9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */,
 				9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */,
-				9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */,
-				964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
