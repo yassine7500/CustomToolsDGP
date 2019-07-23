@@ -13,11 +13,11 @@ var pleaseWaitActive = false
 
 extension UIViewController {
     
-    func notice(_ text: String, type: NoticeType, autoClear: Bool = true) {
+    public func notice(_ text: String, type: NoticeType, autoClear: Bool = true) {
         SwfitNoticeTools.showNoticeWithText(type, text: text, autoClear: autoClear)
     }
     
-    func pleaseWait() {
+    public func pleaseWait() {
         if !pleaseWaitActive {
             pleaseWaitActive = true
             self.view.isUserInteractionEnabled = false
@@ -25,15 +25,15 @@ extension UIViewController {
         }
     }
     
-    func pleaseWait(_ text: String) {
+    public func pleaseWait(_ text: String) {
         SwfitNoticeTools.wait(text)
     }
     
-    func noticeOnlyText(_ text: String) {
+    public func noticeOnlyText(_ text: String) {
         SwfitNoticeTools.showText(text)
     }
     
-    func clearAllNotice() {
+    public func clearAllNotice() {
         pleaseWaitActive = false
         self.view.isUserInteractionEnabled = true
         SwfitNoticeTools.clear()
@@ -41,7 +41,7 @@ extension UIViewController {
     
 }
 
-enum NoticeType {
+public enum NoticeType {
     case success
     case error
     case info
