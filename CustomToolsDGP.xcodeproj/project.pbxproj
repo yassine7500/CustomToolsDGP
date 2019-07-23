@@ -15,6 +15,8 @@
 		963E083322E32C830053BD47 /* DeviceTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083222E32C830053BD47 /* DeviceTools.swift */; };
 		963E083522E32DB80053BD47 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083422E32DB80053BD47 /* DateTools.swift */; };
 		963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083622E332F00053BD47 /* GestureRecognizerTools.swift */; };
+		9644129022E7243C0028A062 /* CellTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644128F22E7243C0028A062 /* CellTools.swift */; };
+		9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129122E725190028A062 /* InternetConnectionTool.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
@@ -52,6 +54,8 @@
 		963E083222E32C830053BD47 /* DeviceTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTools.swift; sourceTree = "<group>"; };
 		963E083422E32DB80053BD47 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		963E083622E332F00053BD47 /* GestureRecognizerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerTools.swift; sourceTree = "<group>"; };
+		9644128F22E7243C0028A062 /* CellTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTools.swift; sourceTree = "<group>"; };
+		9644129122E725190028A062 /* InternetConnectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionTool.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
+				9644128F22E7243C0028A062 /* CellTools.swift */,
+				9644129122E725190028A062 /* InternetConnectionTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				963E082D22E324820053BD47 /* TestVC.swift in Sources */,
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */,
+				9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */,
 				96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */,
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */,
@@ -265,6 +272,7 @@
 				9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
+				9644129022E7243C0028A062 /* CellTools.swift in Sources */,
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
 				96CB506322E5C66500C18D72 /* AlertCustomVCSample.swift in Sources */,
 				963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */,
