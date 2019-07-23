@@ -22,6 +22,8 @@
 		9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129922E72A3E0028A062 /* TextFieldTools.swift */; };
 		9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */; };
 		9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */; };
+		964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */; };
+		964412A222E72CBC0028A062 /* RadialGradientToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */; };
 		9657EF9222E5DA55002A9196 /* ImageLoaderToolSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */; };
 		9657EF9422E5DA7D002A9196 /* TestSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657EF9322E5DA7D002A9196 /* TestSB.storyboard */; };
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
@@ -66,6 +68,8 @@
 		9644129922E72A3E0028A062 /* TextFieldTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTools.swift; sourceTree = "<group>"; };
 		9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPaddingSample.swift; sourceTree = "<group>"; };
 		9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPaddingSample.swift; sourceTree = "<group>"; };
+		9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGlossGradientViewSample.swift; sourceTree = "<group>"; };
+		964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientToolsSample.swift; sourceTree = "<group>"; };
 		9657EF9122E5DA55002A9196 /* ImageLoaderToolSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderToolSample.swift; sourceTree = "<group>"; };
 		9657EF9322E5DA7D002A9196 /* TestSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSB.storyboard; sourceTree = "<group>"; };
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */,
 				9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */,
 				9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */,
+				9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */,
+				964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
 				9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
+				964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */,
+				964412A222E72CBC0028A062 /* RadialGradientToolsSample.swift in Sources */,
 				9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */,
 				963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */,
 				9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */,
