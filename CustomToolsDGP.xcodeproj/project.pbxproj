@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */; };
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082A22E323270053BD47 /* AnimationsCustom.swift */; };
 		963E082F22E328C50053BD47 /* CornerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082E22E328C50053BD47 /* CornerTools.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageTool.swift; sourceTree = "<group>"; };
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96317BB222AD325E00AC830B /* CustomToolsDGP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToolsDGP.h; sourceTree = "<group>"; };
 		96317BB322AD325E00AC830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
+				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
 				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
+				96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */,
 				9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
 				964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */,
