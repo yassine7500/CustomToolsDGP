@@ -8,6 +8,9 @@
 
 public class ToastMessage {
     
+    public init() {
+    }
+    
     public func toast(delegate: UIView, message: String, timeStamp: Double = 3.0, backgroundColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), customImage: UIImage?, position: Int = 1, fontSize: CGFloat = 14, borderWidth: CGFloat = 3) {
         
         // Parameters
