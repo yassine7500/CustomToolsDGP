@@ -24,7 +24,6 @@ public class ToastMessage {
         viewContainer.layer.cornerRadius = 6
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = borderWidth
-        viewContainer.widthAnchor.constraint(equalToConstant: windowWidth - marginWidth).isActive = true
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         // Stack View
@@ -43,6 +42,7 @@ public class ToastMessage {
         imageIcon.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
         imageIcon.clipsToBounds = true
         imageIcon.contentMode = .scaleAspectFit
+        imageIcon.translatesAutoresizingMaskIntoConstraints = false
         
         // Label
         let textLabel = UILabel()
@@ -50,6 +50,8 @@ public class ToastMessage {
         textLabel.text = message
         textLabel.textAlignment = .justified
         textLabel.numberOfLines = 0
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         
         // Variable parameters
         viewContainer.layer.borderColor = borderColor.cgColor
@@ -76,18 +78,23 @@ public class ToastMessage {
         // Add constraints
         switch position {
         case 1: // top
-            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: delegate.topAnchor, constant: 20).isActive = true
+            viewContainer.topAnchor.constraint(equalTo: window!.topAnchor, constant: 30).isActive = true
+            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: -30).isActive = true
             break
         case 3: // bottom
-            viewContainer.bottomAnchor.constraint(greaterThanOrEqualTo: delegate.bottomAnchor, constant: -20).isActive = true
+            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: 30).isActive = true
+            viewContainer.bottomAnchor.constraint(equalTo: window!.bottomAnchor, constant: -30).isActive = true
             break
         default: // center
-            viewContainer.centerYAnchor.constraint(equalTo: delegate.centerYAnchor).isActive = true
+            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: 30).isActive = true
+            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: 30).isActive = true
+            viewContainer.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
             break
         }
         
-        viewContainer.centerXAnchor.constraint(equalTo: delegate.centerXAnchor).isActive = true
-        
+        viewContainer.widthAnchor.constraint(equalToConstant: windowWidth - marginWidth).isActive = true
+        viewContainer.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+
         stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 16).isActive = true
         stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -16).isActive = true
         stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 20).isActive = true

@@ -167,9 +167,9 @@
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
+				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
-				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
