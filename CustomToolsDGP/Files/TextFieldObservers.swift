@@ -65,7 +65,11 @@ public class TextFieldObservers {
 extension TextFieldObservers {
     
     public func moveViewWithInsets(view: UIView, insets: UIEdgeInsets, variable: CGFloat = 0.0) {
-        view.frame.origin.y = (-insets.bottom) + variable
+        if insets == UIEdgeInsets.zero {
+            view.frame.origin.y = -insets.bottom
+        } else {
+            view.frame.origin.y = (-insets.bottom) + variable
+        }
     }
     
     public func moveScrollViewWithInsets(scrollView: UIScrollView, insets: UIEdgeInsets) {
