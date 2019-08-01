@@ -11,7 +11,7 @@ public class ToastMessage {
     public init() {
     }
     
-    public func toast(delegate: UIView, message: String, timeStamp: Double = 3.0, timeTransition: Double = 0.2, backgroundColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), textAlignment: NSTextAlignment = .left, customImage: UIImage?, position: Int = 1, fontSize: CGFloat = 14, borderWidth: CGFloat = 3, cornerRadius: CGFloat = 6) {
+    public func toast(delegate: UIView, message: String, timeStamp: Double = 3.0, timeTransition: Double = 0.2, backgroundColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), textAlignment: NSTextAlignment = .left, customImage: UIImage?, position: Int = 1, fontSize: CGFloat = 14, borderWidth: CGFloat = 3, cornerRadius: CGFloat = 6, constraintConstant: CGFloat = 30) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -75,16 +75,16 @@ public class ToastMessage {
         // Add constraints
         switch position {
         case 1: // top
-            viewContainer.topAnchor.constraint(equalTo: window!.topAnchor, constant: 30).isActive = true
-            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: -30).isActive = true
+            viewContainer.topAnchor.constraint(equalTo: window!.topAnchor, constant: constraintConstant).isActive = true
+            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: (constraintConstant * -1)).isActive = true
             break
         case 3: // bottom
-            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: 30).isActive = true
-            viewContainer.bottomAnchor.constraint(equalTo: window!.bottomAnchor, constant: -30).isActive = true
+            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: constraintConstant).isActive = true
+            viewContainer.bottomAnchor.constraint(equalTo: window!.bottomAnchor, constant: (constraintConstant * -1)).isActive = true
             break
         default: // center
-            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: 30).isActive = true
-            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: 30).isActive = true
+            viewContainer.topAnchor.constraint(greaterThanOrEqualTo: window!.topAnchor, constant: constraintConstant).isActive = true
+            viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: window!.bottomAnchor, constant: constraintConstant).isActive = true
             viewContainer.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
             break
         }
