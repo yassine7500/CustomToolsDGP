@@ -24,6 +24,8 @@ public class ToastMessage {
         viewContainer.layer.cornerRadius = 6
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = borderWidth
+        viewContainer.layer.borderColor = borderColor.cgColor
+        viewContainer.backgroundColor = backgroundColor
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         // Stack View
@@ -42,6 +44,11 @@ public class ToastMessage {
         imageIcon.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
         imageIcon.clipsToBounds = true
         imageIcon.contentMode = .scaleAspectFit
+        if customImage != nil {
+            imageIcon.image = customImage
+        } else {
+            imageIcon.isHidden = true
+        }
         imageIcon.translatesAutoresizingMaskIntoConstraints = false
         
         // Label
@@ -50,19 +57,9 @@ public class ToastMessage {
         textLabel.text = message
         textLabel.textAlignment = textAlignment
         textLabel.numberOfLines = 0
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        // Variable parameters
-        viewContainer.layer.borderColor = borderColor.cgColor
-        viewContainer.backgroundColor = backgroundColor
         textLabel.textColor = textColor
-        if customImage != nil {
-            imageIcon.image = customImage
-        } else {
-            imageIcon.isHidden = true
-        }
-        
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+
         // Add items to stackView
         stackView.addArrangedSubview(imageIcon)
         stackView.addArrangedSubview(textLabel)
