@@ -1,5 +1,5 @@
 //
-//  ImageLoaderTool.swift
+//  AsyncImageLoaderTool.swift
 //  CustomToolsDGP
 //
 //  Created by David Galán on 22/07/2019.
@@ -9,7 +9,7 @@
 
 public let imageCache = NSCache<NSString, UIImage>()
 
-public class CustomImageViewTool: UIImageView {
+public class AsyncImageLoaderTool: UIImageView {
 
     var imageNotFoundName = ""
     var imageUrlString: String?
