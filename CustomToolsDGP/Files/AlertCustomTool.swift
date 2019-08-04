@@ -160,30 +160,30 @@ public class AlertCustomTool {
         viewContainer.centerYAnchor.constraint(equalTo: mainViewContainer.centerYAnchor).isActive = true
         viewContainer.centerXAnchor.constraint(equalTo: mainViewContainer.centerXAnchor).isActive = true
         
-        stackViewButtons.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
-        stackViewButtons.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
-        
         textLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
         textLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
         
         textLabelTitle.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
         textLabelTitle.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
         
-        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
+        stackViewButtons.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         switch typeFormatButtons {
         case .stickedDown:
+            stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
+            stackViewButtons.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
             stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 0).isActive = true
-            stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 0).isActive = true
-            stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
             break
         case .withConstraints:
+            stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
+            stackViewButtons.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
             stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -30).isActive = true
-            stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 30).isActive = true
-            stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -30).isActive = true
             break
         }
+        
+        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 0).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
     }
     
 }
