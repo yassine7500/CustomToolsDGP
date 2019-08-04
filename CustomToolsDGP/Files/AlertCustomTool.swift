@@ -8,6 +8,11 @@
 
 public class AlertCustomTool {
     
+    public enum ButtonsFormatType: String {
+        case stickedDown
+        case withConstraints
+    }
+    
     // MARK: OBJECTS
     var mainViewContainer: UIView!
     var viewContainer: UIView!
@@ -29,7 +34,7 @@ public class AlertCustomTool {
     public init() {
     }
     
-    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false) {
+    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -139,7 +144,6 @@ public class AlertCustomTool {
         mainViewContainer.addSubview(viewContainer)
         
         // Add item to screen
-        //        mainViewContainer.alpha = 0.0
         window?.addSubview(mainViewContainer)
         window?.bringSubviewToFront(mainViewContainer)
         
@@ -160,10 +164,26 @@ public class AlertCustomTool {
         stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         stackViewButtons.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
         
+        textLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
+        textLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
+        
+        textLabelTitle.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
+        textLabelTitle.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
+        
         stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -30).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -30).isActive = true
+        
+        switch typeFormatButtons {
+        case .stickedDown:
+            stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 0).isActive = true
+            stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 0).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
+            break
+        case .withConstraints:
+            stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -30).isActive = true
+            stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 30).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -30).isActive = true
+            break
+        }
     }
     
 }
