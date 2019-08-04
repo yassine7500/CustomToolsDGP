@@ -21,7 +21,7 @@ public class AlertCustomTool {
     var buttonOther: UIButton!
     
     // MARK: PARAMETERS
-    var okAction: ( ()->Void )?
+    var acceptAction: ( ()->Void )?
     var cancelAction: ( ()->Void )?
     var otherAction: ( ()->Void )?
     
@@ -175,7 +175,7 @@ extension AlertCustomTool {
     @objc func buttonAcceptAction() {
         print("AlertCustomTool: buttonAcceptAction")
         mainViewContainer.removeFromSuperview()
-        if let action = self.okAction {
+        if let action = self.acceptAction {
             action()
         }
     }
@@ -197,7 +197,7 @@ extension AlertCustomTool {
     }
     
     public func addOkAction(_ action: @escaping ()->Void) {
-        self.okAction = action
+        self.acceptAction = action
     }
     public func addCancelAction(_ action: @escaping ()->Void) {
         self.cancelAction = action
