@@ -54,7 +54,7 @@ public class AlertCustomTool {
         stackView.axis = NSLayoutConstraint.Axis.vertical
         stackView.distribution = UIStackView.Distribution.fill
         stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing = 16
+        stackView.spacing = 20
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
