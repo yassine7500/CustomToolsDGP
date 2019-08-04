@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */; };
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		963906ED22F6C6ED0000CC2A /* AlertCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */; };
 		963E082B22E323270053BD47 /* AnimationsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082A22E323270053BD47 /* AnimationsCustom.swift */; };
 		963E082F22E328C50053BD47 /* CornerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E082E22E328C50053BD47 /* CornerTools.swift */; };
 		963E083122E32B640053BD47 /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E083022E32B640053BD47 /* ColorTools.swift */; };
@@ -56,6 +57,7 @@
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96317BB222AD325E00AC830B /* CustomToolsDGP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToolsDGP.h; sourceTree = "<group>"; };
 		96317BB322AD325E00AC830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomTool.swift; sourceTree = "<group>"; };
 		963E082A22E323270053BD47 /* AnimationsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsCustom.swift; sourceTree = "<group>"; };
 		963E082E22E328C50053BD47 /* CornerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerTools.swift; sourceTree = "<group>"; };
 		963E083022E32B640053BD47 /* ColorTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTools.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
+				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */,
 				9644129222E725190028A062 /* InternetConnectionTool.swift in Sources */,
+				963906ED22F6C6ED0000CC2A /* AlertCustomTool.swift in Sources */,
 				96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */,
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9657EF9222E5DA55002A9196 /* AsyncImageLoaderTool.swift in Sources */,
