@@ -36,7 +36,7 @@ public class AlertCustomTool {
     public init() {
     }
     
-    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonImage: UIImage?) {
+    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonImage: UIImage? = nil) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
