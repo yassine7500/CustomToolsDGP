@@ -25,6 +25,7 @@ public class AlertCustomTool {
     var buttonCancel: UIButton!
     var buttonOther: UIButton!
     var buttonMainContainer: UIButton!
+    var buttonCloseTop: UIButton!
     
     // MARK: PARAMETERS
     var acceptAction: ( ()->Void )?
@@ -35,7 +36,7 @@ public class AlertCustomTool {
     public init() {
     }
     
-    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints) {
+    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseBottomActive: Bool = false) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -69,6 +70,16 @@ public class AlertCustomTool {
         stackView.spacing = 20
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if topCloseBottomActive {
+            // Button Close Top
+            buttonCloseTop = UIButton()
+            buttonCloseTop.setImage(UIImage(named: "close_icon_black_24"), for: .normal)
+            buttonCloseTop.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            buttonCloseTop.widthAnchor.constraint(equalToConstant: 40).isActive = true
+            buttonCloseTop.addTarget(self, action: #selector(buttonMainContainerAction), for: .touchUpInside)
+            buttonCloseTop.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         // Image
         imageIcon = UIImageView()
@@ -148,6 +159,10 @@ public class AlertCustomTool {
         
         // Add items to containers
         viewContainer.addSubview(stackView)
+        if topCloseBottomActive {
+            viewContainer.addSubview(buttonCloseTop)
+        }
+        mainViewContainer.addSubview(buttonMainContainer)
         mainViewContainer.addSubview(viewContainer)
         
         // Add item to screen
@@ -164,6 +179,9 @@ public class AlertCustomTool {
         buttonMainContainer.bottomAnchor.constraint(equalTo: mainViewContainer.bottomAnchor).isActive = true
         buttonMainContainer.leadingAnchor.constraint(equalTo: mainViewContainer.leadingAnchor).isActive = true
         buttonMainContainer.trailingAnchor.constraint(equalTo: mainViewContainer.trailingAnchor).isActive = true
+        
+        buttonCloseTop.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
+        buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
         
         viewContainer.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.topAnchor, constant: 50).isActive = true
         viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: mainViewContainer.bottomAnchor, constant: 50).isActive = true
