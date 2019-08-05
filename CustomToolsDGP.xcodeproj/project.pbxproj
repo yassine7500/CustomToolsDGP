@@ -141,6 +141,7 @@
 		96317BBA22AD326500AC830B /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
@@ -172,7 +173,6 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
-				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";

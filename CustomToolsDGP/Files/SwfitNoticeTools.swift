@@ -50,7 +50,7 @@ public enum NoticeType {
 class SwfitNoticeTools: NSObject {
     
     static var mainViews = Array<UIView>()
-    static let rv: UIView = (UIApplication.shared.keyWindow?.subviews.first)!
+    static let rv: UIView = UIApplication.shared.keyWindow!
     
     static func clear() {
         for i in mainViews {
@@ -75,10 +75,11 @@ class SwfitNoticeTools: NSObject {
         mainView.addSubview(ai)
         
         mainView.center = rv.center
-        rv.addSubview(mainView)
-        rv.bringSubviewToFront( mainView)
         mainViews.append(mainView)
         mainViews.append(darkBackground)
+        
+        rv.addSubview(mainView)
+        rv.bringSubviewToFront(mainView)
     }
     
     static func wait(_ text: String) {
@@ -107,10 +108,11 @@ class SwfitNoticeTools: NSObject {
         mainView.addSubview(label)
         
         mainView.center = rv.center
-        rv.addSubview(mainView)
-        
         mainViews.append(mainView)
         mainViews.append(darkBackground)
+        
+        rv.addSubview(mainView)
+        rv.bringSubviewToFront(mainView)
     }
     
     static func showText(_ text: String) {
@@ -127,9 +129,10 @@ class SwfitNoticeTools: NSObject {
         mainView.addSubview(label)
         
         mainView.center = rv.center
-        rv.addSubview(mainView)
-        
         mainViews.append(mainView)
+        
+        rv.addSubview(mainView)
+        rv.bringSubviewToFront(mainView)
     }
     
     static func showNoticeWithText(_ type: NoticeType,text: String, autoClear: Bool) {
@@ -159,9 +162,10 @@ class SwfitNoticeTools: NSObject {
         mainView.addSubview(label)
         
         mainView.center = rv.center
-        rv.addSubview(mainView)
-        
         mainViews.append(mainView)
+        
+        rv.addSubview(mainView)
+        rv.bringSubviewToFront(mainView)
         
         if autoClear {
             let selector = #selector(SwfitNoticeTools.hideNotice(_:))
@@ -220,7 +224,6 @@ class SwiftNoticeSDK {
             
             UIColor.white.setFill()
             checkmarkShapePath.fill()
-            
         }
         
         UIColor.white.setStroke()
