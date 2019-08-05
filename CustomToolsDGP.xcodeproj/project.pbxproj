@@ -132,6 +132,7 @@
 			children = (
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
+				9690C4C022F8391D0010D1C4 /* Class files */,
 				96317BBA22AD326500AC830B /* Files */,
 				96CB505522E5C03D00C18D72 /* Samples */,
 			);
@@ -186,18 +187,25 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		9690C4C022F8391D0010D1C4 /* Class files */ = {
+			isa = PBXGroup;
+			children = (
+				9657EF9122E5DA55002A9196 /* AsyncImageLoaderTool.swift */,
+				9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */,
+				964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */,
+				9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */,
+				9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */,
+			);
+			path = "Class files";
+			sourceTree = "<group>";
+		};
 		96CB505522E5C03D00C18D72 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
 				96CB506022E5C5E000C18D72 /* AlertCustomSample.storyboard */,
 				96CB506222E5C66500C18D72 /* AlertCustomVCSample.swift */,
-				9657EF9122E5DA55002A9196 /* AsyncImageLoaderTool.swift */,
 				9673C9C622E485F200BBA1DB /* LanguageToolsSample.swift */,
-				9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */,
 				96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */,
-				964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */,
-				9644129B22E72BD10028A062 /* UITextFieldPaddingSample.swift */,
-				9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
