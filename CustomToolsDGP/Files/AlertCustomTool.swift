@@ -24,6 +24,7 @@ public class AlertCustomTool {
     var buttonAccept: UIButton!
     var buttonCancel: UIButton!
     var buttonOther: UIButton!
+    var buttonMainContainer: UIButton!
     
     // MARK: PARAMETERS
     var acceptAction: ( ()->Void )?
@@ -44,6 +45,12 @@ public class AlertCustomTool {
         mainViewContainer.clipsToBounds = true
         mainViewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
         mainViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Button Container Main
+        buttonMainContainer = UIButton()
+        buttonMainContainer.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0)
+        buttonMainContainer.addTarget(self, action: #selector(buttonMainContainerAction), for: .touchUpInside)
+        buttonMainContainer.translatesAutoresizingMaskIntoConstraints = false
         
         // View Container
         viewContainer = UIView()
@@ -153,6 +160,11 @@ public class AlertCustomTool {
         mainViewContainer.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
         mainViewContainer.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
         
+        buttonMainContainer.topAnchor.constraint(equalTo: mainViewContainer.topAnchor).isActive = true
+        buttonMainContainer.bottomAnchor.constraint(equalTo: mainViewContainer.bottomAnchor).isActive = true
+        buttonMainContainer.leadingAnchor.constraint(equalTo: mainViewContainer.leadingAnchor).isActive = true
+        buttonMainContainer.trailingAnchor.constraint(equalTo: mainViewContainer.trailingAnchor).isActive = true
+        
         viewContainer.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.topAnchor, constant: 50).isActive = true
         viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: mainViewContainer.bottomAnchor, constant: 50).isActive = true
         viewContainer.leadingAnchor.constraint(equalTo: mainViewContainer.leadingAnchor, constant: 30).isActive = true
@@ -199,6 +211,11 @@ public class AlertCustomTool {
 // MARK: BUTTON METHODS
 extension AlertCustomTool {
     
+    @objc func buttonMainContainerAction() {
+        print("AlertCustomTool: buttonMainContainerAction")
+        mainViewContainer.removeFromSuperview()
+    }
+    
     @objc func buttonAcceptAction() {
         print("AlertCustomTool: buttonAcceptAction")
         mainViewContainer.removeFromSuperview()
@@ -242,6 +259,11 @@ extension AlertCustomTool {
     // BACKGROUND
     public func setBackgroundColor(color: UIColor) {
         mainViewContainer.backgroundColor = color
+    }
+    
+    // BUTTON BACKGROUND
+    public func setButtonBackgroundDisable() {
+        buttonMainContainer.isEnabled = false
     }
     
     // CONTAINER
