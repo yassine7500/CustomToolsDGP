@@ -331,6 +331,9 @@ extension AlertCustomTool {
     public func setLabelTitleTextColor(color: UIColor) {
         textLabelTitle.textColor = color
     }
+    public func setLabelTitleAttributedText(attributedText: NSAttributedString) {
+        textLabelTitle.attributedText = attributedText
+    }
     
     // LABEL
     public func setLabelFontSize(value: CGFloat) {
@@ -344,6 +347,9 @@ extension AlertCustomTool {
     }
     public func setLabelTextColor(color: UIColor) {
         textLabel.textColor = color
+    }
+    public func setLabelAttributedText(attributedText: NSAttributedString) {
+        textLabel.attributedText = attributedText
     }
     
     // BUTTONS
@@ -359,6 +365,9 @@ extension AlertCustomTool {
     public func setButtonAcceptTitle(text: String) {
         buttonAccept.setTitle(text, for: .normal)
     }
+    public func setButtonAcceptAttributedText(attributedText: NSAttributedString) {
+        buttonAccept.setAttributedTitle(attributedText, for: .normal)
+    }
     
     public func setButtonCancelBackground(color: UIColor) {
         buttonCancel.backgroundColor = color
@@ -372,6 +381,9 @@ extension AlertCustomTool {
     public func setButtonCancelTitle(text: String) {
         buttonCancel.setTitle(text, for: .normal)
     }
+    public func setButtonCancelAttributedText(attributedText: NSAttributedString) {
+        buttonCancel.setAttributedTitle(attributedText, for: .normal)
+    }
     
     public func setButtonOtherBackground(color: UIColor) {
         buttonOther.backgroundColor = color
@@ -384,6 +396,9 @@ extension AlertCustomTool {
     }
     public func setButtonOtherTitle(text: String) {
         buttonOther.setTitle(text, for: .normal)
+    }
+    public func setButtonOtherAttributedText(attributedText: NSAttributedString) {
+        buttonOther.setAttributedTitle(attributedText, for: .normal)
     }
     
 }
