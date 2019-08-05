@@ -36,7 +36,7 @@ public class AlertCustomTool {
     public init() {
     }
     
-    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseBottomActive: Bool = false) {
+    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonActive: Bool = false) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -71,7 +71,7 @@ public class AlertCustomTool {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        if topCloseBottomActive {
+        if topCloseButtonActive {
             // Button Close Top
             buttonCloseTop = UIButton()
             buttonCloseTop.setImage(UIImage(named: "close_icon_black_24"), for: .normal)
@@ -159,7 +159,7 @@ public class AlertCustomTool {
         
         // Add items to containers
         viewContainer.addSubview(stackView)
-        if topCloseBottomActive {
+        if topCloseButtonActive {
             viewContainer.addSubview(buttonCloseTop)
         }
         mainViewContainer.addSubview(buttonMainContainer)
