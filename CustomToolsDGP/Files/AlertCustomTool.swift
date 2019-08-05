@@ -173,6 +173,13 @@ public class AlertCustomTool {
             stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
             stackViewButtons.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
             stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 0).isActive = true
+            
+            stackViewButtons.spacing = 0
+            buttonAccept.layer.cornerRadius = 0
+            buttonCancel.layer.cornerRadius = 0
+            if activeExtraButton {
+                buttonOther.layer.cornerRadius = 0
+            }
             break
         case .withConstraints:
             stackViewButtons.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
