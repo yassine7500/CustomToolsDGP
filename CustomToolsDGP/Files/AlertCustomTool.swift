@@ -262,13 +262,13 @@ extension AlertCustomTool {
         }
     }
     
-    public func addOkAction(_ action: @escaping ()->Void) {
+    public func addAcceptAction(_ action: @escaping ()->Void) {
         self.acceptAction = action
     }
     public func addCancelAction(_ action: @escaping ()->Void) {
         self.cancelAction = action
     }
-    public func addCloseAction(_ action: @escaping ()->Void) {
+    public func addOtherAction(_ action: @escaping ()->Void) {
         self.otherAction = action
     }
     
