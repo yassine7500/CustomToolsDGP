@@ -75,6 +75,7 @@ public class AlertCustomTool {
             // Button Close Top
             buttonCloseTop = UIButton()
             buttonCloseTop.setImage(UIImage(named: "close_icon_black_24"), for: .normal)
+            buttonCloseTop.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             buttonCloseTop.heightAnchor.constraint(equalToConstant: 40).isActive = true
             buttonCloseTop.widthAnchor.constraint(equalToConstant: 40).isActive = true
             buttonCloseTop.addTarget(self, action: #selector(buttonMainContainerAction), for: .touchUpInside)
@@ -182,7 +183,7 @@ public class AlertCustomTool {
         
         if topCloseButtonActive {
             buttonCloseTop.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
-            buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true            
+            buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
         }
         
         viewContainer.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.topAnchor, constant: 50).isActive = true
