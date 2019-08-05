@@ -38,7 +38,6 @@
 		9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C822E4894F00BBA1DB /* LocationTools.swift */; };
 		9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9CA22E491A400BBA1DB /* MapTools.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
-		9690C4C222F851E10010D1C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9690C4C122F851E10010D1C4 /* Images.xcassets */; };
 		96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */; };
 		96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505122E5BCC900C18D72 /* NumberTools.swift */; };
 		96CB505422E5BFF900C18D72 /* PermissionToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */; };
@@ -87,7 +86,6 @@
 		9673C9C822E4894F00BBA1DB /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		9673C9CA22E491A400BBA1DB /* MapTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTools.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
-		9690C4C122F851E10010D1C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTools.swift; sourceTree = "<group>"; };
 		96CB505122E5BCC900C18D72 /* NumberTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTools.swift; sourceTree = "<group>"; };
 		96CB505322E5BFF900C18D72 /* PermissionToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionToolsSample.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 			children = (
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
-				9690C4C122F851E10010D1C4 /* Images.xcassets */,
 				9690C4C022F8391D0010D1C4 /* Class files */,
 				96317BBA22AD326500AC830B /* Files */,
 				96CB505522E5C03D00C18D72 /* Samples */,
@@ -284,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CB506122E5C5E000C18D72 /* AlertCustomSample.storyboard in Resources */,
-				9690C4C222F851E10010D1C4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,7 +36,7 @@ public class AlertCustomTool {
     public init() {
     }
     
-    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonActive: Bool = false) {
+    public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonImage: UIImage?) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -71,11 +71,10 @@ public class AlertCustomTool {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        if topCloseButtonActive {
+        if topCloseButtonImage != nil {
             // Button Close Top
             buttonCloseTop = UIButton()
             buttonCloseTop.setImage(UIImage(named: "close_icon_black_24"), for: .normal)
-            buttonCloseTop.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             buttonCloseTop.heightAnchor.constraint(equalToConstant: 40).isActive = true
             buttonCloseTop.widthAnchor.constraint(equalToConstant: 40).isActive = true
             buttonCloseTop.addTarget(self, action: #selector(buttonMainContainerAction), for: .touchUpInside)
@@ -160,7 +159,7 @@ public class AlertCustomTool {
         
         // Add items to containers
         viewContainer.addSubview(stackView)
-        if topCloseButtonActive {
+        if topCloseButtonImage != nil {
             viewContainer.addSubview(buttonCloseTop)
         }
         mainViewContainer.addSubview(buttonMainContainer)
@@ -181,7 +180,7 @@ public class AlertCustomTool {
         buttonMainContainer.leadingAnchor.constraint(equalTo: mainViewContainer.leadingAnchor).isActive = true
         buttonMainContainer.trailingAnchor.constraint(equalTo: mainViewContainer.trailingAnchor).isActive = true
         
-        if topCloseButtonActive {
+        if topCloseButtonImage != nil {
             buttonCloseTop.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
             buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
         }
