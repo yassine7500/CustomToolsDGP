@@ -180,8 +180,10 @@ public class AlertCustomTool {
         buttonMainContainer.leadingAnchor.constraint(equalTo: mainViewContainer.leadingAnchor).isActive = true
         buttonMainContainer.trailingAnchor.constraint(equalTo: mainViewContainer.trailingAnchor).isActive = true
         
-        buttonCloseTop.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
-        buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
+        if topCloseButtonActive {
+            buttonCloseTop.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
+            buttonCloseTop.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true            
+        }
         
         viewContainer.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.topAnchor, constant: 50).isActive = true
         viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: mainViewContainer.bottomAnchor, constant: 50).isActive = true
