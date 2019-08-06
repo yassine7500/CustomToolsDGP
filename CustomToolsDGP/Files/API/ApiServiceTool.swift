@@ -19,7 +19,7 @@ public class ApiService: NSObject {
     var expectedContentLength: Int64 = 0
     var buffer = Data()
     
-    public func fetchFeedForUrlString(idText: String, urlString: String, httpMethod: String, params: [String : Any], userTokenForAuthorization: String?, timeoutBigger: Bool = false, completion: @escaping (_ data: Any?, _ error: Bool)->Void) {
+    public func fetchFeedForUrlString(idText: String, urlString: String, httpMethod: HttpMethodType, params: [String : Any], userTokenForAuthorization: String?, timeoutBigger: Bool = false, completion: @escaping (_ data: Any?, _ error: Bool)->Void) {
         
         DateTools().setGlobalStartDate(id: "ApiService - \(idText)")
         
@@ -27,7 +27,7 @@ public class ApiService: NSObject {
         defaultSession = URLSession(configuration: .default)
         
         var request = URLRequest(url: URL(string: urlString)!)
-        request.httpMethod = httpMethod
+        request.httpMethod = httpMethod.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if timeoutBigger {
@@ -63,7 +63,7 @@ public class ApiService: NSObject {
     }
     
     
-    public func fetchFeedForUrlStringDelegate(idText: String, urlString: String, httpMethod: String, params: [String : String], userTokenForAuthorization: String?, timeoutBigger: Bool = false) {
+    public func fetchFeedForUrlStringDelegate(idText: String, urlString: String, httpMethod: HttpMethodType, params: [String : String], userTokenForAuthorization: String?, timeoutBigger: Bool = false) {
         
         DateTools().setGlobalStartDate(id: "ApiServiceDelegate - \(idText)")
         
@@ -71,7 +71,7 @@ public class ApiService: NSObject {
         defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         
         var request = URLRequest(url: URL(string: urlString)!)
-        request.httpMethod = httpMethod
+        request.httpMethod = httpMethod.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if timeoutBigger {
