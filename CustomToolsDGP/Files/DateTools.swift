@@ -41,6 +41,9 @@ public enum DateFormatType: String {
     /// MM/yyyy
     case dateMonthYearAgainstBar = "MM/yyyy"
     
+    /// dd MMM
+    case dayMonthName = "dd MMM"
+    
     /// HH:mm:ss
     case hourSeconds = "HH:mm:ss"
     /// HH:mm
