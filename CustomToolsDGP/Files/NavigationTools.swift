@@ -38,6 +38,12 @@ extension UIViewController {
         self.navigationController?.view.addSubview(viewController.view)
     }
     
+    public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaComponent: CGFloat) {
+        viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaComponent)
+        self.tabBarController?.addChild(viewController)
+        self.tabBarController?.view.addSubview(viewController.view)
+    }
+    
     public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaComponent: CGFloat) {
         
         let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
