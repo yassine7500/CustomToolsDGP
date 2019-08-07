@@ -33,10 +33,12 @@ extension UIViewController {
         SwfitNoticeTools.showText(text)
     }
     
-    public func clearAllNotice() {
-        pleaseWaitActive = false
-        self.view.isUserInteractionEnabled = true
-        SwfitNoticeTools.clear()
+    public func clearAllNotice() {        
+        DispatchQueue.main.async {
+            pleaseWaitActive = false
+            self.view.isUserInteractionEnabled = true
+            SwfitNoticeTools.clear()
+        }
     }
     
 }
