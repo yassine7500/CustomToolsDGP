@@ -208,7 +208,7 @@ public class AlertCustomTool {
         textLabelTitle.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
         textLabelTitle.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
         
-        viewSpace.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        viewSpace.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         stackViewButtons.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
