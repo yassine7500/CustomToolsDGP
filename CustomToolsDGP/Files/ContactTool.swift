@@ -13,15 +13,15 @@ public class ContactTool {
     public init() {
     }
     
-    public func createContact(name: String, workEmail: String, collegiate_number: String) -> CNContact {
+    public func createContact(givenName: String, workEmail: String, departmentName: String, note: String) -> CNContact {
         
         // Creating a mutable object to add to the contact
         let contact = CNMutableContact()
         
         contact.imageData = Data() // The profile picture as a NSData object
-        contact.givenName = name
-        contact.departmentName = collegiate_number
-        contact.note = collegiate_number
+        contact.givenName = givenName
+        contact.departmentName = departmentName
+        contact.note = note
         
         let workEmail = CNLabeledValue(label: CNLabelWork, value: workEmail as NSString)
         contact.emailAddresses = [workEmail]
