@@ -20,6 +20,7 @@ public class AlertCustomTool {
     var imageIcon: UIImageView!
     var textLabelTitle: UILabel!
     var textLabel: UILabel!
+    var viewSpace: UIView!
     var stackViewButtons: UIStackView!
     var buttonAccept: UIButton!
     var buttonCancel: UIButton!
@@ -115,6 +116,12 @@ public class AlertCustomTool {
         textLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        // View white space
+        viewSpace = UIView()
+        viewSpace.clipsToBounds = true
+        viewSpace.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        viewSpace.translatesAutoresizingMaskIntoConstraints = false
+        
         // Stack View Buttons
         stackViewButtons = UIStackView()
         stackViewButtons.axis = NSLayoutConstraint.Axis.horizontal
@@ -157,6 +164,7 @@ public class AlertCustomTool {
         stackView.addArrangedSubview(imageIcon)
         stackView.addArrangedSubview(textLabelTitle)
         stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(viewSpace)
         stackView.addArrangedSubview(stackViewButtons)
         
         // Add items to containers
@@ -199,6 +207,8 @@ public class AlertCustomTool {
         
         textLabelTitle.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 30).isActive = true
         textLabelTitle.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
+        
+        viewSpace.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         stackViewButtons.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
