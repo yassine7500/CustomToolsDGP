@@ -222,7 +222,7 @@ public class AlertCustomTool {
             break
         }
         
-        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
+        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 50).isActive = true
         stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 0).isActive = true
         stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
     }
