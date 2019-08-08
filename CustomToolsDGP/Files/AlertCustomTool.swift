@@ -334,6 +334,9 @@ extension AlertCustomTool {
     public func setLabelTitleAttributedText(attributedText: NSAttributedString) {
         textLabelTitle.attributedText = attributedText
     }
+    public func setLabelTitleHidden(isHidden: Bool) {
+        textLabelTitle.isHidden = isHidden
+    }
     
     // LABEL
     public func setLabelFontSize(value: CGFloat) {
@@ -350,6 +353,9 @@ extension AlertCustomTool {
     }
     public func setLabelAttributedText(attributedText: NSAttributedString) {
         textLabel.attributedText = attributedText
+    }
+    public func setLabelHidden(isHidden: Bool) {
+        textLabel.isHidden = isHidden
     }
     
     // BUTTONS
