@@ -100,7 +100,7 @@ public class AlertCustomTool {
         
         // Label Title
         textLabelTitle = UILabel()
-        textLabelTitle.font = textLabelTitle.font.withSize(24)
+        textLabelTitle.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         textLabelTitle.text = title
         textLabelTitle.textAlignment = .center
         textLabelTitle.numberOfLines = 2
@@ -109,7 +109,7 @@ public class AlertCustomTool {
         
         // Label
         textLabel = UILabel()
-        textLabel.font = textLabel.font.withSize(14)
+        textLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         textLabel.text = message
         textLabel.textAlignment = .left
         textLabel.numberOfLines = 0
@@ -332,6 +332,9 @@ extension AlertCustomTool {
     public func setLabelTitleFontSize(value: CGFloat) {
         textLabelTitle.font = textLabelTitle.font.withSize(value)
     }
+    public func setLabelTitleFontSizeAndWeight(value: CGFloat, weight: UIFont.Weight) {
+        textLabelTitle.font = UIFont.systemFont(ofSize: value, weight: weight)
+    }
     public func setLabelTitleAlignment(value: NSTextAlignment) {
         textLabelTitle.textAlignment = value
     }
@@ -351,6 +354,9 @@ extension AlertCustomTool {
     // LABEL
     public func setLabelFontSize(value: CGFloat) {
         textLabel.font = textLabelTitle.font.withSize(value)
+    }
+    public func setLabelFontSizeAndWeight(value: CGFloat, weight: UIFont.Weight) {
+        textLabelTitle.font = UIFont.systemFont(ofSize: value, weight: weight)
     }
     public func setLabelAlignment(value: NSTextAlignment) {
         textLabel.textAlignment = value
