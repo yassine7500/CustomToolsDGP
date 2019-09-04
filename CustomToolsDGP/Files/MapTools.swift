@@ -22,7 +22,7 @@ public class MapTools {
         case walking
     }
     
-    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", withEyeCoordinate: Bool = false, eyeAltitudeValue: Double = 200) {
+    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", withEyeCoordinate: Bool = false, eyeCoordinateValue: Double = 0.001, eyeAltitudeValue: Double = 200) {
         
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: locationDregrees, longitudeDelta: locationDregrees)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
@@ -47,7 +47,7 @@ public class MapTools {
             }
             
             if withEyeCoordinate {
-                let eyeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude + 0.001, longitude + 0.001)
+                let eyeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude + eyeCoordinateValue, longitude + eyeCoordinateValue)
                 let mapCamera = MKMapCamera(lookingAtCenter: location, fromEyeCoordinate: eyeCoordinate, eyeAltitude: eyeAltitudeValue)
                 self.mapView?.setCamera(mapCamera, animated: true)
             }
