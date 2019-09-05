@@ -22,12 +22,17 @@ public class MapTools {
         case walking
     }
     
-    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", setRegionAnimated: Bool = true, withEyeCoordinate: Bool = false, eyeCoordinateValue: Double = 0.001, eyeAltitudeValue: Double = 200, setCameraAnimated: Bool = true) {
+    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", setRegionAnimated: Bool = true, withEyeCoordinate: Bool = false, eyeCoordinateValue: Double = 0.001, eyeAltitudeValue: Double = 200, setCameraAnimated: Bool = true, setCenterValue: Bool = false, setCenterAnimated: Bool = true) {
         
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: locationDregrees, longitudeDelta: locationDregrees)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
-        self.mapView?.setRegion(region, animated: setRegionAnimated)
+        
+        if setCenterValue {
+            self.mapView?.setCenter(location, animated: setCenterAnimated)
+        } else {
+            self.mapView?.setRegion(region, animated: setRegionAnimated)
+        }
         
         if customAnnotation {
             
