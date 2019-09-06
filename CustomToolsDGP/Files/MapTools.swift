@@ -32,7 +32,7 @@ public class MapTools {
             self.mapView?.setCenter(location, animated: setCenterAnimated)
         } else {
             DispatchQueue.main.async {
-                self.mapView?.setRegion(region, animated: setRegionAnimated)                
+                self.mapView?.setRegion(region, animated: setRegionAnimated)
             }
         }
         
