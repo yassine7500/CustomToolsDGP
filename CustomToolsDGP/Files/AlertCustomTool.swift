@@ -6,6 +6,8 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
+public var isAlertCustomToolOpened = false
+
 public class AlertCustomTool {
     
     public enum ButtonsFormatType: String {
@@ -38,6 +40,12 @@ public class AlertCustomTool {
     }
     
     public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonImage: UIImage? = nil) {
+        
+        guard !isAlertCustomToolOpened else {
+            return
+        }
+        
+        isAlertCustomToolOpened = true
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -245,11 +253,13 @@ extension AlertCustomTool {
     
     @objc func buttonMainContainerAction() {
         print("AlertCustomTool: buttonMainContainerAction")
+        isAlertCustomToolOpened = false
         mainViewContainer.removeFromSuperview()
     }
     
     @objc func buttonAcceptAction() {
         print("AlertCustomTool: buttonAcceptAction")
+        isAlertCustomToolOpened = false
         mainViewContainer.removeFromSuperview()
         if let action = self.acceptAction {
             action()
@@ -258,6 +268,7 @@ extension AlertCustomTool {
     
     @objc func buttonCancelAction() {
         print("AlertCustomTool: buttonCancelAction")
+        isAlertCustomToolOpened = false
         mainViewContainer.removeFromSuperview()
         if let action = self.cancelAction {
             action()
@@ -266,6 +277,7 @@ extension AlertCustomTool {
     
     @objc func buttonOtherAction() {
         print("AlertCustomTool: buttonOtherAction")
+        isAlertCustomToolOpened = false
         mainViewContainer.removeFromSuperview()
         if let action = self.otherAction {
             action()
