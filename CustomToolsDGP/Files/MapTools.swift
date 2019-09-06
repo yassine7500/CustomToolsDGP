@@ -31,7 +31,9 @@ public class MapTools {
         if setCenterValue {
             self.mapView?.setCenter(location, animated: setCenterAnimated)
         } else {
-            self.mapView?.setRegion(region, animated: setRegionAnimated)
+            DispatchQueue.main.async {
+                self.mapView?.setRegion(region, animated: setRegionAnimated)                
+            }
         }
         
         if customAnnotation {
