@@ -17,7 +17,7 @@ public class ToastMessage {
     public init() {
     }
     
-    public func toast(message: String, timeStamp: Double, timeTransition: Double = 0.2, backgroundColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.95), borderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), textAlignment: NSTextAlignment = .left, customImage: UIImage? = nil, position: PositionType = .center, fontSize: CGFloat = 14, fontWeight: UIFont.Weight, borderWidth: CGFloat = 3, cornerRadius: CGFloat = 6, constraintConstant: CGFloat = 30) {
+    public func toast(message: String, timeStamp: Double, timeTransition: Double = 0.2, backgroundColor: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.95), borderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), textAlignment: NSTextAlignment = .left, customImage: UIImage? = nil, position: PositionType = .center, fontSize: CGFloat = 14, fontWeight: UIFont.Weight = .regular, borderWidth: CGFloat = 3, cornerRadius: CGFloat = 6, constraintConstant: CGFloat = 30) {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
