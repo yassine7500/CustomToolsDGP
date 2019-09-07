@@ -13,7 +13,33 @@ public enum PrintType: String {
     case red = "📕"
     
     case warning = "⚠️"
+    case success = "✅"
+    case error = "❌"
     
+    case exclamationRed = "❗️"
+    case exclamationWhite = "❕"
+    case questionRed = "❓"
+    case quesationWhite = "❔"
+    case exclamationDouble = "‼️"
+    case exclamationQuestion = "⁉️"
+    
+    case ok = "👍"
+    case nok = "👎"
+    
+    case time = "⏱"
+    case calendar = "📅"
+    case pin = "📌"
+    
+    case lockClose = "🔒"
+    case lockOpen = "🔓"
+    
+    case parking = "🅿️"
+    case address = "🏠"
+    case phone = "☎️"
+    case email = "✉️"
+    case money = "💰"
+    case clip = "📎"
+    case token = "🔑"
 }
 
 public func print(text: String, type: PrintType = .warning) {
