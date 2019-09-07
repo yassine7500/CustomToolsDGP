@@ -32,6 +32,7 @@
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
 		9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9922E5ED41002A9196 /* PhoneTools.swift */; };
 		9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9B22E5EDD2002A9196 /* EmailTools.swift */; };
+		965EF0692323C235009B7D3B /* PrintTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EF0682323C235009B7D3B /* PrintTools.swift */; };
 		967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DC22E73F5D00263560 /* ApiServiceTool.swift */; };
 		967257DF22E740B900263560 /* JsonDecoderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DE22E740B900263560 /* JsonDecoderTool.swift */; };
 		9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C022E47BA500BBA1DB /* GradientTools.swift */; };
@@ -83,6 +84,7 @@
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
 		9657EF9922E5ED41002A9196 /* PhoneTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTools.swift; sourceTree = "<group>"; };
 		9657EF9B22E5EDD2002A9196 /* EmailTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTools.swift; sourceTree = "<group>"; };
+		965EF0682323C235009B7D3B /* PrintTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTools.swift; sourceTree = "<group>"; };
 		967257DC22E73F5D00263560 /* ApiServiceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTool.swift; sourceTree = "<group>"; };
 		967257DE22E740B900263560 /* JsonDecoderTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoderTool.swift; sourceTree = "<group>"; };
 		9673C9C022E47BA500BBA1DB /* GradientTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTools.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
+				967257DB22E73F4B00263560 /* API */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
 				963E083022E32B640053BD47 /* ColorTools.swift */,
@@ -169,6 +172,7 @@
 				96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */,
 				96CB505122E5BCC900C18D72 /* NumberTools.swift */,
 				9657EF9922E5ED41002A9196 /* PhoneTools.swift */,
+				964C641222FC42780075ACB7 /* QrTool.swift */,
 				96CB505622E5C09400C18D72 /* RandomTools.swift */,
 				96CB505822E5C10000C18D72 /* SegueTools.swift */,
 				96CB505A22E5C15900C18D72 /* ShadowTools.swift */,
@@ -181,8 +185,7 @@
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
-				967257DB22E73F4B00263560 /* API */,
-				964C641222FC42780075ACB7 /* QrTool.swift */,
+				965EF0682323C235009B7D3B /* PrintTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
 				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
+				965EF0692323C235009B7D3B /* PrintTools.swift in Sources */,
 				96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */,
 				9644129A22E72A3E0028A062 /* TextFieldTools.swift in Sources */,
 				96CB505D22E5C30A00C18D72 /* SoundVibrationTools.swift in Sources */,
