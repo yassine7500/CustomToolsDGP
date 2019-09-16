@@ -47,6 +47,7 @@
 //                completion(false)
 //            case .authorizedAlways, .authorizedWhenInUse:
 //                print("Location - Access")
+//                completion(true)
 //            @unknown default:
 //                print("Location - unknown")
 //                completion(false)
