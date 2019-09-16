@@ -9,6 +9,7 @@
 //import Foundation
 //import UserNotifications
 //import AVFoundation
+//import CoreLocation
 //
 //
 //extension UIViewController {
@@ -33,6 +34,26 @@
 //        vc.activeCancelButton()
 //        vc.addOkAction {
 //            openAppSystemConfiguration()
+//        }
+//    }
+//
+//
+//    func checkLocationPermission(completion: @escaping (Bool) -> ()) {
+//
+//        if CLLocationManager.locationServicesEnabled() {
+//            switch CLLocationManager.authorizationStatus() {
+//            case .notDetermined, .restricted, .denied:
+//                print("Location - No access")
+//                completion(false)
+//            case .authorizedAlways, .authorizedWhenInUse:
+//                print("Location - Access")
+//            @unknown default:
+//                print("Location - unknown")
+//                completion(false)
+//            }
+//        } else {
+//            print("Location services are not enabled")
+//            completion(false)
 //        }
 //    }
 //
