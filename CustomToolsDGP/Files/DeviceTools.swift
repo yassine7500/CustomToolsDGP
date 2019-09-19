@@ -11,11 +11,14 @@ public class DeviceTools {
     public init() {
         
     }
-    
-    // test cide //
-    
-    
 
+    public func getSystemVersion() -> String {
+        return ProcessInfo().operatingSystemVersionString
+    }
+    
+    public func getAppVersion() -> String {
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "?"
+    }
     
     public func openAppSystemConfiguration() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
