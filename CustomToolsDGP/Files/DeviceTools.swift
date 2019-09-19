@@ -12,6 +12,7 @@ public class DeviceTools {
         
     }
     
+    // test cide
 
     
     public func openAppSystemConfiguration() {
