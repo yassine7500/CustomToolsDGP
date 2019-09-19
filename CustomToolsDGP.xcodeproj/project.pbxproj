@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960E6F172333CF5100489066 /* PermissionTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6F162333CF5100489066 /* PermissionTools.swift */; };
 		96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */; };
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		963906ED22F6C6ED0000CC2A /* AlertCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960E6F162333CF5100489066 /* PermissionTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionTools.swift; sourceTree = "<group>"; };
 		96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageTool.swift; sourceTree = "<group>"; };
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96317BB222AD325E00AC830B /* CustomToolsDGP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToolsDGP.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				965EF0682323C235009B7D3B /* PrintTools.swift */,
+				960E6F162333CF5100489066 /* PermissionTools.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9657EF9222E5DA55002A9196 /* AsyncImageLoaderTool.swift in Sources */,
 				964C640D22FC12690075ACB7 /* ShareTool.swift in Sources */,
+				960E6F172333CF5100489066 /* PermissionTools.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */,
