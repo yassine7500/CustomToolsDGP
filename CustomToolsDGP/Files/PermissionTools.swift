@@ -7,6 +7,8 @@
 //
 
 import UserNotifications
+import AVFoundation
+import CoreLocation
 
 public class PermissionTools {
     
@@ -25,6 +27,41 @@ public class PermissionTools {
                 print(text: "Notification permission: FALSE", type: .warning)
                 completion(false)
             }
+        }
+    }
+    
+    public  func checkCameraPermission(completion: @escaping (Bool) -> ()) {
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            if response {
+                //access granted
+                print(text: "CAMERA access granted", type: .success)
+                completion(true)
+            } else {
+                print(text: "CAMERA access rejected", type: .warning)
+                completion(false)
+            }
+        }
+    }
+    
+    func checkLocationPermission(completion: @escaping (Bool) -> ()) {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            switch CLLocationManager.authorizationStatus() {
+                
+            case .notDetermined, .restricted, .denied:
+                print(text: "Location permission denied", type: .warning)
+                completion(false)
+            case .authorizedAlways, .authorizedWhenInUse:
+                print(text: "Location permission authorized", type: .success)
+                completion(true)
+            @unknown default:
+                print(text: "Location permission denied (@unknown default)", type: .warning)
+                completion(false)
+            }
+        } else {
+            print(text: "Location permission disables", type: .warning)
+            completion(false)
         }
     }
     
