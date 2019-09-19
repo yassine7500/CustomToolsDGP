@@ -30,7 +30,7 @@ public class PermissionTools {
         }
     }
     
-    public  func checkCameraPermission(completion: @escaping (Bool) -> ()) {
+    public func checkCameraPermission(completion: @escaping (Bool) -> ()) {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if response {
                 //access granted
@@ -43,7 +43,7 @@ public class PermissionTools {
         }
     }
     
-    func checkLocationPermission(completion: @escaping (Bool) -> ()) {
+    public func checkLocationPermission(completion: @escaping (Bool) -> ()) {
         
         if CLLocationManager.locationServicesEnabled() {
             
