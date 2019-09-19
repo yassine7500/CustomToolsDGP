@@ -12,13 +12,7 @@ public class DeviceTools {
         
     }
     
-    public func getAppVersion() -> String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "?"
-    }
-    
-    public func getSystenVersion() -> String {
-        return ProcessInfo().operatingSystemVersionString
-    }
+
     
     public func openAppSystemConfiguration() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
