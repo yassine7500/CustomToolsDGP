@@ -40,6 +40,8 @@ public enum DateFormatType: String {
     case dateCompleteSecondsReverseAgainstBar = "dd/MM/yyyy HH:mm:ss"
     /// dd/MM/yyyy
     case dateReverseAgainstBar = "dd/MM/yyyy"
+    /// dd/MM/yy
+    case dateReverseAgainstBarShortYear = "dd/MM/yy"
     /// MM/yyyy
     case dateMonthYearAgainstBar = "MM/yyyy"
     
