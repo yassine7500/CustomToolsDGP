@@ -29,6 +29,8 @@ public enum DateFormatType: String {
     case dateCompleteSecondsReverse = "dd-MM-yyyy HH:mm:ss"
     /// dd-MM-yyyy
     case dateReverse = "dd-MM-yyyy"
+    /// dd-MM-yy
+    case dateReverseShortYear = "dd-MM-yy"
     
     /// dd/MM/yyyy HH:mm
     case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
@@ -57,6 +59,8 @@ public enum DateFormatType: String {
     case justMonth = "MM"
     /// yyyy
     case justYear = "yyyy"
+    /// yy
+    case justYearShort = "yy"
     /// HH
     case justHour = "HH"
     /// mm
