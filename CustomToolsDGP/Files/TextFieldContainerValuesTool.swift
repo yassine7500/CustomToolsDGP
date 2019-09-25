@@ -30,6 +30,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var cellHeight: CGFloat = 50
     var valueHeightContainer: CGFloat!
     var closeAnimationActivated: AnimationType = .none
+    var containerPosition: ContainerPositionType!
     var durationCloseAnimation: Double = 0.3
     
     var leadingAnchorCustom: NSLayoutConstraint!
@@ -38,7 +39,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var bottomAnchorCustom: NSLayoutConstraint!
     
     // MARK: START METHODS
-    public func show(delegate: TextFieldContainerValuesToolProtocol, textField: UITextField, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
+    public func show(delegate: TextFieldContainerValuesToolProtocol, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
         
         // Initial control to not duplicate alerts
         guard !isTextFieldContainerValuesToolOpen else {
@@ -48,6 +49,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         // Parameters
         let window = UIApplication.shared.keyWindow
         
+        self.containerPosition = containerPosition
         isTextFieldContainerValuesToolOpen = true
         self.delegateProtocol = delegate
         self.data = data
@@ -88,38 +90,22 @@ public class TextFieldContainerValuesTool: UIViewController {
         window?.addSubview(viewContainer)
         window?.bringSubviewToFront(viewContainer)
         
-        // Add constraints
+        // MARK: Add constraints
         viewContainer.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: 0).isActive = true
         viewContainer.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 0).isActive = true
         
         switch containerPosition {
         case .bottom:
-            
-            viewContainer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 10).isActive = true
-            if valueHeightContainer == -1 {
-                viewContainer.bottomAnchor.constraint(equalTo: window!.bottomAnchor, constant: -50).isActive = true
-            } else {
-                viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
-                //                viewContainer.bottomAnchor.constraint(greaterThanOrEqualTo: window!.bottomAnchor, constant: -50).isActive = true
-            }
+            viewContainer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: textFieldSeparation).isActive = true
+            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
+
             break
         case .top:
             
-            if valueHeightContainer == -1 {
-                viewContainer.topAnchor.constraint(equalTo: window!.topAnchor, constant: 50).isActive = true
-            } else {
-                //                viewContainer.topAnchor.constraint(lessThanOrEqualTo: window!.topAnchor, constant: 50).isActive = true
-                viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
-            }
-            viewContainer.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -10).isActive = true
+            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
+            viewContainer.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -textFieldSeparation).isActive = true
             break
         }
-        
-        //        tableView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 0).isActive = true
-        //        tableView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: 0).isActive = true
-        //        tableView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 0).isActive = true
-        //        tableView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 0).isActive = true
-        
         
         leadingAnchorCustom = NSLayoutConstraint(item: tableView!, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewContainer, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1, constant: 0)
         trailingAnchorCustom = NSLayoutConstraint(item: tableView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewContainer, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1, constant: 0)
@@ -149,15 +135,40 @@ extension TextFieldContainerValuesTool {
                 
             })
         case .appearing:
-            bottomAnchorCustom.constant = 0
-            self.viewContainer.layoutIfNeeded()
             
-            UIView.animate(withDuration: durationCloseAnimation, animations: {
-                self.bottomAnchorCustom.constant = -self.valueHeightContainer
+            
+            switch containerPosition {
+            case .bottom:
+                
+                bottomAnchorCustom.constant = 0
                 self.viewContainer.layoutIfNeeded()
-            }, completion: { _ in
-                self.completionActions()
-            })
+                
+                UIView.animate(withDuration: durationCloseAnimation, animations: {
+                    self.bottomAnchorCustom.constant = -self.valueHeightContainer
+                    self.viewContainer.layoutIfNeeded()
+                }, completion: { _ in
+                    self.completionActions()
+                })
+                
+                break
+            case .top:
+                
+                topAnchorCustom.constant = 0
+                self.viewContainer.layoutIfNeeded()
+                
+                UIView.animate(withDuration: durationCloseAnimation, animations: {
+                    self.topAnchorCustom.constant = self.valueHeightContainer
+                    self.viewContainer.layoutIfNeeded()
+                }, completion: { _ in
+                    self.completionActions()
+                })
+                
+                break
+
+            case .none:
+                break
+            }
+
         case .none:
             completionActions()
         }
@@ -240,22 +251,48 @@ extension TextFieldContainerValuesTool {
         case .appearing:
             
             self.durationCloseAnimation = durationCloseAnimation
-            
             viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             
-            bottomAnchorCustom.constant = -valueHeightContainer
-            self.viewContainer.layoutIfNeeded()
-            
-            UIView.animate(withDuration: duration, animations: {
-                self.bottomAnchorCustom.constant = 0
+            switch containerPosition {
+            case .bottom:
+                
+                bottomAnchorCustom.constant = -valueHeightContainer
                 self.viewContainer.layoutIfNeeded()
-            }, completion: { _ in
-                completionAction = action
-                if let actions = completionAction {
-                    actions()
-                }
-            })
+                
+                UIView.animate(withDuration: duration, animations: {
+                    self.bottomAnchorCustom.constant = 0
+                    self.viewContainer.layoutIfNeeded()
+                }, completion: { _ in
+                    completionAction = action
+                    if let actions = completionAction {
+                        actions()
+                    }
+                })
+                
+                break
+                
+            case .top:
+                
+                topAnchorCustom.constant = valueHeightContainer
+                self.viewContainer.layoutIfNeeded()
+                
+                UIView.animate(withDuration: duration, animations: {
+                    self.topAnchorCustom.constant = 0
+                    self.viewContainer.layoutIfNeeded()
+                }, completion: { _ in
+                    completionAction = action
+                    if let actions = completionAction {
+                        actions()
+                    }
+                })
+                
+                break
+            case .none:
+                
+                break
+            }
+            
             break
         case .none:
             break
@@ -291,6 +328,7 @@ extension TextFieldContainerValuesTool: UITableViewDelegate {
     }
 }
 
+// MARK: SUPPORT METHODS
 extension TextFieldContainerValuesTool {
     
     private func calculateContainerHeight(containerPosition: ContainerPositionType, totalItems: Int, textFieldYposition: CGFloat, textFieldHeight: CGFloat , windowHeight: CGFloat, topBottomSpace: CGFloat, spaceBetweenContainerAndTextField: CGFloat) -> CGFloat {
@@ -309,10 +347,11 @@ extension TextFieldContainerValuesTool {
             break
         }
         
+        
         if totalItemsHeight < usefulSpace {
             resultingHeight = totalItemsHeight
         } else {
-            resultingHeight = -1
+            resultingHeight = usefulSpace
         }
         
         return resultingHeight
@@ -320,3 +359,10 @@ extension TextFieldContainerValuesTool {
     
 }
 
+// MARK: TEXT FIELD METHODS
+extension TextFieldContainerValuesTool {
+    
+    
+    
+    
+}
