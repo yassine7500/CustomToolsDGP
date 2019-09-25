@@ -54,6 +54,7 @@
 		96CB506322E5C66500C18D72 /* AlertCustomVCSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506222E5C66500C18D72 /* AlertCustomVCSample.swift */; };
 		96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */; };
 		96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506622E5C89900C18D72 /* BorderTools.swift */; };
+		96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		96CB506222E5C66500C18D72 /* AlertCustomVCSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomVCSample.swift; sourceTree = "<group>"; };
 		96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitNoticeTools.swift; sourceTree = "<group>"; };
 		96CB506622E5C89900C18D72 /* BorderTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTools.swift; sourceTree = "<group>"; };
+		96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCustomTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
+				96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
 				9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */,
+				96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageToolsSample.swift in Sources */,
