@@ -55,6 +55,7 @@
 		96CB506522E5C73E00C18D72 /* SwfitNoticeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */; };
 		96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506622E5C89900C18D72 /* BorderTools.swift */; };
 		96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */; };
+		96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitNoticeTools.swift; sourceTree = "<group>"; };
 		96CB506622E5C89900C18D72 /* BorderTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTools.swift; sourceTree = "<group>"; };
 		96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCustomTool.swift; sourceTree = "<group>"; };
+		96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerValuesTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
+				96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
@@ -184,12 +187,12 @@
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9657EF9722E5ECEF002A9196 /* SubstringTools.swift */,
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
+				96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
-				96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */,
+				96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */,
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
