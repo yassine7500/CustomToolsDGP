@@ -25,21 +25,45 @@ public class TextFieldContainerValuesTool: UIViewController {
     
     // MARK: PARAMETERS
     let cellIdentifier = "TextFieldContainerValuesToolCell"
-    var data: [Any]?
     weak var delegateProtocol: TextFieldContainerValuesToolProtocol?
     var cellHeight: CGFloat = 50
     var valueHeightContainer: CGFloat!
-    var closeAnimationActivated: AnimationType = .none
-    var containerPosition: ContainerPositionType!
-    var durationCloseAnimation: Double = 0.3
     
     var leadingAnchorCustom: NSLayoutConstraint!
     var trailingAnchorCustom: NSLayoutConstraint!
     var topAnchorCustom: NSLayoutConstraint!
     var bottomAnchorCustom: NSLayoutConstraint!
     
+    var mainDelegate: UIViewController?
+    var textFieldReference: UITextField!
+    var textFieldSeparation: CGFloat!
+    var containerPosition: ContainerPositionType!
+    var data: [Any]?
+    var cellHeightValue: CGFloat!
+    
+    var typeAnimation: AnimationType!
+    var durationAnimation: TimeInterval!
+    var durationCloseAnimation: TimeInterval!
+    var completionAction: ( ()->Void )?
+    
+    
     // MARK: START METHODS
-    public func show(delegate: TextFieldContainerValuesToolProtocol, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
+    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
+
+        self.mainDelegate = delegate
+        self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
+        self.delegateProtocol = self.mainDelegate as? TextFieldContainerValuesToolProtocol
+
+        self.textFieldReference = textField
+        self.textFieldReference.delegate = self
+        
+        self.textFieldSeparation = textFieldSeparation
+        self.containerPosition = containerPosition
+        self.data = data
+        self.cellHeightValue = cellHeightValue
+    }
+    
+    public func showContainerData() {
         
         // Initial control to not duplicate alerts
         guard !isTextFieldContainerValuesToolOpen else {
@@ -48,18 +72,14 @@ public class TextFieldContainerValuesTool: UIViewController {
         
         // Parameters
         let window = UIApplication.shared.keyWindow
-        
-        self.containerPosition = containerPosition
         isTextFieldContainerValuesToolOpen = true
-        self.delegateProtocol = delegate
-        self.data = data
         self.cellHeight = cellHeightValue
         
         valueHeightContainer = calculateContainerHeight(
             containerPosition: containerPosition,
-            totalItems: data.count,
-            textFieldYposition: textField.layer.position.y,
-            textFieldHeight: textField.bounds.height,
+            totalItems: data?.count ?? 0,
+            textFieldYposition: textFieldReference.layer.position.y,
+            textFieldHeight: textFieldReference.bounds.height,
             windowHeight: window!.layer.bounds.height,
             topBottomSpace: 50,
             spaceBetweenContainerAndTextField: 10
@@ -91,19 +111,21 @@ public class TextFieldContainerValuesTool: UIViewController {
         window?.bringSubviewToFront(viewContainer)
         
         // MARK: Add constraints
-        viewContainer.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: 0).isActive = true
-        viewContainer.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 0).isActive = true
+        viewContainer.leadingAnchor.constraint(equalTo: textFieldReference.leadingAnchor, constant: 0).isActive = true
+        viewContainer.trailingAnchor.constraint(equalTo: textFieldReference.trailingAnchor, constant: 0).isActive = true
         
         switch containerPosition {
         case .bottom:
-            viewContainer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: textFieldSeparation).isActive = true
+            viewContainer.topAnchor.constraint(equalTo: textFieldReference.bottomAnchor, constant: textFieldSeparation).isActive = true
             viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
 
             break
         case .top:
             
             viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
-            viewContainer.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -textFieldSeparation).isActive = true
+            viewContainer.bottomAnchor.constraint(equalTo: textFieldReference.topAnchor, constant: -textFieldSeparation).isActive = true
+            break
+        case .none:
             break
         }
         
@@ -122,7 +144,7 @@ extension TextFieldContainerValuesTool {
     
     private func closeViewActions() {
         
-        switch closeAnimationActivated {
+        switch typeAnimation {
         case .disolve:
             self.viewContainer.alpha = 1.0
             self.viewContainer.layoutIfNeeded()
@@ -132,10 +154,10 @@ extension TextFieldContainerValuesTool {
                 self.viewContainer.layoutIfNeeded()
             }, completion: { _ in
                 self.completionActions()
-                
             })
-        case .appearing:
+            break
             
+        case .appearing:
             
             switch containerPosition {
             case .bottom:
@@ -168,9 +190,15 @@ extension TextFieldContainerValuesTool {
             case .none:
                 break
             }
+            
+            break
 
         case .none:
             completionActions()
+            break
+        case .some(.none):
+            completionActions()
+            break
         }
     }
     
@@ -225,32 +253,35 @@ extension TextFieldContainerValuesTool {
         case appearing
         case none
     }
+
+    public func setAnimationParameters(type: AnimationType, duration: TimeInterval = 0.3, durationCloseAnimation: TimeInterval = 0.3, _ action: @escaping ()->Void) {
+        self.typeAnimation = type
+        self.durationAnimation = duration
+        self.durationCloseAnimation = durationCloseAnimation
+        completionAction = action
+    }
     
-    public func setAnimationView(type: AnimationType, duration: TimeInterval = 0.3, durationCloseAnimation: TimeInterval = 0.3, _ action: @escaping ()->Void) {
+    func startAnimationView() {
         
-        var completionAction: ( ()->Void )?
-        self.closeAnimationActivated = type
-        
-        switch type {
+        switch typeAnimation {
         case .disolve:
             
             self.viewContainer.alpha = 0.0
             self.viewContainer.layoutIfNeeded()
             
-            UIView.animate(withDuration: duration, animations: {
+            UIView.animate(withDuration: durationAnimation, animations: {
                 self.viewContainer.alpha = 1.0
                 self.viewContainer.layoutIfNeeded()
             }, completion: { _ in
-                completionAction = action
-                if let actions = completionAction {
+                if let actions = self.completionAction {
                     actions()
                 }
             })
             
             break
+            
         case .appearing:
             
-            self.durationCloseAnimation = durationCloseAnimation
             viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             
@@ -260,12 +291,11 @@ extension TextFieldContainerValuesTool {
                 bottomAnchorCustom.constant = -valueHeightContainer
                 self.viewContainer.layoutIfNeeded()
                 
-                UIView.animate(withDuration: duration, animations: {
+                UIView.animate(withDuration: durationAnimation, animations: {
                     self.bottomAnchorCustom.constant = 0
                     self.viewContainer.layoutIfNeeded()
                 }, completion: { _ in
-                    completionAction = action
-                    if let actions = completionAction {
+                    if let actions = self.completionAction {
                         actions()
                     }
                 })
@@ -277,12 +307,11 @@ extension TextFieldContainerValuesTool {
                 topAnchorCustom.constant = valueHeightContainer
                 self.viewContainer.layoutIfNeeded()
                 
-                UIView.animate(withDuration: duration, animations: {
+                UIView.animate(withDuration: durationAnimation, animations: {
                     self.topAnchorCustom.constant = 0
                     self.viewContainer.layoutIfNeeded()
                 }, completion: { _ in
-                    completionAction = action
-                    if let actions = completionAction {
+                    if let actions = self.completionAction {
                         actions()
                     }
                 })
@@ -295,6 +324,8 @@ extension TextFieldContainerValuesTool {
             
             break
         case .none:
+            break
+        case .some(.none):
             break
         }
     }
@@ -323,8 +354,11 @@ extension TextFieldContainerValuesTool: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Item selected: \(indexPath.row+1)")
-        delegateProtocol?.selectedItem(value: data?[indexPath.row] as Any)
-        closeViewActions()
+        DispatchQueue.main.async {
+            self.delegateProtocol?.selectedItem(value: self.data?[indexPath.row] as Any)
+            self.closeViewActions()
+            self.mainDelegate?.dismissKeyboardCustom()
+        }
     }
 }
 
@@ -360,9 +394,33 @@ extension TextFieldContainerValuesTool {
 }
 
 // MARK: TEXT FIELD METHODS
-extension TextFieldContainerValuesTool {
+extension TextFieldContainerValuesTool: UITextFieldDelegate {
     
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        print("textFieldDidBeginEditing")
+        self.showContainerData()
+        self.startAnimationView()
+    }
     
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+     
+        print("textFieldDidEndEditing")
+        self.closeViewActions()
+    }
     
-    
+}
+
+
+extension UIViewController {
+
+    func hideKeyboardWhenTappedAroundCustom() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardCustom))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboardCustom() {
+        view.endEditing(true)
+    }
 }
