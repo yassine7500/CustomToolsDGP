@@ -21,6 +21,11 @@ public class ApiService: NSObject {
     
     public func fetchFeedForUrlString(idText: String, urlString: String, httpMethod: HttpMethodType, params: [String : Any], userTokenForAuthorization: String?, timeoutBigger: Bool = false, completion: @escaping (_ data: Any?, _ error: Bool)->Void) {
         
+        guard InternetConnectionTool().isConnectedToNetwork(vc: nil) else {
+            completion("errorInternetConnection", true)
+            return
+        }
+        
         DateTools().setGlobalStartDate(id: "ApiService - \(idText)")
         
         dataGetTask?.cancel()
