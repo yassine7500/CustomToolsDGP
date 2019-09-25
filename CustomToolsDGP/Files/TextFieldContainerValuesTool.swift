@@ -28,6 +28,8 @@ public class TextFieldContainerValuesTool: UIViewController {
     weak var delegateProtocol: TextFieldContainerValuesToolProtocol?
     var cellHeight: CGFloat = 50
     var valueHeightContainer: CGFloat!
+    var textFieldObservers: TextFieldObservers?
+    let topBottomSpace: CGFloat = 50
     
     var leadingAnchorCustom: NSLayoutConstraint!
     var trailingAnchorCustom: NSLayoutConstraint!
@@ -46,6 +48,9 @@ public class TextFieldContainerValuesTool: UIViewController {
     var durationCloseAnimation: TimeInterval!
     var completionAction: ( ()->Void )?
     
+    var isTextFieldActived = false
+    var isContainerReduced = false
+    
     
     // MARK: START METHODS
     public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
@@ -61,9 +66,11 @@ public class TextFieldContainerValuesTool: UIViewController {
         self.containerPosition = containerPosition
         self.data = data
         self.cellHeightValue = cellHeightValue
+        
+        self.textFieldObservers = TextFieldObservers(delegate: self)
     }
     
-    public func showContainerData() {
+    private func showContainerData() {
         
         // Initial control to not duplicate alerts
         guard !isTextFieldContainerValuesToolOpen else {
@@ -81,7 +88,7 @@ public class TextFieldContainerValuesTool: UIViewController {
             textFieldYposition: textFieldReference.layer.position.y,
             textFieldHeight: textFieldReference.bounds.height,
             windowHeight: window!.layer.bounds.height,
-            topBottomSpace: 50,
+            topBottomSpace: self.topBottomSpace,
             spaceBetweenContainerAndTextField: 10
         )
         
@@ -90,12 +97,14 @@ public class TextFieldContainerValuesTool: UIViewController {
         viewContainer.layer.cornerRadius = 6
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = 3
-        viewContainer.layer.borderColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1)
-        viewContainer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.95)
+        viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        GestureRecognizerTools().setTapGestureRecognizer(object: viewContainer, target: self, action: #selector(mainContainerAction))
         
         // Table View
         tableView = UITableView(frame: .zero)
+        tableView.layer.cornerRadius = 6
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tableView.delegate = self
         tableView.dataSource = self
@@ -118,10 +127,8 @@ public class TextFieldContainerValuesTool: UIViewController {
         case .bottom:
             viewContainer.topAnchor.constraint(equalTo: textFieldReference.bottomAnchor, constant: textFieldSeparation).isActive = true
             viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
-
             break
         case .top:
-            
             viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
             viewContainer.bottomAnchor.constraint(equalTo: textFieldReference.topAnchor, constant: -textFieldSeparation).isActive = true
             break
@@ -207,6 +214,10 @@ extension TextFieldContainerValuesTool {
         self.viewContainer.removeFromSuperview()
     }
     
+    @objc func mainContainerAction() {
+        self.mainDelegate?.dismissKeyboardCustom()
+    }
+    
 }
 
 
@@ -281,9 +292,6 @@ extension TextFieldContainerValuesTool {
             break
             
         case .appearing:
-            
-            viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-            viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             
             switch containerPosition {
             case .bottom:
@@ -381,10 +389,11 @@ extension TextFieldContainerValuesTool {
             break
         }
         
-        
         if totalItemsHeight < usefulSpace {
+            isContainerReduced = true
             resultingHeight = totalItemsHeight
         } else {
+            isContainerReduced = false
             resultingHeight = usefulSpace
         }
         
@@ -396,9 +405,16 @@ extension TextFieldContainerValuesTool {
 // MARK: TEXT FIELD METHODS
 extension TextFieldContainerValuesTool: UITextFieldDelegate {
     
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.mainDelegate?.dismissKeyboardCustom()
+        return true
+    }
+    
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         print("textFieldDidBeginEditing")
+        self.isTextFieldActived = true
+        self.textFieldObservers?.createObservers()
         self.showContainerData()
         self.startAnimationView()
     }
@@ -406,6 +422,7 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
      
         print("textFieldDidEndEditing")
+        self.textFieldObservers?.removeObservers()
         self.closeViewActions()
     }
     
@@ -423,4 +440,46 @@ extension UIViewController {
     @objc func dismissKeyboardCustom() {
         view.endEditing(true)
     }
+}
+
+
+extension TextFieldContainerValuesTool: TextFieldProtocol {
+    
+    public func passInsetsToMoveKeyboard(insets: UIEdgeInsets, keyboardHeight: Int) {
+        
+        print(" ⚠️ keyboardHeight: \(keyboardHeight) ")
+                     
+            switch containerPosition {
+                
+            case .bottom:
+                
+                if isTextFieldActived, !isContainerReduced {
+                    self.isTextFieldActived = false
+                    bottomAnchorCustom.constant = bottomAnchorCustom.constant - (CGFloat(keyboardHeight) - topBottomSpace)
+                    self.viewContainer.layoutIfNeeded()
+                }
+                
+                break
+                
+            case .top:
+                
+                if insets == UIEdgeInsets.zero {
+                    self.mainDelegate?.view.frame.origin.y = -insets.bottom
+                } else {
+                    self.mainDelegate?.view.frame.origin.y = (-insets.bottom) + 0
+                }
+                
+                if !isContainerReduced {
+                    topAnchorCustom.constant = topAnchorCustom.constant + (CGFloat(keyboardHeight) + topBottomSpace)
+                    self.viewContainer.layoutIfNeeded()
+                }
+                
+                break
+                
+            case .none:
+                break
+            }
+            
+    }
+    
 }
