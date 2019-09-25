@@ -41,6 +41,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var textFieldSeparation: CGFloat!
     var containerPosition: ContainerPositionType!
     var data: [Any]?
+    var dataForTableView: [Any]?
     var cellHeightValue: CGFloat!
     
     var typeAnimation: AnimationType!
@@ -49,24 +50,29 @@ public class TextFieldContainerValuesTool: UIViewController {
     var completionAction: ( ()->Void )?
     
     var isTextFieldActived = false
+    var isTextFieldPopulate = false
     var isContainerReduced = false
+    var isItemSelected = false
+    var dataFinderResults: [Any]?
     
     
     // MARK: START METHODS
     public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
-
+        
         self.mainDelegate = delegate
         self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
         self.delegateProtocol = self.mainDelegate as? TextFieldContainerValuesToolProtocol
-
+        
         self.textFieldReference = textField
         self.textFieldReference.delegate = self
+        self.textFieldReference.addTarget(self, action: #selector(TextFieldContainerValuesTool.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         self.textFieldSeparation = textFieldSeparation
         self.containerPosition = containerPosition
         self.data = data
         self.cellHeightValue = cellHeightValue
         
+        self.dataForTableView = self.data
         self.textFieldObservers = TextFieldObservers(delegate: self)
     }
     
@@ -100,7 +106,6 @@ public class TextFieldContainerValuesTool: UIViewController {
         viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
-        GestureRecognizerTools().setTapGestureRecognizer(object: viewContainer, target: self, action: #selector(mainContainerAction))
         
         // Table View
         tableView = UITableView(frame: .zero)
@@ -193,13 +198,13 @@ extension TextFieldContainerValuesTool {
                 })
                 
                 break
-
+                
             case .none:
                 break
             }
             
             break
-
+            
         case .none:
             completionActions()
             break
@@ -212,10 +217,6 @@ extension TextFieldContainerValuesTool {
     private func completionActions() {
         isTextFieldContainerValuesToolOpen = false
         self.viewContainer.removeFromSuperview()
-    }
-    
-    @objc func mainContainerAction() {
-        self.mainDelegate?.dismissKeyboardCustom()
     }
     
 }
@@ -264,7 +265,7 @@ extension TextFieldContainerValuesTool {
         case appearing
         case none
     }
-
+    
     public func setAnimationParameters(type: AnimationType, duration: TimeInterval = 0.3, durationCloseAnimation: TimeInterval = 0.3, _ action: @escaping ()->Void) {
         self.typeAnimation = type
         self.durationAnimation = duration
@@ -348,12 +349,12 @@ extension TextFieldContainerValuesTool: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data?.count ?? 0
+        return dataForTableView?.count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(data?[indexPath.row] ?? "?")"
+        cell.textLabel!.text = "\(dataForTableView?[indexPath.row] ?? "?")"
         return cell
     }
 }
@@ -361,12 +362,11 @@ extension TextFieldContainerValuesTool: UITableViewDataSource {
 extension TextFieldContainerValuesTool: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Item selected: \(indexPath.row+1)")
-        DispatchQueue.main.async {
-            self.delegateProtocol?.selectedItem(value: self.data?[indexPath.row] as Any)
-            self.closeViewActions()
-            self.mainDelegate?.dismissKeyboardCustom()
-        }
+        print(" 📌 Item selected: \(indexPath.row+1)")
+        self.isItemSelected = true
+        self.isTextFieldPopulate = true
+        self.delegateProtocol?.selectedItem(value: self.data?[indexPath.row] as Any)
+        self.mainDelegate?.dismissKeyboardCustom()
     }
 }
 
@@ -420,23 +420,71 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-     
+        
         print("textFieldDidEndEditing")
         self.textFieldObservers?.removeObservers()
         self.closeViewActions()
+        
+        if !isItemSelected, !isTextFieldPopulate {
+            self.textFieldReference.text = ""
+            self.updateTableView(newData: data!)
+            self.delegateProtocol?.selectedItem(value: "")
+        } else {
+            self.isItemSelected = false
+        }
+    }
+    
+    @objc func textFieldDidChange(_ sender: UITextField) {
+        
+        isTextFieldPopulate = false
+        
+        if sender.text?.count ?? 0 > 0 {
+            //            isFinderEditing = true
+            self.searchWords(words: sender.text ?? "")
+        } else {
+            //            isFinderEditing = false
+            self.updateTableView(newData: data!)
+        }
+    }
+    
+    private func searchWords(words: String) {
+        
+        if data != nil, data?.count ?? 0 > 0 {
+            
+            dataFinderResults = [Any]()
+            
+            let separateWords: [String] = words.components(separatedBy: " ")
+            
+            for word in separateWords {
+                for value in data! {
+                    let valueString: String = "\(value)".uppercased()
+                    if valueString.contains(word.uppercased()) {
+                        dataFinderResults?.append(value)
+                    }
+                }
+            }
+            
+            self.updateTableView(newData: dataFinderResults!)
+            // TODO: update table view constraints.
+        }
+    }
+    
+    private func updateTableView(newData: [Any]) {
+        self.dataForTableView = newData
+        self.tableView.reloadData()
     }
     
 }
 
 
 extension UIViewController {
-
+    
     func hideKeyboardWhenTappedAroundCustom() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardCustom))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
+    
     @objc func dismissKeyboardCustom() {
         view.endEditing(true)
     }
@@ -448,38 +496,38 @@ extension TextFieldContainerValuesTool: TextFieldProtocol {
     public func passInsetsToMoveKeyboard(insets: UIEdgeInsets, keyboardHeight: Int) {
         
         print(" ⚠️ keyboardHeight: \(keyboardHeight) ")
-                     
-            switch containerPosition {
-                
-            case .bottom:
-                
-                if isTextFieldActived, !isContainerReduced {
-                    self.isTextFieldActived = false
-                    bottomAnchorCustom.constant = bottomAnchorCustom.constant - (CGFloat(keyboardHeight) - topBottomSpace)
-                    self.viewContainer.layoutIfNeeded()
-                }
-                
-                break
-                
-            case .top:
-                
-                if insets == UIEdgeInsets.zero {
-                    self.mainDelegate?.view.frame.origin.y = -insets.bottom
-                } else {
-                    self.mainDelegate?.view.frame.origin.y = (-insets.bottom) + 0
-                }
-                
-                if !isContainerReduced {
-                    topAnchorCustom.constant = topAnchorCustom.constant + (CGFloat(keyboardHeight) + topBottomSpace)
-                    self.viewContainer.layoutIfNeeded()
-                }
-                
-                break
-                
-            case .none:
-                break
+        
+        switch containerPosition {
+            
+        case .bottom:
+            
+            if isTextFieldActived, !isContainerReduced {
+                self.isTextFieldActived = false
+                bottomAnchorCustom.constant = bottomAnchorCustom.constant - (CGFloat(keyboardHeight) - topBottomSpace)
+                self.viewContainer.layoutIfNeeded()
             }
             
+            break
+            
+        case .top:
+            
+            if insets == UIEdgeInsets.zero {
+                self.mainDelegate?.view.frame.origin.y = -insets.bottom
+            } else {
+                self.mainDelegate?.view.frame.origin.y = (-insets.bottom) + 0
+            }
+            
+            if !isContainerReduced {
+                topAnchorCustom.constant = topAnchorCustom.constant + (CGFloat(keyboardHeight) + topBottomSpace)
+                self.viewContainer.layoutIfNeeded()
+            }
+            
+            break
+            
+        case .none:
+            break
+        }
+        
     }
     
 }
