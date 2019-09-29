@@ -30,6 +30,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var valueHeightContainer: CGFloat!
     var textFieldObservers: TextFieldObservers?
     let topBottomSpace: CGFloat = 50
+    var tapGesture: UITapGestureRecognizer!
     
     var leadingAnchorCustom: NSLayoutConstraint!
     var trailingAnchorCustom: NSLayoutConstraint!
@@ -87,7 +88,6 @@ public class TextFieldContainerValuesTool: UIViewController {
         self.cellSeparatorColor = cellSeparatorColor!
     }
     
-    
     private func showContainerData() {
         
         // Initial control to not duplicate alerts
@@ -116,8 +116,13 @@ public class TextFieldContainerValuesTool: UIViewController {
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = 3
         viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-        viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        viewContainer.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        viewContainer.isUserInteractionEnabled = true
+        viewContainer.addGestureRecognizer(tapGesture)
+        tapGesture.isEnabled = false
         
         // Table View
         tableView = UITableView(frame: .zero)
@@ -517,6 +522,11 @@ extension TextFieldContainerValuesTool {
         return resultingHeight
     }
     
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("premio")
+        self.mainDelegate?.dismissKeyboardCustom()
+    }
+    
 }
 
 // MARK: TEXT FIELD METHODS
@@ -592,6 +602,13 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
     }
     
     private func updateTableView(newData: [Any]) {
+        
+        if newData.count > 0 {
+            tapGesture.isEnabled = false
+        } else {
+            tapGesture.isEnabled = true
+        }
+        
         self.dataForTableView = newData
         self.tableView.reloadData()
     }
