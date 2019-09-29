@@ -8,8 +8,9 @@
 
 public var isTextFieldContainerValuesToolOpen = false
 
-public protocol TextFieldContainerValuesToolProtocol: class {
+@objc public protocol TextFieldContainerValuesToolProtocol: class {
     func selectedItem(value: Any)
+    @objc optional func wordToSearch(value: String)
 }
 
 public class TextFieldContainerValuesTool: UIViewController {
@@ -44,6 +45,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var data: [Any]?
     var dataForTableView: [Any]?
     var cellHeightValue: CGFloat!
+    var activeConstanlyGetWordLooking: Bool!
     
     var typeAnimation: AnimationType!
     var durationAnimation: TimeInterval!
@@ -64,7 +66,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     
     
     // MARK: START METHODS
-    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
+    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25), activeConstanlyGetWordLooking: Bool = false) {
         
         self.mainDelegate = delegate
         self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
@@ -80,6 +82,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         self.cellHeightValue = cellHeightValue
         
         self.textFieldObservers = TextFieldObservers(delegate: self)
+        self.activeConstanlyGetWordLooking = activeConstanlyGetWordLooking
         
         self.cellBackgroundColor = cellBackgroundColor!
         self.cellTextColor = cellTextColor!
@@ -585,6 +588,10 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
     }
     
     private func searchWords(words: String) {
+        
+        if activeConstanlyGetWordLooking {
+            self.delegateProtocol?.wordToSearch?(value: words)
+        }
         
         if data != nil, data?.count ?? 0 > 0 {
             
