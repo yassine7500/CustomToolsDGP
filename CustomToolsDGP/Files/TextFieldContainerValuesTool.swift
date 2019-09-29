@@ -64,7 +64,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     
     
     // MARK: START METHODS
-    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
+    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
         
         self.mainDelegate = delegate
         self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
@@ -77,15 +77,18 @@ public class TextFieldContainerValuesTool: UIViewController {
                 
         self.textFieldSeparation = textFieldSeparation
         self.containerPosition = containerPosition
-        self.data = data
         self.cellHeightValue = cellHeightValue
         
-        self.dataForTableView = self.data
         self.textFieldObservers = TextFieldObservers(delegate: self)
         
         self.cellBackgroundColor = cellBackgroundColor!
         self.cellTextColor = cellTextColor!
         self.cellSeparatorColor = cellSeparatorColor!
+    }
+    
+    public func setDataToTextField(data: [Any]) {
+        self.data = data
+        self.dataForTableView = self.data
     }
     
     private func showContainerData() {
@@ -558,7 +561,9 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
                 lastValue = ""
             }
             
-            self.updateTableView(newData: data!)
+            if data != nil {
+                self.updateTableView(newData: data!)
+            }
             self.delegateProtocol?.selectedItem(value: lastValue)
             
         } else {
