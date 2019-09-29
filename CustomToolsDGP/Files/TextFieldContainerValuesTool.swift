@@ -31,7 +31,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     var valueHeightContainer: CGFloat!
     var textFieldObservers: TextFieldObservers?
     let topBottomSpace: CGFloat = 50
-    var tapGesture: UITapGestureRecognizer!
+    public var tapGesture: UITapGestureRecognizer!
     
     var leadingAnchorCustom: NSLayoutConstraint!
     var trailingAnchorCustom: NSLayoutConstraint!
@@ -591,25 +591,24 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
         
         if activeConstanlyGetWordLooking {
             self.delegateProtocol?.wordToSearch?(value: words)
-        }
-        
-        if data != nil, data?.count ?? 0 > 0 {
-            
-            dataFinderResults = [Any]()
-            
-            let separateWords: [String] = words.components(separatedBy: " ")
-            
-            for word in separateWords {
-                for value in data! {
-                    let valueString: String = "\(value)".uppercased()
-                    if valueString.contains(word.uppercased()) {
-                        dataFinderResults?.append(value)
+        } else {
+            if data != nil, data?.count ?? 0 > 0 {
+                
+                dataFinderResults = [Any]()
+                
+                let separateWords: [String] = words.components(separatedBy: " ")
+                
+                for word in separateWords {
+                    for value in data! {
+                        let valueString: String = "\(value)".uppercased()
+                        if valueString.contains(word.uppercased()) {
+                            dataFinderResults?.append(value)
+                        }
                     }
                 }
+                
+                self.updateTableView(newData: dataFinderResults!)
             }
-            
-            self.updateTableView(newData: dataFinderResults!)
-            // TODO: update table view constraints.
         }
     }
     
