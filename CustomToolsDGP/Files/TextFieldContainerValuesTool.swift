@@ -21,7 +21,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     
     // MARK: OBJECTS
     var viewContainer: UIView!
-    var tableView: UITableView!
+    public var tableView: UITableView!
     
     // MARK: PARAMETERS
     let cellIdentifier = "TextFieldContainerValuesToolCell"
@@ -55,9 +55,15 @@ public class TextFieldContainerValuesTool: UIViewController {
     var isItemSelected = false
     var dataFinderResults: [Any]?
     
+    var lastValue = ""
+    
+    var cellBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var cellTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    var cellSeparatorColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    
     
     // MARK: START METHODS
-    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat = 50) {
+    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, data: [Any], cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
         
         self.mainDelegate = delegate
         self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
@@ -66,7 +72,8 @@ public class TextFieldContainerValuesTool: UIViewController {
         self.textFieldReference = textField
         self.textFieldReference.delegate = self
         self.textFieldReference.addTarget(self, action: #selector(TextFieldContainerValuesTool.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
+        self.textFieldReference.autocorrectionType = .no
+                
         self.textFieldSeparation = textFieldSeparation
         self.containerPosition = containerPosition
         self.data = data
@@ -74,7 +81,12 @@ public class TextFieldContainerValuesTool: UIViewController {
         
         self.dataForTableView = self.data
         self.textFieldObservers = TextFieldObservers(delegate: self)
+        
+        self.cellBackgroundColor = cellBackgroundColor!
+        self.cellTextColor = cellTextColor!
+        self.cellSeparatorColor = cellSeparatorColor!
     }
+    
     
     private func showContainerData() {
         
@@ -113,8 +125,9 @@ public class TextFieldContainerValuesTool: UIViewController {
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(TableViewCellCustom.self, forCellReuseIdentifier: cellIdentifier)
         tableView.clipsToBounds = true
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         // Add items to containers
@@ -251,7 +264,7 @@ extension TextFieldContainerValuesTool {
         tableView.layer.borderColor = color.cgColor
         tableView.layer.borderWidth = width
     }
-    public func setTableVIewCorner(radius: CGFloat) {
+    public func setTableViewCorner(radius: CGFloat) {
         tableView.layer.cornerRadius = radius
     }
     
@@ -353,8 +366,26 @@ extension TextFieldContainerValuesTool: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(dataForTableView?[indexPath.row] ?? "?")"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCellCustom
+        
+        cell.loadCustomCell(
+            backgroundColor: cellBackgroundColor,
+            textColor: cellTextColor,
+            separatorColor: cellSeparatorColor,
+            textString: "\(dataForTableView?[indexPath.row] ?? "?")"
+        )
+                
+        if indexPath.row == 0 {
+            cell.roundSpecificsCornersCells(corners: [.topLeft, .topRight], radius: 6)
+            cell.separatorCell.isHidden = false
+        } else if dataForTableView?.count == indexPath.row+1 {
+            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+            cell.separatorCell.isHidden = true
+        } else {
+            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 0)
+            cell.separatorCell.isHidden = false
+        }
+        
         return cell
     }
 }
@@ -363,12 +394,98 @@ extension TextFieldContainerValuesTool: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(" 📌 Item selected: \(indexPath.row+1)")
+        self.lastValue = "\(self.dataForTableView?[indexPath.row] ?? "")"
         self.isItemSelected = true
         self.isTextFieldPopulate = true
-        self.delegateProtocol?.selectedItem(value: self.data?[indexPath.row] as Any)
+        self.delegateProtocol?.selectedItem(value: self.dataForTableView?[indexPath.row] as Any)
         self.mainDelegate?.dismissKeyboardCustom()
     }
 }
+
+// MARK: TABLE VIEW CELL CUSTOM
+class TableViewCellCustom: UITableViewCell {
+    
+    let mainViewContainerCell = UIView()
+    let separatorCell = UIView()
+    let stackViewCell = UIStackView()
+    var textLabelTitle = UILabel()
+    var imageIconCell = UIImageView()
+    var imageToLoadCell: UIImage?
+    
+    func loadCustomCell(backgroundColor: UIColor, textColor: UIColor, separatorColor: UIColor, textString: String, imageToLoadCellString: String? = "-1_-1") {
+        
+        imageToLoadCell = UIImage(named: imageToLoadCellString!)
+        
+        contentView.backgroundColor = .gray
+        
+        // View Container Main cell
+        mainViewContainerCell.clipsToBounds = true
+        mainViewContainerCell.backgroundColor = backgroundColor
+        mainViewContainerCell.translatesAutoresizingMaskIntoConstraints = false
+        
+        // View Separator cell
+        separatorCell.clipsToBounds = true
+        separatorCell.backgroundColor = separatorColor
+        separatorCell.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Stack View cell
+        stackViewCell.axis = NSLayoutConstraint.Axis.horizontal
+        stackViewCell.distribution = UIStackView.Distribution.fill
+        stackViewCell.alignment = UIStackView.Alignment.center
+        stackViewCell.spacing = 16
+        stackViewCell.clipsToBounds = true
+        stackViewCell.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Label cell
+        textLabelTitle.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        textLabelTitle.text = textString
+        textLabelTitle.textAlignment = .left
+        textLabelTitle.numberOfLines = 1
+        textLabelTitle.textColor = textColor
+        textLabelTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Image cell
+        imageIconCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageIconCell.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageIconCell.clipsToBounds = true
+        imageIconCell.layer.cornerRadius = 2
+        imageIconCell.contentMode = .scaleAspectFit
+        if imageToLoadCell != nil {
+            imageIconCell.image = imageToLoadCell
+        } else {
+            imageIconCell.isHidden = true
+        }
+        imageIconCell.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Aadd items to stackview
+        stackViewCell.addArrangedSubview(imageIconCell)
+        stackViewCell.addArrangedSubview(textLabelTitle)
+        
+        // Add items to container
+        mainViewContainerCell.addSubview(separatorCell)
+        mainViewContainerCell.addSubview(stackViewCell)
+        
+        contentView.addSubview(mainViewContainerCell)
+        
+        // Add constraints
+        mainViewContainerCell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        mainViewContainerCell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        mainViewContainerCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        mainViewContainerCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        
+        separatorCell.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separatorCell.bottomAnchor.constraint(equalTo: mainViewContainerCell.bottomAnchor, constant: 0).isActive = true
+        separatorCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 10).isActive = true
+        separatorCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -10).isActive = true
+        
+        stackViewCell.topAnchor.constraint(equalTo: mainViewContainerCell.topAnchor, constant: 0).isActive = true
+        stackViewCell.bottomAnchor.constraint(equalTo: separatorCell.topAnchor, constant: 0).isActive = true
+        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 16).isActive = true
+        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -16).isActive = true
+    }
+    
+}
+
 
 // MARK: SUPPORT METHODS
 extension TextFieldContainerValuesTool {
@@ -426,9 +543,14 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
         self.closeViewActions()
         
         if !isItemSelected, !isTextFieldPopulate {
-            self.textFieldReference.text = ""
+            
+            if textField.text == "" {
+                lastValue = ""
+            }
+            
             self.updateTableView(newData: data!)
-            self.delegateProtocol?.selectedItem(value: "")
+            self.delegateProtocol?.selectedItem(value: lastValue)
+            
         } else {
             self.isItemSelected = false
         }
@@ -531,3 +653,22 @@ extension TextFieldContainerValuesTool: TextFieldProtocol {
     }
     
 }
+
+// MARK: SUPPORT METHODS
+extension UITableViewCell {
+    
+    public func roundSpecificsCornersCells(corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = radius
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        } else {
+            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            layer.mask = mask
+        }
+    }
+    
+}
+
