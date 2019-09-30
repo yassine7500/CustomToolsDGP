@@ -122,7 +122,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = 3
         viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-        viewContainer.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
