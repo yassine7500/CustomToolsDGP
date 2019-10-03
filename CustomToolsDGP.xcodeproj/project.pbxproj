@@ -56,6 +56,7 @@
 		96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506622E5C89900C18D72 /* BorderTools.swift */; };
 		96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */; };
 		96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */; };
+		96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		96CB506622E5C89900C18D72 /* BorderTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTools.swift; sourceTree = "<group>"; };
 		96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCustomTool.swift; sourceTree = "<group>"; };
 		96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerValuesTool.swift; sourceTree = "<group>"; };
+		96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				9673C9C422E483AB00BBA1DB /* StringTools.swift */,
 				9657EF9722E5ECEF002A9196 /* SubstringTools.swift */,
 				96CB506422E5C73D00C18D72 /* SwfitNoticeTools.swift */,
+				96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */,
 				96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */,
 				9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */,
 				9644129922E72A3E0028A062 /* TextFieldTools.swift */,
@@ -311,6 +314,7 @@
 			files = (
 				9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */,
 				96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */,
+				96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */,
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,

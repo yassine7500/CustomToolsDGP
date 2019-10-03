@@ -42,11 +42,12 @@ public class AlertTableViewCustomTool: UIViewController {
     var cellHeight: CGFloat = 50
     var tableViewHeight: CGFloat = 150
     
-    var tableViewCellBackground: UIColor!
-    var tableViewCellTextColor: UIColor!
+    var cellBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var cellTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    var cellSeparatorColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     // MARK: START METHODS
-    public func show(delegate: AlertTableViewCustomToolProtocol, data: [Any], title: String?, message: String?, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, typeFormatViews: ButtonsFormatType = .stickedDown, topCloseButtonImage: UIImage? = nil, tableViewHeightValue: CGFloat = 150, cellHeightValue: CGFloat = 50, isActiveAcceptButton: Bool = false, addWhiteSpaceBottomMessage: Bool = false, tableViewCellBackground: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), tableViewCellTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)) {
+    public func show(delegate: AlertTableViewCustomToolProtocol, data: [Any], title: String?, message: String?, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, typeFormatViews: ButtonsFormatType = .stickedDown, topCloseButtonImage: UIImage? = nil, tableViewHeightValue: CGFloat = 150, cellHeightValue: CGFloat = 50, isActiveAcceptButton: Bool = false, addWhiteSpaceBottomMessage: Bool = false, cellBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
         
         // Initial control to not duplicate alerts
         guard !isAlertTableViewCustomToolOpen else {
@@ -59,8 +60,10 @@ public class AlertTableViewCustomTool: UIViewController {
         isAlertTableViewCustomToolOpen = true
         self.delegateProtocol = delegate
         self.data = data
-        self.tableViewCellBackground = tableViewCellBackground
-        self.tableViewCellTextColor = tableViewCellTextColor
+        
+        self.cellBackgroundColor = cellBackgroundColor
+        self.cellTextColor = cellTextColor
+        self.cellSeparatorColor = cellSeparatorColor
         
         if tableViewHeightValue > ((window?.layer.bounds.height)! / 2) {
             self.tableViewHeight = ((window?.layer.bounds.height)! / 2)
@@ -179,7 +182,7 @@ public class AlertTableViewCustomTool: UIViewController {
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(TableViewCellCustom.self, forCellReuseIdentifier: cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         // Add items to stackView
@@ -509,11 +512,26 @@ extension AlertTableViewCustomTool: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
         
-        cell.backgroundColor = self.tableViewCellBackground
-        cell.textLabel?.textColor = self.tableViewCellTextColor
-        cell.textLabel?.text = "\(data?[indexPath.row] ?? "?")"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCellCustom
+        
+        cell.loadCustomCell(
+            backgroundColor: cellBackgroundColor,
+            textColor: cellTextColor,
+            separatorColor: cellSeparatorColor,
+            textString: "\(data?[indexPath.row] ?? "?")"
+        )
+                
+        if indexPath.row == 0 {
+            cell.roundSpecificsCornersCells(corners: [.topLeft, .topRight], radius: 6)
+            cell.separatorCell.isHidden = false
+        } else if data?.count == indexPath.row+1 {
+            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+            cell.separatorCell.isHidden = true
+        } else {
+            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 0)
+            cell.separatorCell.isHidden = false
+        }
         
         return cell
     }
@@ -522,11 +540,12 @@ extension AlertTableViewCustomTool: UITableViewDataSource {
 extension AlertTableViewCustomTool: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(text: "Item selected: \(indexPath.row+1)", type: .pin)
+        print("Item selected: \(indexPath.row+1)")
         delegateProtocol?.selectedItem(value: data?[indexPath.row] as Any)
         closeViewActions()
     }
 }
+
 
 
 

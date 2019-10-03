@@ -66,7 +66,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     
     
     // MARK: START METHODS
-    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25), activeConstanlyGetWordLooking: Bool = false) {
+    public func setTextFieldDelegate(delegate: UIViewController, textField: UITextField, textFieldSeparation: CGFloat = 10, containerPosition: ContainerPositionType, cellHeightValue: CGFloat? = 50, cellBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25), activeConstanlyGetWordLooking: Bool = false) {
         
         self.mainDelegate = delegate
         self.mainDelegate!.hideKeyboardWhenTappedAroundCustom()
@@ -84,9 +84,9 @@ public class TextFieldContainerValuesTool: UIViewController {
         self.textFieldObservers = TextFieldObservers(delegate: self)
         self.activeConstanlyGetWordLooking = activeConstanlyGetWordLooking
         
-        self.cellBackgroundColor = cellBackgroundColor!
-        self.cellTextColor = cellTextColor!
-        self.cellSeparatorColor = cellSeparatorColor!
+        self.cellBackgroundColor = cellBackgroundColor
+        self.cellTextColor = cellTextColor
+        self.cellSeparatorColor = cellSeparatorColor
     }
     
     public func setDataToTextField(data: [Any]) {
@@ -411,90 +411,6 @@ extension TextFieldContainerValuesTool: UITableViewDelegate {
         self.delegateProtocol?.selectedItem(value: self.dataForTableView?[indexPath.row] as Any)
         self.mainDelegate?.dismissKeyboardCustom()
     }
-}
-
-// MARK: TABLE VIEW CELL CUSTOM
-class TableViewCellCustom: UITableViewCell {
-    
-    let mainViewContainerCell = UIView()
-    let separatorCell = UIView()
-    let stackViewCell = UIStackView()
-    var textLabelTitle = UILabel()
-    var imageIconCell = UIImageView()
-    var imageToLoadCell: UIImage?
-    
-    func loadCustomCell(backgroundColor: UIColor, textColor: UIColor, separatorColor: UIColor, textString: String, imageToLoadCellString: String? = "-1_-1") {
-        
-        imageToLoadCell = UIImage(named: imageToLoadCellString!)
-        
-        contentView.backgroundColor = .gray
-        
-        // View Container Main cell
-        mainViewContainerCell.clipsToBounds = true
-        mainViewContainerCell.backgroundColor = backgroundColor
-        mainViewContainerCell.translatesAutoresizingMaskIntoConstraints = false
-        
-        // View Separator cell
-        separatorCell.clipsToBounds = true
-        separatorCell.backgroundColor = separatorColor
-        separatorCell.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Stack View cell
-        stackViewCell.axis = NSLayoutConstraint.Axis.horizontal
-        stackViewCell.distribution = UIStackView.Distribution.fill
-        stackViewCell.alignment = UIStackView.Alignment.center
-        stackViewCell.spacing = 16
-        stackViewCell.clipsToBounds = true
-        stackViewCell.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Label cell
-        textLabelTitle.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        textLabelTitle.text = textString
-        textLabelTitle.textAlignment = .left
-        textLabelTitle.numberOfLines = 1
-        textLabelTitle.textColor = textColor
-        textLabelTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Image cell
-        imageIconCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imageIconCell.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        imageIconCell.clipsToBounds = true
-        imageIconCell.layer.cornerRadius = 2
-        imageIconCell.contentMode = .scaleAspectFit
-        if imageToLoadCell != nil {
-            imageIconCell.image = imageToLoadCell
-        } else {
-            imageIconCell.isHidden = true
-        }
-        imageIconCell.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Aadd items to stackview
-        stackViewCell.addArrangedSubview(imageIconCell)
-        stackViewCell.addArrangedSubview(textLabelTitle)
-        
-        // Add items to container
-        mainViewContainerCell.addSubview(separatorCell)
-        mainViewContainerCell.addSubview(stackViewCell)
-        
-        contentView.addSubview(mainViewContainerCell)
-        
-        // Add constraints
-        mainViewContainerCell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        mainViewContainerCell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-        mainViewContainerCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        mainViewContainerCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        
-        separatorCell.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        separatorCell.bottomAnchor.constraint(equalTo: mainViewContainerCell.bottomAnchor, constant: 0).isActive = true
-        separatorCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 10).isActive = true
-        separatorCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -10).isActive = true
-        
-        stackViewCell.topAnchor.constraint(equalTo: mainViewContainerCell.topAnchor, constant: 0).isActive = true
-        stackViewCell.bottomAnchor.constraint(equalTo: separatorCell.topAnchor, constant: 0).isActive = true
-        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 16).isActive = true
-        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -16).isActive = true
-    }
-    
 }
 
 
