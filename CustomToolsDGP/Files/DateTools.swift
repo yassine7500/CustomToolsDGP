@@ -23,10 +23,14 @@ public enum DateFormatType: String {
     
     /// dd-MM-yyyy HH:mm
     case dateCompleteReverse = "dd-MM-yyyy HH:mm"
+    /// dd-MM-yy HH:mm
+    case dateCompleteReverseShortYear = "dd-MM-yy HH:mm"
     /// EEEE, dd-MM-yyyy HH:mm
     case dateCompleteReverseDay = "EEEE, dd-MM-yyyy HH:mm"
     /// dd-MM-yyyy HH:mm:ss
     case dateCompleteSecondsReverse = "dd-MM-yyyy HH:mm:ss"
+    /// dd-MM-yy HH:mm:ss
+    case dateCompleteSecondsReverseShortYear = "dd-MM-yy HH:mm:ss"
     /// dd-MM-yyyy
     case dateReverse = "dd-MM-yyyy"
     /// dd-MM-yy
@@ -34,10 +38,14 @@ public enum DateFormatType: String {
     
     /// dd/MM/yyyy HH:mm
     case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
+    /// dd/MM/yyyy HH:mm
+    case dateCompleteReverseShortYearAgainstBar = "dd/MM/yy HH:mm"
     /// EEEE, dd/MM/yyyy HH:mm
     case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
     /// dd/MM/yyyy HH:mm:ss
     case dateCompleteSecondsReverseAgainstBar = "dd/MM/yyyy HH:mm:ss"
+    /// dd/MM/yy HH:mm:ss
+    case dateCompleteSecondsShortYearReverseAgainstBar = "dd/MM/yy HH:mm:ss"
     /// dd/MM/yyyy
     case dateReverseAgainstBar = "dd/MM/yyyy"
     /// dd/MM/yy
