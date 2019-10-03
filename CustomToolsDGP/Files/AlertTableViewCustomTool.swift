@@ -183,6 +183,8 @@ public class AlertTableViewCustomTool: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCellCustom.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.separatorStyle = .none
+//        tableView.clipsToBounds = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         // Add items to stackView
