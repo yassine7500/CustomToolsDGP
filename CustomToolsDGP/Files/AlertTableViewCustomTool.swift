@@ -42,8 +42,11 @@ public class AlertTableViewCustomTool: UIViewController {
     var cellHeight: CGFloat = 50
     var tableViewHeight: CGFloat = 150
     
+    var tableViewCellBackground: UIColor!
+    var tableViewCellTextColor: UIColor!
+    
     // MARK: START METHODS
-    public func show(delegate: AlertTableViewCustomToolProtocol, data: [Any], title: String?, message: String?, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, typeFormatViews: ButtonsFormatType = .stickedDown, topCloseButtonImage: UIImage? = nil, tableViewHeightValue: CGFloat = 150, cellHeightValue: CGFloat = 50, isActiveAcceptButton: Bool = false, addWhiteSpaceBottomMessage: Bool = false) {
+    public func show(delegate: AlertTableViewCustomToolProtocol, data: [Any], title: String?, message: String?, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, typeFormatViews: ButtonsFormatType = .stickedDown, topCloseButtonImage: UIImage? = nil, tableViewHeightValue: CGFloat = 150, cellHeightValue: CGFloat = 50, isActiveAcceptButton: Bool = false, addWhiteSpaceBottomMessage: Bool = false, tableViewCellBackground: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), tableViewCellTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)) {
         
         // Initial control to not duplicate alerts
         guard !isAlertTableViewCustomToolOpen else {
@@ -56,6 +59,8 @@ public class AlertTableViewCustomTool: UIViewController {
         isAlertTableViewCustomToolOpen = true
         self.delegateProtocol = delegate
         self.data = data
+        self.tableViewCellBackground = tableViewCellBackground
+        self.tableViewCellTextColor = tableViewCellTextColor
         
         if tableViewHeightValue > ((window?.layer.bounds.height)! / 2) {
             self.tableViewHeight = ((window?.layer.bounds.height)! / 2)
@@ -505,7 +510,11 @@ extension AlertTableViewCustomTool: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(data?[indexPath.row] ?? "?")"
+        
+        cell.backgroundColor = self.tableViewCellBackground
+        cell.textLabel?.textColor = self.tableViewCellTextColor
+        cell.textLabel?.text = "\(data?[indexPath.row] ?? "?")"
+        
         return cell
     }
 }
