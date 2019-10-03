@@ -38,7 +38,7 @@ public enum DateFormatType: String {
     
     /// dd/MM/yyyy HH:mm
     case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
-    /// dd/MM/yyyy HH:mm
+    /// dd/MM/yy HH:mm
     case dateCompleteReverseShortYearAgainstBar = "dd/MM/yy HH:mm"
     /// EEEE, dd/MM/yyyy HH:mm
     case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
