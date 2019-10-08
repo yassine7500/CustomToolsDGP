@@ -75,7 +75,7 @@ public class MapTools {
         }
     }
     
-    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false) -> MKAnnotationView? {
+    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false, clusterTintColor: UIColor? = #colorLiteral(red: 0.9359164238, green: 0.08466722816, blue: 0.1189784482, alpha: 1)) -> MKAnnotationView? {
         
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -86,8 +86,8 @@ public class MapTools {
                 var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
                 if annotationView == nil {
                     annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
-                }                
-                annotationView?.tintColor = .brown
+                }
+                annotationView?.markerTintColor = clusterTintColor
                 annotationView?.annotation = cluster
                 return annotationView
             }
