@@ -75,7 +75,7 @@ public class MapTools {
         }
     }
     
-    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false, clusterTintColor: UIColor? = #colorLiteral(red: 0.9359164238, green: 0.08466722816, blue: 0.1189784482, alpha: 1)) -> MKAnnotationView? {
+    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false, clusterTintColor: UIColor? = #colorLiteral(red: 0.9359164238, green: 0.08466722816, blue: 0.1189784482, alpha: 1), clusterImage: UIImage? = nil) -> MKAnnotationView? {
         
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -87,11 +87,13 @@ public class MapTools {
                 if annotationView == nil {
                     annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
                 }
-                annotationView?.markerTintColor = UIColor.brown
-                annotationView?.backgroundColor = UIColor.green
-                annotationView?.tintColor = UIColor.gray
-                annotationView?.glyphTintColor = UIColor.cyan
-                annotationView?.tintColorDidChange()
+                
+                annotationView?.canShowCallout = false
+                annotationView?.markerTintColor = .brown
+                if clusterImage != nil {
+                    annotationView?.image = clusterImage
+                }
+                
                 annotationView?.annotation = cluster
                 return annotationView
             }
@@ -106,9 +108,6 @@ public class MapTools {
             anView!.annotation = annotation
         }
         anView?.clusteringIdentifier = clusterId
-        anView?.tintColor = UIColor.purple
-        anView?.backgroundColor = UIColor.yellow
-        anView?.tintColorDidChange()
         
         let cpa = annotation as! CustomPointAnnotation
         anView!.image = UIImage(named: cpa.image)
