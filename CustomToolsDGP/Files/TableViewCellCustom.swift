@@ -78,13 +78,13 @@ class TableViewCellCustom: UITableViewCell {
         
         separatorCell.heightAnchor.constraint(equalToConstant: 1).isActive = true
         separatorCell.bottomAnchor.constraint(equalTo: mainViewContainerCell.bottomAnchor, constant: 0).isActive = true
-        separatorCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 10).isActive = true
-        separatorCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -10).isActive = true
+        separatorCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 20).isActive = true
+        separatorCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -20).isActive = true
         
         stackViewCell.topAnchor.constraint(equalTo: mainViewContainerCell.topAnchor, constant: 0).isActive = true
         stackViewCell.bottomAnchor.constraint(equalTo: separatorCell.topAnchor, constant: 0).isActive = true
-        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 16).isActive = true
-        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -16).isActive = true
+        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 20).isActive = true
+        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -20).isActive = true
     }
     
 }
