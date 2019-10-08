@@ -88,6 +88,9 @@ public class MapTools {
                     annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
                 }
                 annotationView?.markerTintColor = UIColor.brown
+                annotationView?.backgroundColor = UIColor.green
+                annotationView?.tintColor = UIColor.gray
+                annotationView?.glyphTintColor = UIColor.cyan
                 annotationView?.annotation = cluster
                 return annotationView
             }
@@ -103,6 +106,7 @@ public class MapTools {
         }
         anView?.clusteringIdentifier = clusterId
         anView?.tintColor = UIColor.purple
+        anView?.backgroundColor = UIColor.yellow
         
         let cpa = annotation as! CustomPointAnnotation
         anView!.image = UIImage(named: cpa.image)
