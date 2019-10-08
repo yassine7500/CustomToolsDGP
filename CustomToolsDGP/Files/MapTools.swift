@@ -87,7 +87,7 @@ public class MapTools {
                 if annotationView == nil {
                     annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
                 }
-                annotationView?.markerTintColor = clusterTintColor
+                annotationView?.markerTintColor = UIColor.brown
                 annotationView?.annotation = cluster
                 return annotationView
             }
