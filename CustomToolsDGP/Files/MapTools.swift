@@ -82,15 +82,17 @@ public class MapTools {
         }
         
         if activeCluster! {
-            if let cluster = annotation as? MKClusterAnnotation {
-                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
-                if annotationView == nil {
-                    annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
-                }                
-                annotationView?.annotation = cluster
-                return annotationView
-            }
+//            if let cluster = annotation as? MKClusterAnnotation {
+//                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
+//                if annotationView == nil {
+//                    annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
+//                }
+//                annotationView?.annotation = cluster
+//                return annotationView
+//            }
+            mapView.register(ClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         }
+        
         
         var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         
@@ -112,6 +114,16 @@ public class MapTools {
 
 public class CustomPointAnnotation: MKPointAnnotation {
     public var image: String!
+}
+
+public class ClusterView: MKMarkerAnnotationView {
+
+    override public var annotation: MKAnnotation? {
+    willSet {
+      markerTintColor = UIColor.brown
+    }
+  }
+  
 }
 
 extension MapTools {
