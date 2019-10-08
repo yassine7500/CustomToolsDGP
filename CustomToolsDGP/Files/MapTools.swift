@@ -102,7 +102,7 @@ public class MapTools {
             anView!.annotation = annotation
         }
         anView?.clusteringIdentifier = clusterId
-        anView?.tintColor = UIColor.brown
+        anView?.tintColor = UIColor.purple
         
         let cpa = annotation as! CustomPointAnnotation
         anView!.image = UIImage(named: cpa.image)
