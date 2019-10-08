@@ -83,8 +83,8 @@ class TableViewCellCustom: UITableViewCell {
         
         stackViewCell.topAnchor.constraint(equalTo: mainViewContainerCell.topAnchor, constant: 0).isActive = true
         stackViewCell.bottomAnchor.constraint(equalTo: separatorCell.topAnchor, constant: 0).isActive = true
-        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 20).isActive = true
-        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -20).isActive = true
+        stackViewCell.leadingAnchor.constraint(equalTo: mainViewContainerCell.leadingAnchor, constant: 24).isActive = true
+        stackViewCell.trailingAnchor.constraint(equalTo: mainViewContainerCell.trailingAnchor, constant: -24).isActive = true
     }
     
 }
