@@ -11,6 +11,7 @@ import MapKit
 public class MapTools {
     
     var mapView: MKMapView?
+    var clusterId = "cluster"
     
     public init(map: MKMapView?) {
         self.mapView = map
@@ -73,10 +74,22 @@ public class MapTools {
         }
     }
     
-    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false) -> MKAnnotationView? {
         
         if !(annotation is CustomPointAnnotation){
             return nil
+        }
+        
+        if activeCluster! {
+            if let cluster = annotation as? MKClusterAnnotation {
+                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
+                if annotationView == nil {
+                    annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
+                }
+                annotationView?.markerTintColor = UIColor.brown
+                annotationView?.annotation = cluster
+                return annotationView
+            }
         }
         
         let reuseId = "MyCustomAnnotation"
@@ -85,7 +98,7 @@ public class MapTools {
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
-            
+            anView?.clusteringIdentifier = clusterId
         } else {
             anView!.annotation = annotation
         }
