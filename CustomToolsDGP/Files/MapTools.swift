@@ -91,8 +91,8 @@ public class MapTools {
                 annotationView?.backgroundColor = UIColor.green
                 annotationView?.tintColor = UIColor.gray
                 annotationView?.glyphTintColor = UIColor.cyan
-                annotationView?.annotation = cluster
                 annotationView?.tintColorDidChange()
+                annotationView?.annotation = cluster
                 return annotationView
             }
         }
