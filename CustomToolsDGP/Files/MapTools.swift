@@ -92,6 +92,7 @@ public class MapTools {
                 annotationView?.tintColor = UIColor.gray
                 annotationView?.glyphTintColor = UIColor.cyan
                 annotationView?.annotation = cluster
+                annotationView?.tintColorDidChange()
                 return annotationView
             }
         }
@@ -107,6 +108,7 @@ public class MapTools {
         anView?.clusteringIdentifier = clusterId
         anView?.tintColor = UIColor.purple
         anView?.backgroundColor = UIColor.yellow
+        anView?.tintColorDidChange()
         
         let cpa = annotation as! CustomPointAnnotation
         anView!.image = UIImage(named: cpa.image)
