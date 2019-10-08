@@ -19,7 +19,7 @@ class TableViewCellCustom: UITableViewCell {
         
         imageToLoadCell = UIImage(named: imageToLoadCellString!)
         
-        contentView.backgroundColor = .gray
+        contentView.backgroundColor = .clear
         
         // View Container Main cell
         mainViewContainerCell.clipsToBounds = true
