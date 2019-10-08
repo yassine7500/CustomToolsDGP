@@ -86,9 +86,9 @@ public class MapTools {
                 var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
                 if annotationView == nil {
                     annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
-                }
-                annotationView?.annotation = cluster
+                }                
                 annotationView?.tintColor = .brown
+                annotationView?.annotation = cluster
                 return annotationView
             }
         }
