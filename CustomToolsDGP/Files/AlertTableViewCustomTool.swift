@@ -135,7 +135,7 @@ public class AlertTableViewCustomTool: UIViewController {
         
         // Label Title
         textLabelTitle = UILabel()
-        textLabelTitle.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        textLabelTitle.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         textLabelTitle.text = title
         textLabelTitle.textAlignment = .center
         textLabelTitle.numberOfLines = 2
@@ -144,7 +144,7 @@ public class AlertTableViewCustomTool: UIViewController {
         
         // Label
         textLabel = UILabel()
-        textLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        textLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textLabel.text = message
         textLabel.textAlignment = .left
         textLabel.numberOfLines = 0

@@ -40,7 +40,7 @@ class TableViewCellCustom: UITableViewCell {
         stackViewCell.translatesAutoresizingMaskIntoConstraints = false
         
         // Label cell
-        textLabelTitle.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        textLabelTitle.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textLabelTitle.text = textString
         textLabelTitle.textAlignment = .left
         textLabelTitle.numberOfLines = 1
