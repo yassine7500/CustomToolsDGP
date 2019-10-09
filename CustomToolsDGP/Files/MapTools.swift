@@ -100,7 +100,10 @@ public class MapTools {
         } else {
             anView!.annotation = annotation
         }
-        anView?.clusteringIdentifier = clusterId
+        
+        if activeCluster! {
+            anView?.clusteringIdentifier = clusterId
+        }        
         
         let cpa = annotation as! CustomPointAnnotation
         anView!.image = UIImage(named: cpa.image)
