@@ -169,6 +169,10 @@ extension NumberTools {
             return result
         } else if let resultString = jsonObject[keyName] as? String {
             
+            guard resultString.isNumeric else {
+                return 0 as! T
+            }
+            
             switch typeResult {
                 
             case .Int:
