@@ -20,11 +20,11 @@ extension Int {
 }
 
 public class NumberTools {
-
+    
     public init() {
         
     }
-
+    
     public enum NumberResultType: String {
         case hours
         case minutes
@@ -84,7 +84,7 @@ public class NumberTools {
 }
 
 extension Numeric {
-
+    
     // create numeric format according to device region
     public func format(numberStyle: NumberFormatter.Style = NumberFormatter.Style.decimal, locale: Locale = Locale.current) -> String? {
         if let num = self as? NSNumber {
@@ -134,7 +134,7 @@ extension Numeric {
         }
         return ""
     }
-
+    
 }
 
 public enum CurrencyType: String {
@@ -150,7 +150,7 @@ extension NumberTools {
         case Float
         case Double
     }
-
+    
     public func getNumberFromJsonKey(typeResult: TypeResult, jsonObject: [String: AnyObject], keyName: String) -> Any {
         
         switch typeResult {
@@ -162,30 +162,48 @@ extension NumberTools {
             return getCustomNumber(typeResult: .Double, type: Double.self, jsonObject: jsonObject, keyName: keyName)
         }
     }
-
+    
     private func getCustomNumber<T>(typeResult: TypeResult, type: T.Type, jsonObject: [String: AnyObject], keyName: String) -> T {
-            
+        
         if let result = jsonObject[keyName] as? T {
             return result
         } else if let resultString = jsonObject[keyName] as? String {
             
-            guard resultString.isNumeric else {
-                return -1.0 as! T
+            switch typeResult {
+                
+            case .Int:
+                if resultString.isNumeric {
+                    return Int(resultString) as! T
+                } else {
+                    return -1 as! T
+                }
+            case .Float:
+                if resultString.isNumeric {
+                    return Float(resultString) as! T
+                } else {
+                    return -1 as! T
+                }
+            case .Double:
+                if resultString.isNumeric {
+                    return Double(resultString) as! T
+                } else {
+                    return -1 as! T
+                }
             }
+            
+        } else {
             
             switch typeResult {
                 
             case .Int:
-                return Int(resultString) as! T
+                return -1 as! T
             case .Float:
-                return Float(resultString) as! T
+                
+                return -1 as! T
             case .Double:
-                return Double(resultString) as! T
+                return -1 as! T
             }
-            
-        } else {
-            return -1.0 as! T
         }
     }
-    
 }
+
