@@ -174,9 +174,9 @@ extension NumberTools {
             case .Int:
                 return Int(resultString) as! T
             case .Float:
-                return Double(resultString) as! T
-            case .Double:
                 return Float(resultString) as! T
+            case .Double:
+                return Double(resultString) as! T
             }
             
         } else {
