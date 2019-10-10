@@ -155,28 +155,28 @@ extension NumberTools {
         
         switch typeResult {
         case .Int:
-            return getCustomNumber(typeResult: Int.self, jsonObject: jsonObject, keyName: keyName)
+            return getCustomNumber(typeResult: .Int, type: Int.self, jsonObject: jsonObject, keyName: keyName)
         case .Float:
-            return getCustomNumber(typeResult: Float.self, jsonObject: jsonObject, keyName: keyName)
+            return getCustomNumber(typeResult: .Float, type: Float.self, jsonObject: jsonObject, keyName: keyName)
         case .Double:
-            return getCustomNumber(typeResult: Double.self, jsonObject: jsonObject, keyName: keyName)
+            return getCustomNumber(typeResult: .Double, type: Double.self, jsonObject: jsonObject, keyName: keyName)
         }
     }
 
-    private func getCustomNumber<T>(typeResult: T.Type, jsonObject: [String: AnyObject], keyName: String) -> T {
+    private func getCustomNumber<T>(typeResult: TypeResult, type: T.Type, jsonObject: [String: AnyObject], keyName: String) -> T {
             
         if let result = jsonObject[keyName] as? T {
             return result
         } else if let resultString = jsonObject[keyName] as? String {
             
-            if T.self is Int.Type {
+            switch typeResult {
+                
+            case .Int:
                 return Int(resultString) as! T
-            } else if T.self is Double.Type {
+            case .Float:
                 return Double(resultString) as! T
-            } else if T.self is Float.Type {
+            case .Double:
                 return Float(resultString) as! T
-            } else {
-                return 0 as! T
             }
             
         } else {
