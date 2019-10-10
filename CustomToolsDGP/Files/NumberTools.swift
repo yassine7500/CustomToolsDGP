@@ -170,7 +170,7 @@ extension NumberTools {
         } else if let resultString = jsonObject[keyName] as? String {
             
             guard resultString.isNumeric else {
-                return -1 as! T
+                return -1.0 as! T
             }
             
             switch typeResult {
@@ -184,7 +184,7 @@ extension NumberTools {
             }
             
         } else {
-            return -1 as! T
+            return -1.0 as! T
         }
     }
     
