@@ -175,19 +175,19 @@ extension NumberTools {
                 if resultString.isNumeric {
                     return Int(resultString) as! T
                 } else {
-                    return -1 as! T
+                    return Int(-1) as! T
                 }
             case .Float:
                 if resultString.isNumeric {
                     return Float(resultString) as! T
                 } else {
-                    return -1 as! T
+                    return Float(-1.0) as! T
                 }
             case .Double:
                 if resultString.isNumeric {
                     return Double(resultString) as! T
                 } else {
-                    return -1 as! T
+                    return Double(-1.0) as! T
                 }
             }
             
@@ -196,12 +196,11 @@ extension NumberTools {
             switch typeResult {
                 
             case .Int:
-                return -1 as! T
+                return Int(-1) as! T
             case .Float:
-                
-                return -1 as! T
+                return Float(-1.0) as! T
             case .Double:
-                return -1 as! T
+                return Double(-1.0) as! T
             }
         }
     }
