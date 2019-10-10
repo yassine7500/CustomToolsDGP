@@ -140,3 +140,46 @@ extension Numeric {
 public enum CurrencyType: String {
     case es = "es_ES"
 }
+
+
+
+extension NumberTools {
+    
+    public enum TypeResult: String {
+        case Int
+        case Float
+        case Double
+    }
+
+    public func getNumberFromJsonKey(typeResult: TypeResult, jsonObject: [String: AnyObject], keyName: String) -> Any {
+        
+        switch typeResult {
+        case .Int:
+            return getCustomNumber(typeResult: Int.self, jsonObject: jsonObject, keyName: keyName)
+        case .Float:
+            return getCustomNumber(typeResult: Float.self, jsonObject: jsonObject, keyName: keyName)
+        case .Double:
+            return getCustomNumber(typeResult: Double.self, jsonObject: jsonObject, keyName: keyName)
+        }
+    }
+
+    private func getCustomNumber<T>(typeResult: T.Type, jsonObject: [String: AnyObject], keyName: String) -> T {
+            
+        if let result = jsonObject[keyName] as? T {
+            return result
+        } else if let resultString = jsonObject[keyName] as? String {
+            
+            if T.self is Int.Type {
+                return Int(resultString) as! T
+            } else if T.self is Double.Type || T.self is Float.Type {
+                return Double(resultString) as! T
+            } else {
+                return 0 as! T
+            }
+            
+        } else {
+            return 0 as! T
+        }
+    }
+    
+}
