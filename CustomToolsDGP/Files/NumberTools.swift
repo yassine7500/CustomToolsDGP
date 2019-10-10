@@ -171,8 +171,10 @@ extension NumberTools {
             
             if T.self is Int.Type {
                 return Int(resultString) as! T
-            } else if T.self is Double.Type || T.self is Float.Type {
+            } else if T.self is Double.Type {
                 return Double(resultString) as! T
+            } else if T.self is Float.Type {
+                return Float(resultString) as! T
             } else {
                 return 0 as! T
             }
