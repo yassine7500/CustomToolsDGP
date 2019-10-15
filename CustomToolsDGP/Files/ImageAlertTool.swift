@@ -33,7 +33,7 @@ public class ImageAlertTool {
             
             DispatchQueue.main.async {
                 if let imageToCache = UIImage(data: data!) {
-                    print("IMAGE SUCCESS!!!")
+                    print(" 🌇 [ImageAlertTool] Image successfully downloaded.")
                     
                     let window = UIApplication.shared.keyWindow
                     
