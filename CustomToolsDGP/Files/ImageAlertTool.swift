@@ -19,16 +19,16 @@ public class ImageAlertTool {
     }
     
     
-    public func openImage(url: String, containerRadius: CGFloat = 6, containerBackground: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), containerBorderWith: CGFloat = 2, containerBorderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1)) {
+    public func openImage(url: String, containerRadius: CGFloat = 6, containerBackground: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), containerBorderWith: CGFloat = 2, containerBorderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), completion: @escaping (Bool) -> ()) {
         
-        guard url != "" else {
-            return
+        if url == "" {
+            completion(false)
         }
         
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
-                return
+                completion(false)
             }
             
             DispatchQueue.main.async {
@@ -106,7 +106,7 @@ public class ImageAlertTool {
                         self.viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
                         self.mainViewContainer.layoutIfNeeded()
                     }, completion: { _ in
-
+                        completion(true)
                     })
                 }
             }
