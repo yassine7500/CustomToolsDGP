@@ -56,6 +56,7 @@
 		96CB506722E5C89900C18D72 /* BorderTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB506622E5C89900C18D72 /* BorderTools.swift */; };
 		96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */; };
 		96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */; };
+		96F3B7A923561657003DC2E5 /* ImageAlertTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */; };
 		96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		96CB506622E5C89900C18D72 /* BorderTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTools.swift; sourceTree = "<group>"; };
 		96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCustomTool.swift; sourceTree = "<group>"; };
 		96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerValuesTool.swift; sourceTree = "<group>"; };
+		96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlertTool.swift; sourceTree = "<group>"; };
 		96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
+				96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				963E083722E332F00053BD47 /* GestureRecognizerTools.swift in Sources */,
 				9673C9C522E483AB00BBA1DB /* StringTools.swift in Sources */,
 				96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */,
+				96F3B7A923561657003DC2E5 /* ImageAlertTool.swift in Sources */,
 				96CB505F22E5C56C00C18D72 /* UrlTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
