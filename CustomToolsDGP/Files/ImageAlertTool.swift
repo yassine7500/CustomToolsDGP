@@ -23,12 +23,14 @@ public class ImageAlertTool {
         
         if url == "" {
             completion(false)
+            return
         }
         
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
                 completion(false)
+                return
             }
             
             DispatchQueue.main.async {
