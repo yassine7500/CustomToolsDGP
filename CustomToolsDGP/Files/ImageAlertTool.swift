@@ -46,7 +46,7 @@ public class ImageAlertTool {
         }).resume()
     }
     
-    public func loadImageFromAssets(image: UIImage, containerRadius: CGFloat, containerBackground: UIColor, containerBorderWith: CGFloat, containerBorderColor: UIColor, completion: @escaping (Bool) -> ()) {
+    public func loadImageFromAssets(image: UIImage, containerRadius: CGFloat = 6, containerBackground: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), containerBorderWith: CGFloat = 2, containerBorderColor: UIColor = #colorLiteral(red: 0.1604149618, green: 0.1736847846, blue: 0.192962541, alpha: 1), completion: @escaping (Bool) -> ()) {
         DispatchQueue.main.async {
             self.loadImageActions(image: image, containerRadius: containerRadius, containerBackground: containerBackground, containerBorderWith: containerBorderWith, containerBorderColor: containerBorderColor) { (success) in
                 completion(success)
