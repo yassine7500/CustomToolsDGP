@@ -30,6 +30,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     weak var delegateProtocol: TextFieldContainerValuesToolProtocol?
     var cellHeight: CGFloat = 50
     var valueHeightContainer: CGFloat!
+    var viewContainerHeightAnchorConstraint: CGFloat = 0
     var textFieldObservers: TextFieldObservers?
     let topBottomSpace: CGFloat = 50
     public var tapGesture: UITapGestureRecognizer!
@@ -92,6 +93,34 @@ public class TextFieldContainerValuesTool: UIViewController {
     public func setDataToTextField(data: [Any]) {
         self.data = data
         self.dataForTableView = self.data
+        
+        if tableView != nil {
+            self.tableView.reloadData()
+        }
+        
+        updateContraintTableView()
+    }
+    
+    private func updateContraintTableView() {
+        
+        if topAnchorCustom != nil, containerPosition == .top, self.dataForTableView!.count > 0 {
+            
+            DispatchQueue.main.async {
+                
+                let tableViewHeigh = CGFloat(self.dataForTableView!.count) * self.cellHeight
+                
+                if tableViewHeigh < self.viewContainerHeightAnchorConstraint {
+                    
+                    let constantValue = self.viewContainerHeightAnchorConstraint - tableViewHeigh
+                    self.topAnchorCustom.constant = constantValue
+                    
+                } else {
+                    self.topAnchorCustom.constant = 0
+                }
+                
+                self.viewContainer.layoutIfNeeded()
+            }
+        }
     }
     
     private func showContainerData() {
@@ -562,6 +591,7 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
             tapGesture.isEnabled = true
         }
         
+        self.updateContraintTableView()
         self.dataForTableView = newData
         self.tableView.reloadData()
     }
@@ -611,7 +641,8 @@ extension TextFieldContainerValuesTool: TextFieldProtocol {
                 self.mainDelegate?.view.frame.origin.y = (-insets.bottom) + 0
             }
             
-            viewContainer.heightAnchor.constraint(equalToConstant: mainContainerHeight - (insets.bottom + topBottomSpace)).isActive = true // ok
+            viewContainerHeightAnchorConstraint = mainContainerHeight - (insets.bottom + topBottomSpace)
+            viewContainer.heightAnchor.constraint(equalToConstant: viewContainerHeightAnchorConstraint).isActive = true
             self.viewContainer.layoutIfNeeded()
             
             break
