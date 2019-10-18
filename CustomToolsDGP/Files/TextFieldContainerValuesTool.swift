@@ -25,6 +25,7 @@ public class TextFieldContainerValuesTool: UIViewController {
     public var tableView: UITableView!
     
     // MARK: PARAMETERS
+    var window: UIWindow!
     let cellIdentifier = "TextFieldContainerValuesToolCell"
     weak var delegateProtocol: TextFieldContainerValuesToolProtocol?
     var cellHeight: CGFloat = 50
@@ -52,7 +53,6 @@ public class TextFieldContainerValuesTool: UIViewController {
     var durationCloseAnimation: TimeInterval!
     var completionAction: ( ()->Void )?
     
-    var isTextFieldActived = false
     var isTextFieldPopulate = false
     var isContainerReduced = false
     var isItemSelected = false
@@ -102,7 +102,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         }
         
         // Parameters
-        let window = UIApplication.shared.keyWindow
+        window = UIApplication.shared.keyWindow
         isTextFieldContainerValuesToolOpen = true
         self.cellHeight = cellHeightValue
         
@@ -122,7 +122,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         viewContainer.clipsToBounds = true
         viewContainer.layer.borderWidth = 3
         viewContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-        viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        viewContainer.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.5861583352, blue: 0.4751331508, alpha: 0)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -155,10 +155,9 @@ public class TextFieldContainerValuesTool: UIViewController {
         switch containerPosition {
         case .bottom:
             viewContainer.topAnchor.constraint(equalTo: textFieldReference.bottomAnchor, constant: textFieldSeparation).isActive = true
-            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
+            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: 400).isActive = true
             break
         case .top:
-            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: valueHeightContainer).isActive = true
             viewContainer.bottomAnchor.constraint(equalTo: textFieldReference.topAnchor, constant: -textFieldSeparation).isActive = true
             break
         case .none:
@@ -213,7 +212,7 @@ extension TextFieldContainerValuesTool {
                 
                 topAnchorCustom.constant = 0
                 self.viewContainer.layoutIfNeeded()
-                
+
                 UIView.animate(withDuration: durationCloseAnimation, animations: {
                     self.topAnchorCustom.constant = self.valueHeightContainer
                     self.viewContainer.layoutIfNeeded()
@@ -339,7 +338,7 @@ extension TextFieldContainerValuesTool {
                 
                 topAnchorCustom.constant = valueHeightContainer
                 self.viewContainer.layoutIfNeeded()
-                
+
                 UIView.animate(withDuration: durationAnimation, animations: {
                     self.topAnchorCustom.constant = 0
                     self.viewContainer.layoutIfNeeded()
@@ -385,16 +384,24 @@ extension TextFieldContainerValuesTool: UITableViewDataSource {
             separatorColor: cellSeparatorColor,
             textString: "\(dataForTableView?[indexPath.row] ?? "?")"
         )
-                
-        if indexPath.row == 0 {
-            cell.roundSpecificsCornersCells(corners: [.topLeft, .topRight], radius: 6)
-            cell.separatorCell.isHidden = false
-        } else if dataForTableView?.count == indexPath.row+1 {
-            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+        
+        if dataForTableView?.count == 1 {
+            
+            cell.roundSpecificsCornersCells(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 6)
             cell.separatorCell.isHidden = true
+            
         } else {
-            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 0)
-            cell.separatorCell.isHidden = false
+            
+            if indexPath.row == 0 {
+                cell.roundSpecificsCornersCells(corners: [.topLeft, .topRight], radius: 6)
+                cell.separatorCell.isHidden = false
+            } else if dataForTableView?.count == indexPath.row+1 {
+                cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+                cell.separatorCell.isHidden = true
+            } else {
+                cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 0)
+                cell.separatorCell.isHidden = false
+            }
         }
         
         return cell
@@ -444,6 +451,22 @@ extension TextFieldContainerValuesTool {
         return resultingHeight
     }
     
+    private func calculateMainContainerHeight(containerPosition: ContainerPositionType, textFieldYposition: CGFloat, textFieldHeight: CGFloat , windowHeight: CGFloat, topBottomSpace: CGFloat, spaceBetweenContainerAndTextField: CGFloat) -> CGFloat {
+                
+        var usefulSpace: CGFloat = 0
+        
+        switch containerPosition {
+        case .bottom:
+            usefulSpace = windowHeight - (textFieldYposition + textFieldHeight + spaceBetweenContainerAndTextField + topBottomSpace)
+            break
+        case .top:
+            usefulSpace = textFieldYposition - (topBottomSpace + spaceBetweenContainerAndTextField)
+            break
+        }
+        
+        return usefulSpace
+    }
+    
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         print("premio")
         self.mainDelegate?.dismissKeyboardCustom()
@@ -462,7 +485,6 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         print("textFieldDidBeginEditing")
-        self.isTextFieldActived = true
         self.textFieldObservers?.createObservers()
         self.showContainerData()
         self.startAnimationView()
@@ -487,6 +509,10 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
             
         } else {
             self.isItemSelected = false
+        }
+        
+        if activeConstanlyGetWordLooking {
+            updateTableView(newData: [Any]())
         }
     }
     
@@ -539,7 +565,6 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
         self.dataForTableView = newData
         self.tableView.reloadData()
     }
-    
 }
 
 
@@ -561,17 +586,20 @@ extension TextFieldContainerValuesTool: TextFieldProtocol {
     
     public func passInsetsToMoveKeyboard(insets: UIEdgeInsets, keyboardHeight: Int) {
         
-        print(" ⚠️ keyboardHeight: \(keyboardHeight) ")
+        let mainContainerHeight = calculateMainContainerHeight(
+            containerPosition: containerPosition,
+            textFieldYposition: textFieldReference.layer.position.y,
+            textFieldHeight: textFieldReference.bounds.height,
+            windowHeight: window!.layer.bounds.height,
+            topBottomSpace: 0,
+            spaceBetweenContainerAndTextField: 10
+        )
         
         switch containerPosition {
             
         case .bottom:
             
-            if isTextFieldActived, !isContainerReduced {
-                self.isTextFieldActived = false
-                bottomAnchorCustom.constant = bottomAnchorCustom.constant - (CGFloat(keyboardHeight) - topBottomSpace)
-                self.viewContainer.layoutIfNeeded()
-            }
+            viewContainer.heightAnchor.constraint(lessThanOrEqualToConstant: (mainContainerHeight - CGFloat(keyboardHeight))).isActive = true
             
             break
             
@@ -583,10 +611,8 @@ extension TextFieldContainerValuesTool: TextFieldProtocol {
                 self.mainDelegate?.view.frame.origin.y = (-insets.bottom) + 0
             }
             
-            if !isContainerReduced {
-                topAnchorCustom.constant = topAnchorCustom.constant + (CGFloat(keyboardHeight) + topBottomSpace)
-                self.viewContainer.layoutIfNeeded()
-            }
+            viewContainer.heightAnchor.constraint(equalToConstant: mainContainerHeight - (insets.bottom + topBottomSpace)).isActive = true // ok
+            self.viewContainer.layoutIfNeeded()
             
             break
             
