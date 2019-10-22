@@ -178,13 +178,13 @@ public class DateTools {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    public func getSecondsFromHourMinutesSecondsDate(date: String, dateFormatOut: DateFormatType) -> Int {
+    public func getSecondsFromHourMinutesSecondsDate(date: String, dateFormat: DateFormatType) -> Int {
         
         var totalSeconds = 0
         
-        let hour = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justHour)
-        let minutes = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justMinutes)
-        let seconds = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justSeconds)
+        let hour = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justHour)
+        let minutes = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justMinutes)
+        let seconds = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justSeconds)
         
         guard hour.isNumeric && minutes.isNumeric && seconds.isNumeric else {
             return totalSeconds
