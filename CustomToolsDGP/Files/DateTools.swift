@@ -75,6 +75,8 @@ public enum DateFormatType: String {
     case justHour = "HH"
     /// mm
     case justMinutes = "mm"
+    /// ss
+    case justSeconds = "ss"
 }
 
 
