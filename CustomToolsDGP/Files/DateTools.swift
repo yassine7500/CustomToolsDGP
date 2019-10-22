@@ -178,6 +178,25 @@ public class DateTools {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
+    public func getSecondsFromHourMinutesSecondsDate(date: String, dateFormatOut: DateFormatType) -> Int {
+        
+        var totalSeconds = 0
+        
+        let hour = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justHour)
+        let minutes = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justMinutes)
+        let seconds = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormatOut, dateFormatOut: .justSeconds)
+        
+        guard hour.isNumeric && minutes.isNumeric && seconds.isNumeric else {
+            return totalSeconds
+        }
+        
+        let secondsFromHour = (Int(hour)! * 60) * 60
+        let secondsFromMinutes = (Int(hour)! * 60)
+        totalSeconds = secondsFromHour + secondsFromMinutes + Int(seconds)!
+        
+        return totalSeconds
+    }
+    
     // MARK: GET DIFFERENCES
     public func getDifferenceBetweenDatesInHours(dateStart: Date, dateEnd: Date) -> String {
         
