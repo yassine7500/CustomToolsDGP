@@ -43,25 +43,28 @@ public class PermissionTools {
         }
     }
     
-    public func checkLocationPermission(completion: @escaping (Bool) -> ()) {
+    public func checkLocationPermission(completion: @escaping (Int) -> ()) {
         
         if CLLocationManager.locationServicesEnabled() {
             
             switch CLLocationManager.authorizationStatus() {
                 
-            case .notDetermined, .restricted, .denied:
+            case .restricted, .denied:
                 print(text: "Location permission denied", type: .warning)
-                completion(false)
+                completion(0)
+            case .notDetermined:
+                print(text: "Location permission notDetermined", type: .exclamationRed)
+                completion(1)
             case .authorizedAlways, .authorizedWhenInUse:
                 print(text: "Location permission authorized", type: .success)
-                completion(true)
+                completion(2)
             @unknown default:
                 print(text: "Location permission denied (@unknown default)", type: .warning)
-                completion(false)
+                completion(0)
             }
         } else {
             print(text: "Location permission disables", type: .warning)
-            completion(false)
+            completion(0)
         }
     }
     
