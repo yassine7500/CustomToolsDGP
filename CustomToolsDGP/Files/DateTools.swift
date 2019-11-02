@@ -14,6 +14,8 @@ public enum DateFormatType: String {
     
     /// yyyy-MM-dd
     case date = "yyyy-MM-dd"
+    /// EEEE, yyyy-MM-dd
+    case dateDay = "EEEE, yyyy-MM-dd"
     /// EEEE, yyyy-MM-dd HH:mm
     case dateCompleteDay = "EEEE, yyyy-MM-dd HH:mm"
     /// yyyy-MM-dd HH:mm
@@ -25,6 +27,8 @@ public enum DateFormatType: String {
     case dateCompleteReverse = "dd-MM-yyyy HH:mm"
     /// dd-MM-yy HH:mm
     case dateCompleteReverseShortYear = "dd-MM-yy HH:mm"
+    /// EEEE, dd-MM-yyyy
+    case dateReverseDay = "EEEE, dd-MM-yyyy"
     /// EEEE, dd-MM-yyyy HH:mm
     case dateCompleteReverseDay = "EEEE, dd-MM-yyyy HH:mm"
     /// dd-MM-yyyy HH:mm:ss
@@ -40,6 +44,8 @@ public enum DateFormatType: String {
     case dateCompleteReverseAgainstBar = "dd/MM/yyyy HH:mm"
     /// dd/MM/yy HH:mm
     case dateCompleteReverseShortYearAgainstBar = "dd/MM/yy HH:mm"
+    /// EEEE, dd/MM/yyyy
+    case dateReverseDayAgainstBar = "EEEE, dd/MM/yyyy"
     /// EEEE, dd/MM/yyyy HH:mm
     case dateCompleteReverseDayAgainstBar = "EEEE, dd/MM/yyyy HH:mm"
     /// dd/MM/yyyy HH:mm:ss
