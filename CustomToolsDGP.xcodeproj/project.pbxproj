@@ -58,6 +58,15 @@
 		96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */; };
 		96F3B7A923561657003DC2E5 /* ImageAlertTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */; };
 		96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */; };
+		96F81EF3236EFD2E0053331F /* CalendarKoyomiTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF2236EFD2D0053331F /* CalendarKoyomiTool.swift */; };
+		96F81EFD236EFD5A0053331F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF5236EFD5A0053331F /* DateExtension.swift */; };
+		96F81EFE236EFD5A0053331F /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF6236EFD5A0053331F /* DateModel.swift */; };
+		96F81EFF236EFD5A0053331F /* KoyomiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF7236EFD5A0053331F /* KoyomiCell.swift */; };
+		96F81F00236EFD5A0053331F /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF8236EFD5A0053331F /* KoyomiLayout.swift */; };
+		96F81F01236EFD5A0053331F /* Koyomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EF9236EFD5A0053331F /* Koyomi.swift */; };
+		96F81F02236EFD5A0053331F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EFA236EFD5A0053331F /* UIViewExtension.swift */; };
+		96F81F03236EFD5A0053331F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EFB236EFD5A0053331F /* UIColorExtension.swift */; };
+		96F81F04236EFD5A0053331F /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F81EFC236EFD5A0053331F /* DictionaryExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +123,15 @@
 		96D2CCDD233B86AB002C1889 /* TextFieldContainerValuesTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerValuesTool.swift; sourceTree = "<group>"; };
 		96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlertTool.swift; sourceTree = "<group>"; };
 		96F7F74123464FBB00670E00 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
+		96F81EF2236EFD2D0053331F /* CalendarKoyomiTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKoyomiTool.swift; sourceTree = "<group>"; };
+		96F81EF5236EFD5A0053331F /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		96F81EF6236EFD5A0053331F /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		96F81EF7236EFD5A0053331F /* KoyomiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoyomiCell.swift; sourceTree = "<group>"; };
+		96F81EF8236EFD5A0053331F /* KoyomiLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoyomiLayout.swift; sourceTree = "<group>"; };
+		96F81EF9236EFD5A0053331F /* Koyomi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koyomi.swift; sourceTree = "<group>"; };
+		96F81EFA236EFD5A0053331F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		96F81EFB236EFD5A0053331F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		96F81EFC236EFD5A0053331F /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +180,7 @@
 				96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
 				96CB506622E5C89900C18D72 /* BorderTools.swift */,
+				96F81EF2236EFD2D0053331F /* CalendarKoyomiTool.swift */,
 				9644128F22E7243C0028A062 /* CellTools.swift */,
 				963E083022E32B640053BD47 /* ColorTools.swift */,
 				964C641022FC346D0075ACB7 /* ContactTool.swift */,
@@ -199,6 +218,7 @@
 				96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */,
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
+				96F81EF4236EFD3D0053331F /* Calendar Koyomi files */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -232,6 +252,21 @@
 				9673C9C622E485F200BBA1DB /* LanguageToolsSample.swift */,
 			);
 			path = Samples;
+			sourceTree = "<group>";
+		};
+		96F81EF4236EFD3D0053331F /* Calendar Koyomi files */ = {
+			isa = PBXGroup;
+			children = (
+				96F81EF5236EFD5A0053331F /* DateExtension.swift */,
+				96F81EF6236EFD5A0053331F /* DateModel.swift */,
+				96F81EFC236EFD5A0053331F /* DictionaryExtension.swift */,
+				96F81EF9236EFD5A0053331F /* Koyomi.swift */,
+				96F81EF7236EFD5A0053331F /* KoyomiCell.swift */,
+				96F81EF8236EFD5A0053331F /* KoyomiLayout.swift */,
+				96F81EFB236EFD5A0053331F /* UIColorExtension.swift */,
+				96F81EFA236EFD5A0053331F /* UIViewExtension.swift */,
+			);
+			path = "Calendar Koyomi files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */,
+				96F81F04236EFD5A0053331F /* DictionaryExtension.swift in Sources */,
+				96F81EFD236EFD5A0053331F /* DateExtension.swift in Sources */,
 				96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */,
 				96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */,
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
@@ -324,7 +361,9 @@
 				9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */,
 				96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
+				96F81EF3236EFD2E0053331F /* CalendarKoyomiTool.swift in Sources */,
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
+				96F81EFF236EFD5A0053331F /* KoyomiCell.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageToolsSample.swift in Sources */,
 				96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */,
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
@@ -335,13 +374,17 @@
 				9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */,
 				9657EF9222E5DA55002A9196 /* AsyncImageLoaderTool.swift in Sources */,
 				964C640D22FC12690075ACB7 /* ShareTool.swift in Sources */,
+				96F81F03236EFD5A0053331F /* UIColorExtension.swift in Sources */,
+				96F81F00236EFD5A0053331F /* KoyomiLayout.swift in Sources */,
 				960E6F172333CF5100489066 /* PermissionTools.swift in Sources */,
+				96F81F01236EFD5A0053331F /* Koyomi.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
+				96F81EFE236EFD5A0053331F /* DateModel.swift in Sources */,
 				9644129422E725A50028A062 /* Md5hashTool.swift in Sources */,
 				965EF0692323C235009B7D3B /* PrintTools.swift in Sources */,
 				96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */,
@@ -355,6 +398,7 @@
 				967257DF22E740B900263560 /* JsonDecoderTool.swift in Sources */,
 				9644129822E729250028A062 /* IdentifyingDocumentsValidator.swift in Sources */,
 				964C641122FC346D0075ACB7 /* ContactTool.swift in Sources */,
+				96F81F02236EFD5A0053331F /* UIViewExtension.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
 				9644129022E7243C0028A062 /* CellTools.swift in Sources */,
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
