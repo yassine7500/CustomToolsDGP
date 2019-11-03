@@ -96,6 +96,13 @@ public var globalIdDate = ""
 
 public class DateTools {
     
+    public enum DayShortedString: Int {
+        case none = 0
+        case one = 1
+        case two = 2
+        case three = 3
+    }
+    
     public init() {
         
     }
@@ -237,6 +244,18 @@ public class DateTools {
         print(" - - - - > [\(globalIdDate)] - FINISHED AT: \t", globalEndDate)
         print(" - - - - > [\(globalIdDate)] - DIFFERENCE: \t", getDifferenceBetweenDatesInHours(dateStart: globalStartDate, dateEnd: globalEndDate), "\n")
         globalIdDate = ""
+    }
+    
+    // MARK: GET DAYS NAME
+    public func weekdayNameFrom(weekdayNumber: Int, shortedString: DayShortedString = .none) -> String {
+        let calendar = Calendar.current
+        let dayIndex = ((weekdayNumber - 1) + (calendar.firstWeekday - 1)) % 7
+        
+        if shortedString == .none {
+            return calendar.weekdaySymbols[dayIndex]
+        } else {
+            return String(calendar.weekdaySymbols[dayIndex].prefix(shortedString.rawValue))
+        }
     }
   
 }
