@@ -367,10 +367,10 @@ extension AlertCustomTool {
     
     // LABEL
     public func setLabelFontSize(value: CGFloat) {
-        textLabel.font = textLabelTitle.font.withSize(value)
+        textLabel.font = textLabel.font.withSize(value)
     }
     public func setLabelFontSizeAndWeight(value: CGFloat, weight: UIFont.Weight) {
-        textLabelTitle.font = UIFont.systemFont(ofSize: value, weight: weight)
+        textLabel.font = UIFont.systemFont(ofSize: value, weight: weight)
     }
     public func setLabelAlignment(value: NSTextAlignment) {
         textLabel.textAlignment = value
