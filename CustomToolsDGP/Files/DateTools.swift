@@ -78,7 +78,9 @@ public enum DateFormatType: String {
     /// M
     case justMonthNumber = "M"
     /// MMM
-    case justMonthName = "MMM"
+    case justMonthNameShort = "MMM"
+    /// MMMM
+    case justMonthName = "MMMM"
     /// yyyy
     case justYear = "yyyy"
     /// yy
