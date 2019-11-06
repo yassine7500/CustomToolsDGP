@@ -27,6 +27,7 @@ public class CalendarKoyomiTool {
     public enum CalendarLanguage: String {
         case english
         case spanish
+        case catalan
     }
     
     // MARK: OBJECTS
@@ -79,6 +80,9 @@ public class CalendarKoyomiTool {
         
         if languageSelectedValue == .spanish {
             localeValue = Locale(identifier: "es-ES")
+            dateTools.dateFormatter.locale = localeValue
+        } else if languageSelectedValue == .catalan {
+            localeValue = Locale(identifier: "ca-ES")
             dateTools.dateFormatter.locale = localeValue
         } else {
             localeValue = Locale(identifier: "en-GB")
