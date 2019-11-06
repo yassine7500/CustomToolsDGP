@@ -121,21 +121,29 @@ public class DateTools {
         return dateFormatter.string(from: date)
     }
     
-    public func getDateFromString(date: String, dateFormatOut: DateFormatType) -> Date {
+    public func getDateFromString(date: String, dateFormatIn: DateFormatType, forceLocaleDevice: Bool = false) -> Date {
         
-        dateFormatter.dateFormat = dateFormatOut.rawValue
+        var dateFormatterCustom: DateFormatter!
         
-        if dateFormatter.date(from: date) != nil {
-            return dateFormatter.date(from: date)!
+        if forceLocaleDevice {
+            dateFormatterCustom = DateFormatter()
         } else {
-            return Date()
+            dateFormatterCustom = self.dateFormatter
+        }
+        
+        dateFormatterCustom.dateFormat = dateFormatIn.rawValue
+        
+        if dateFormatterCustom.date(from: date) != nil {
+            return dateFormatterCustom.date(from: date)!
+        } else {
+            return Date(timeIntervalSince1970: 0)
         }
         
     }
     
-    public func getStringDateFromString(date: String, dateFormatIn: DateFormatType, dateFormatOut: DateFormatType) -> String {
+    public func getStringDateFromString(date: String, dateFormatIn: DateFormatType, dateFormatOut: DateFormatType, forceLocaleDevice: Bool = false) -> String {
         
-        let value = getDateFromString(date: date, dateFormatOut: dateFormatIn)
+        let value = getDateFromString(date: date, dateFormatIn: dateFormatIn, forceLocaleDevice: forceLocaleDevice)
         return getStringDateFromDate(date: value, dateFormatOut: dateFormatOut)
     }
     
@@ -166,10 +174,10 @@ public class DateTools {
     }
     
     // MARK: COMPARE
-    public func compareTwoDatesString(dateReference: String, dateToCompare: String, dateFormatOut: DateFormatType) -> Int {
+    public func compareTwoDatesString(dateReference: String, dateToCompare: String, dateFormatIn: DateFormatType) -> Int {
         
-        let referenceDate = getDateFromString(date: dateReference, dateFormatOut: dateFormatOut)
-        let compareDate = getDateFromString(date: dateToCompare, dateFormatOut: dateFormatOut)
+        let referenceDate = getDateFromString(date: dateReference, dateFormatIn: dateFormatIn)
+        let compareDate = getDateFromString(date: dateToCompare, dateFormatIn: dateFormatIn)
         
         return compareTwoDates(dateReference: referenceDate, dateToCompare: compareDate)
     }
@@ -233,8 +241,8 @@ public class DateTools {
     
     public func getDifferenceBetweenDatesInHours(dateStart: String, dateEnd: String, dateFormatIn: DateFormatType) -> String {
         
-        let startTimeDate = getDateFromString(date: dateStart, dateFormatOut: dateFormatIn)
-        let endTimeDate = getDateFromString(date: dateEnd, dateFormatOut: dateFormatIn)
+        let startTimeDate = getDateFromString(date: dateStart, dateFormatIn: dateFormatIn)
+        let endTimeDate = getDateFromString(date: dateEnd, dateFormatIn: dateFormatIn)
         return getDifferenceBetweenDatesInHours(dateStart: startTimeDate, dateEnd: endTimeDate)
     }
     

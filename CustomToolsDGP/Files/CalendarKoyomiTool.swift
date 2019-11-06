@@ -89,8 +89,6 @@ public class CalendarKoyomiTool {
             dateTools.dateFormatter.locale = localeValue
         }
         
-        localeValueGlobal = localeValue
-        
         // Parameters
         let window = UIApplication.shared.keyWindow
         
@@ -710,7 +708,7 @@ extension CalendarKoyomiTool: KoyomiDelegate {
     }
     
     public func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
-        textLabelMont?.text = dateString
+        textLabelMont?.text = dateTools.getStringDateFromString(date: dateString, dateFormatIn: .monthNameYear, dateFormatOut: .monthNameYear, forceLocaleDevice: true)
     }
     
     @objc(koyomi:shouldSelectDates:to:withPeriodLength:)

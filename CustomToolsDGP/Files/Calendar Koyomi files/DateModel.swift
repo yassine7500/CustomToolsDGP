@@ -9,7 +9,6 @@
 import UIKit
 
 public enum MonthType { case previous, current, next }
-public var localeValueGlobal: Locale = Locale(identifier: "en-US")
 
 final class DateModel: NSObject {
     
@@ -107,7 +106,6 @@ final class DateModel: NSObject {
     
     func dateString(in month: MonthType, withFormat format: String) -> String {
         let formatter: DateFormatter = .init()
-        formatter.locale = localeValueGlobal
         formatter.dateFormat = format
         return formatter.string(from: date(of: month))
     }
