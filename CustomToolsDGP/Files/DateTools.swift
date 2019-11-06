@@ -62,7 +62,9 @@ public enum DateFormatType: String {
     /// dd MMM
     case dayMonthName = "dd MMM"
     /// MMM yyyy
-    case monthNameYear = "MMM yyyy"
+    case monthNameYearShort = "MMM yyyy"
+    /// MMMM yyyy
+    case monthNameYear = "MMMM yyyy"
     
     /// HH:mm:ss
     case hourSeconds = "HH:mm:ss"
