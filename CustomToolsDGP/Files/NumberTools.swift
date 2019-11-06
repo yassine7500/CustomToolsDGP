@@ -96,21 +96,21 @@ extension Numeric {
         return nil
     }
     
-    public func formatCustomDecimal(withoutDecimals: Bool = false, optionalCurrencyType: String = "es_ES") -> String? {
-        return formatCustom(numberStyle: .decimal, optionalCurrencyType: optionalCurrencyType, withoutDecimals: withoutDecimals)
+    public func formatCustomDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> String? {
+        return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomCurrency(optionalCurrencyType: String = "es_ES") -> String? {
-        return formatCustom(numberStyle: .currency, optionalCurrencyType: optionalCurrencyType)
+    public func formatCustomCurrency(currencyType: CurrencyType = .spain) -> String? {
+        return formatCustom(numberStyle: .currency, currencyType: currencyType)
     }
     
-    public func formatCustomPercent(optionalCurrencyType: String = "es_ES") -> String? {
-        return formatCustom(numberStyle: .percent, optionalCurrencyType: optionalCurrencyType)
+    public func formatCustomPercent(currencyType: CurrencyType = .spain) -> String? {
+        return formatCustom(numberStyle: .percent, currencyType: currencyType)
     }
     
-    public func formatCustomCurrencyNoSymbol(optionalCurrencyType: String = "es_ES") -> String? {
+    public func formatCustomCurrencyNoSymbol(currencyType: CurrencyType = .spain) -> String? {
         
-        var value: String = formatCustom(numberStyle: .currency, optionalCurrencyType: optionalCurrencyType) ?? ""
+        var value: String = formatCustom(numberStyle: .currency, currencyType: currencyType) ?? ""
         
         if value.count > 2 {
             value.removeLast(2)
@@ -119,11 +119,11 @@ extension Numeric {
         return value
     }
     
-    public func formatCustom(numberStyle: NumberFormatter.Style, optionalCurrencyType: String, withoutDecimals: Bool = false) -> String? {
+    public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool = false) -> String? {
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
-            formater.locale = Locale(identifier: Locale.current.languageCode ?? optionalCurrencyType)
+            formater.locale = Locale(identifier: currencyType.rawValue)
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
@@ -138,7 +138,11 @@ extension Numeric {
 }
 
 public enum CurrencyType: String {
-    case es = "es_ES"
+    /// Spain
+    case spain = "es-ES"
+    /// Chile
+    case chile = "es-CL"
+    
 }
 
 
