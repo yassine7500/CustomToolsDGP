@@ -96,21 +96,21 @@ extension Numeric {
         return nil
     }
     
-    public func formatCustomDecimal(withoutDecimals: Bool = false) -> String? {
-        return formatCustom(numberStyle: .decimal, withoutDecimals: withoutDecimals)
+    public func formatCustomDecimal(withoutDecimals: Bool = false, optionalCurrencyType: String = "es_ES") -> String? {
+        return formatCustom(numberStyle: .decimal, optionalCurrencyType: optionalCurrencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomCurrency() -> String? {
-        return formatCustom(numberStyle: .currency)
+    public func formatCustomCurrency(optionalCurrencyType: String = "es_ES") -> String? {
+        return formatCustom(numberStyle: .currency, optionalCurrencyType: optionalCurrencyType)
     }
     
-    public func formatCustomPercent() -> String? {
-        return formatCustom(numberStyle: .percent)
+    public func formatCustomPercent(optionalCurrencyType: String = "es_ES") -> String? {
+        return formatCustom(numberStyle: .percent, optionalCurrencyType: optionalCurrencyType)
     }
     
-    public func formatCustomCurrencyNoSymbol() -> String? {
+    public func formatCustomCurrencyNoSymbol(optionalCurrencyType: String = "es_ES") -> String? {
         
-        var value: String = formatCustom(numberStyle: .currency) ?? ""
+        var value: String = formatCustom(numberStyle: .currency, optionalCurrencyType: optionalCurrencyType) ?? ""
         
         if value.count > 2 {
             value.removeLast(2)
@@ -119,11 +119,11 @@ extension Numeric {
         return value
     }
     
-    public func formatCustom(numberStyle: NumberFormatter.Style, withoutDecimals: Bool = false) -> String? {
+    public func formatCustom(numberStyle: NumberFormatter.Style, optionalCurrencyType: String, withoutDecimals: Bool = false) -> String? {
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
-            formater.locale = Locale(identifier: CurrencyType.es.rawValue)
+            formater.locale = Locale(identifier: Locale.current.languageCode ?? optionalCurrencyType)
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
