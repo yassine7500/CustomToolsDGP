@@ -75,6 +75,8 @@ public enum DateFormatType: String {
     case justDayWeek = "EEEE"
     /// MM
     case justMonth = "MM"
+    /// M
+    case justMonthNumber = "M"
     /// MMM
     case justMonthName = "MMM"
     /// yyyy
