@@ -85,7 +85,7 @@ public class CalendarKoyomiTool {
             localeValue = Locale(identifier: "ca-ES")
             dateTools.dateFormatter.locale = localeValue
         } else {
-            localeValue = Locale(identifier: "en-GB")
+            localeValue = Locale(identifier: "en-US")
             dateTools.dateFormatter.locale = localeValue
         }
         

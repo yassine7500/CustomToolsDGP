@@ -104,7 +104,7 @@
 //    //        languageCodeApp = "ca-ES"
 //    case "ca-ES":
 //        languageCodeApp = "ca"
-//    case "en-GB":
+//    case "en-US":
 //        languageCodeApp = "en"
 //    case "es-ES":
 //        languageCodeApp = "es"

@@ -9,7 +9,7 @@
 import UIKit
 
 public enum MonthType { case previous, current, next }
-public var localeValueGlobal: Locale = Locale(identifier: "en-GB")
+public var localeValueGlobal: Locale = Locale(identifier: "en-US")
 
 final class DateModel: NSObject {
     
