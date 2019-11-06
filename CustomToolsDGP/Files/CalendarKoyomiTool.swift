@@ -24,6 +24,11 @@ public class CalendarKoyomiTool {
         case monday
     }
     
+    public enum CalendarLanguage: String {
+        case english
+        case spanish
+    }
+    
     // MARK: OBJECTS
     var mainViewContainer: UIView!
     var viewContainer: UIView!
@@ -51,12 +56,15 @@ public class CalendarKoyomiTool {
     
     var selectedDateValue = ""
     var confirmSelectionValue = false
+    var languageSelectedValue: CalendarLanguage!
+    var localeValue: Locale!
+    let monthDateFormatted = "MMMM yyyy"
     
     // MARK: START METHODS
     public init() {
     }
     
-    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints) {
+    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: CalendarLanguage) {
         
         guard !isCalendarKoyomiToolOpened else {
             return
@@ -67,6 +75,17 @@ public class CalendarKoyomiTool {
         
         confirmSelectionValue = confirmSelection
         selectedDateValue = dateTools.getStringDateFromDate(date: Date(), dateFormatOut: .dateDay)
+        languageSelectedValue = calendarLanguage
+        
+        if languageSelectedValue == .spanish {
+            localeValue = Locale(identifier: "es-ES")
+            dateTools.dateFormatter.locale = localeValue
+        } else {
+            localeValue = Locale(identifier: "en-GB")
+            dateTools.dateFormatter.locale = localeValue
+        }
+        
+        localeValueGlobal = localeValue
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -126,23 +145,23 @@ public class CalendarKoyomiTool {
         
         if firstDayType == .monday {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: .three)
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: .three, locale: localeValue)
             )
         } else {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three)
+                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue)
             )
         }
         

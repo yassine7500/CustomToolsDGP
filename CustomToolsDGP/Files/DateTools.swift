@@ -113,7 +113,7 @@ public class DateTools {
         
     }
 
-    var dateFormatter = DateFormatter()
+    public var dateFormatter = DateFormatter()
     
     // MARK: CUSTOM DATE
     public func getStringDateFromDate(date: Date, dateFormatOut: DateFormatType) -> String {
@@ -253,8 +253,9 @@ public class DateTools {
     }
     
     // MARK: GET DAYS NAME
-    public func weekdayNameFrom(weekdayNumber: Int, shortedString: DayShortedString = .none) -> String {
-        let calendar = Calendar.current
+    public func weekdayNameFrom(weekdayNumber: Int, shortedString: DayShortedString = .none,  locale: Locale) -> String {
+        var calendar = Calendar.current
+        calendar.locale = locale
         let dayIndex = ((weekdayNumber - 1) + (calendar.firstWeekday - 1)) % 7
         
         if shortedString == .none {
