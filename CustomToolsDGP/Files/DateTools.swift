@@ -59,6 +59,10 @@ public enum DateFormatType: String {
     /// MM/yyyy
     case dateMonthYearAgainstBar = "MM/yyyy"
     
+    /// yyyy MM
+    case yearMonthNumbers = "yyyy MM"
+    /// MM yyyy
+    case yearMonthNumbersReverse = "MM yyyy"
     /// dd MMM
     case dayMonthName = "dd MMM"
     /// MMM yyyy
@@ -121,29 +125,20 @@ public class DateTools {
         return dateFormatter.string(from: date)
     }
     
-    public func getDateFromString(date: String, dateFormatIn: DateFormatType, forceLocaleDevice: Bool = false) -> Date {
+    public func getDateFromString(date: String, dateFormatIn: DateFormatType) -> Date {
         
-        var dateFormatterCustom: DateFormatter!
+        dateFormatter.dateFormat = dateFormatIn.rawValue
         
-        if forceLocaleDevice {
-            dateFormatterCustom = DateFormatter()
-        } else {
-            dateFormatterCustom = self.dateFormatter
-        }
-        
-        dateFormatterCustom.dateFormat = dateFormatIn.rawValue
-        
-        if dateFormatterCustom.date(from: date) != nil {
-            return dateFormatterCustom.date(from: date)!
+        if dateFormatter.date(from: date) != nil {
+            return dateFormatter.date(from: date)!
         } else {
             return Date(timeIntervalSince1970: 0)
         }
-        
     }
     
-    public func getStringDateFromString(date: String, dateFormatIn: DateFormatType, dateFormatOut: DateFormatType, forceLocaleDevice: Bool = false) -> String {
+    public func getStringDateFromString(date: String, dateFormatIn: DateFormatType, dateFormatOut: DateFormatType) -> String {
         
-        let value = getDateFromString(date: date, dateFormatIn: dateFormatIn, forceLocaleDevice: forceLocaleDevice)
+        let value = getDateFromString(date: date, dateFormatIn: dateFormatIn)
         return getStringDateFromDate(date: value, dateFormatOut: dateFormatOut)
     }
     

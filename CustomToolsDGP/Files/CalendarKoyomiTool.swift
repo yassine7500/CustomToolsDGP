@@ -24,12 +24,6 @@ public class CalendarKoyomiTool {
         case monday
     }
     
-    public enum CalendarLanguage: String {
-        case english
-        case spanish
-        case catalan
-    }
-    
     // MARK: OBJECTS
     var mainViewContainer: UIView!
     var viewContainer: UIView!
@@ -57,15 +51,14 @@ public class CalendarKoyomiTool {
     
     var selectedDateValue = ""
     var confirmSelectionValue = false
-    var languageSelectedValue: CalendarLanguage!
     var localeValue: Locale!
-    let monthDateFormatted = "MMMM yyyy"
+    let monthDateFormatted: DateFormatType = .yearMonthNumbers
     
     // MARK: START METHODS
     public init() {
     }
     
-    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: CalendarLanguage) {
+    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: Locale!) {
         
         guard !isCalendarKoyomiToolOpened else {
             return
@@ -76,18 +69,9 @@ public class CalendarKoyomiTool {
         
         confirmSelectionValue = confirmSelection
         selectedDateValue = dateTools.getStringDateFromDate(date: Date(), dateFormatOut: .dateDay)
-        languageSelectedValue = calendarLanguage
-        
-        if languageSelectedValue == .spanish {
-            localeValue = Locale(identifier: "es-ES")
-            dateTools.dateFormatter.locale = localeValue
-        } else if languageSelectedValue == .catalan {
-            localeValue = Locale(identifier: "ca-ES")
-            dateTools.dateFormatter.locale = localeValue
-        } else {
-            localeValue = Locale(identifier: "en-US")
-            dateTools.dateFormatter.locale = localeValue
-        }
+        localeValue = calendarLanguage
+        dateTools.dateFormatter.locale = localeValue
+
         
         // Parameters
         let window = UIApplication.shared.keyWindow
@@ -139,7 +123,7 @@ public class CalendarKoyomiTool {
         calendarKoyomi?.translatesAutoresizingMaskIntoConstraints = false
         calendarKoyomi?.calendarDelegate = self
         calendarKoyomi?.circularViewDiameter = 0.75
-        calendarKoyomi?.currentDateFormat = "MMMM yyyy"
+        calendarKoyomi?.currentDateFormat = monthDateFormatted.rawValue
         calendarKoyomi?.style = calendarStyle
         if selectionMode != nil {
             calendarKoyomi?.selectionMode = selectionMode!
@@ -671,7 +655,9 @@ extension CalendarKoyomiTool {
     }
     
     private func closeAnimation() {
-        self.delegateCalendarKoyomiTool?.dateSelectedValue?(date: selectedDateValue)
+        
+        let dateResult = dateTools.getStringDateFromString(date: selectedDateValue, dateFormatIn: .date, dateFormatOut: .date)
+        self.delegateCalendarKoyomiTool?.dateSelectedValue?(date: dateResult)
         
         self.mainViewContainer.alpha = 1.0
         self.mainViewContainer.layoutIfNeeded()
@@ -698,7 +684,7 @@ extension CalendarKoyomiTool: KoyomiDelegate {
             return
         }
         
-        let dateFormatted = dateTools.getStringDateFromDate(date: date!, dateFormatOut: .dateDay)
+        let dateFormatted = dateTools.getStringDateFromDate(date: date!, dateFormatOut: .date)
         self.selectedDateValue = dateFormatted
         
         if !confirmSelectionValue {
@@ -708,7 +694,7 @@ extension CalendarKoyomiTool: KoyomiDelegate {
     }
     
     public func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
-        textLabelMont?.text = dateTools.getStringDateFromString(date: dateString, dateFormatIn: .monthNameYear, dateFormatOut: .monthNameYear, forceLocaleDevice: true)
+        textLabelMont?.text = dateTools.getStringDateFromString(date: dateString, dateFormatIn: monthDateFormatted, dateFormatOut: .monthNameYear)
     }
     
     @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
@@ -719,5 +705,6 @@ extension CalendarKoyomiTool: KoyomiDelegate {
         }
         return true
     }
+
 }
 
