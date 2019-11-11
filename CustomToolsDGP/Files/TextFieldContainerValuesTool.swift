@@ -431,6 +431,11 @@ extension TextFieldContainerValuesTool: UITableViewDataSource {
                 cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 0)
                 cell.separatorCell.isHidden = false
             }
+            
+            if dataForTableView?.count ?? 0 == 1 {
+                cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+                cell.separatorCell.isHidden = true
+            }
         }
         
         return cell

@@ -537,6 +537,11 @@ extension AlertTableViewCustomTool: UITableViewDataSource {
             cell.separatorCell.isHidden = false
         }
         
+        if data?.count ?? 0 == 1 {
+            cell.roundSpecificsCornersCells(corners: [.bottomLeft, .bottomRight], radius: 6)
+            cell.separatorCell.isHidden = true
+        }
+        
         return cell
     }
 }
