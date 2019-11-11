@@ -115,7 +115,7 @@ public class StringTools {
     }
     
     
-    public func setCustomEmailTextBetweenTexts(textA: String, email: String, textB: String) -> NSMutableAttributedString {
+    public func setCustomTextBetweenTexts(textA: String, email: String, textB: String) -> NSMutableAttributedString {
         
         let messageText = NSMutableAttributedString()
         let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil, jumpSpace: true)
