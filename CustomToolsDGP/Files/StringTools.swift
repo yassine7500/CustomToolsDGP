@@ -115,15 +115,15 @@ public class StringTools {
     }
     
     
-    public func setCustomTextBetweenTexts(textA: String, email: String, textB: String) -> NSMutableAttributedString {
+    public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String) -> NSMutableAttributedString {
         
         let messageText = NSMutableAttributedString()
         let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil, jumpSpace: true)
-        let textEmail = setCustomText(text: email, size: 20, weight: .bold, color: nil, jumpSpace: true)
+        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: nil, jumpSpace: true)
         let textB = setCustomText(text: textB, size: 20, weight: .regular, color: nil, jumpSpace: false)
         
         messageText.append(textA)
-        messageText.append(textEmail)
+        messageText.append(textBold)
         messageText.append(textB)
         
         return messageText
