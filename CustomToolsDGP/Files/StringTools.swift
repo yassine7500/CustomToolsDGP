@@ -64,7 +64,7 @@ public class StringTools {
         return words.count
     }
     
-    public func setCustomText(text: String, size: CGFloat = 14, weight: UIFont.Weight = .medium, color: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), jumpSpace: Bool = false) -> NSAttributedString {
+    public func setCustomText(text: String, size: CGFloat = 14, weight: UIFont.Weight = .medium, color: UIColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)) -> NSAttributedString {
         
         let labelFont = UIFont.systemFont(ofSize: size, weight: weight)
         var attributes: [NSAttributedString.Key : Any]!
@@ -79,15 +79,6 @@ public class StringTools {
         
         let result = NSMutableAttributedString()
         result.append(textAattr)
-        
-        if jumpSpace {
-            let textSpace = NSAttributedString(string: "\n")
-            result.append(textSpace)
-        }
-        
-        if color != nil {
-            
-        }
         
         return result
     }
@@ -118,9 +109,9 @@ public class StringTools {
     public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String) -> NSMutableAttributedString {
         
         let messageText = NSMutableAttributedString()
-        let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil, jumpSpace: true)
-        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: nil, jumpSpace: true)
-        let textB = setCustomText(text: textB, size: 20, weight: .regular, color: nil, jumpSpace: false)
+        let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil)
+        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: nil)
+        let textB = setCustomText(text: textB, size: 20, weight: .regular, color: nil)
         
         messageText.append(textA)
         messageText.append(textBold)
