@@ -125,7 +125,7 @@ extension Numeric {
             formater.numberStyle = numberStyle
             formater.locale = Locale(identifier: currencyType.rawValue)
             
-            if !withoutDecimals {
+            if !withoutDecimals || currencyType == .chile {
                 formater.minimumFractionDigits = 2
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
