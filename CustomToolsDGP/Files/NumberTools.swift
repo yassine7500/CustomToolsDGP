@@ -100,17 +100,17 @@ extension Numeric {
         return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomCurrency(currencyType: CurrencyType = .spain) -> String? {
-        return formatCustom(numberStyle: .currency, currencyType: currencyType)
+    public func formatCustomCurrency(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
+        return formatCustom(numberStyle: .currency, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomPercent(currencyType: CurrencyType = .spain) -> String? {
-        return formatCustom(numberStyle: .percent, currencyType: currencyType)
+    public func formatCustomPercent(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
+        return formatCustom(numberStyle: .percent, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomCurrencyNoSymbol(currencyType: CurrencyType = .spain) -> String? {
+    public func formatCustomCurrencyNoSymbol(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
         
-        var value: String = formatCustom(numberStyle: .currency, currencyType: currencyType) ?? ""
+        var value: String = formatCustom(numberStyle: .currency, currencyType: currencyType, withoutDecimals: withoutDecimals) ?? ""
         
         if value.count > 2 {
             value.removeLast(2)
@@ -119,13 +119,13 @@ extension Numeric {
         return value
     }
     
-    public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool = false) -> String? {
+    public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> String? {
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
             formater.locale = Locale(identifier: currencyType.rawValue)
             
-            if !withoutDecimals || currencyType == .chile {
+            if !withoutDecimals {
                 formater.minimumFractionDigits = 2
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
