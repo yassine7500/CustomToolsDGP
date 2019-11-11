@@ -111,12 +111,12 @@ public class StringTools {
     }
     
     
-    public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String) -> NSMutableAttributedString {
+    public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String, withJumpSpace: Bool) -> NSMutableAttributedString {
         
         let messageText = NSMutableAttributedString()
-        let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil, jumpSpace: true)
-        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: nil, jumpSpace: true)
-        let textB = setCustomText(text: textB, size: 20, weight: .regular, color: nil, jumpSpace: false)
+        let textA = setCustomText(text: textA, size: 20, weight: .regular, color: nil, jumpSpace: withJumpSpace)
+        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: nil, jumpSpace: withJumpSpace)
+        let textB = setCustomText(text: textB, size: 20, weight: .regular, color: nil, jumpSpace: withJumpSpace)
         
         messageText.append(textA)
         messageText.append(textBold)
