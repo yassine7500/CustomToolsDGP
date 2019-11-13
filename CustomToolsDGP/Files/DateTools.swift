@@ -256,15 +256,28 @@ public class DateTools {
     }
     
     // MARK: GET DAYS NAME
-    public func weekdayNameFrom(weekdayNumber: Int, shortedString: DayShortedString = .none,  locale: Locale) -> String {
+    public func weekdayNameFrom(weekdayNumber: Int, shortedString: DayShortedString = .none, locale: Locale, capitalize: CapitalizeString) -> String {
         var calendar = Calendar.current
         calendar.locale = locale
         let dayIndex = ((weekdayNumber - 1) + (calendar.firstWeekday - 1)) % 7
         
+        var valueReturn = ""
+        
         if shortedString == .none {
-            return calendar.weekdaySymbols[dayIndex]
+            valueReturn = calendar.weekdaySymbols[dayIndex]
         } else {
-            return String(calendar.weekdaySymbols[dayIndex].prefix(shortedString.rawValue))
+            valueReturn =  String(calendar.weekdaySymbols[dayIndex].prefix(shortedString.rawValue))
+        }
+        
+        switch capitalize {
+        case .none:
+            return valueReturn
+        case .uppercased:
+            return valueReturn.uppercased()
+        case .lowercased:
+            return valueReturn.lowercased()
+        case .capitalized:
+            return valueReturn.capitalized
         }
     }
   

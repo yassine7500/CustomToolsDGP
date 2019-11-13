@@ -58,7 +58,7 @@ public class CalendarKoyomiTool {
     public init() {
     }
     
-    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: Locale!) {
+    public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: Locale!, calendarSelectCurrentDay: Bool = true, shortedString: DateTools.DayShortedString = .three, cacapitalizeDays: CapitalizeString = .none) {
         
         guard !isCalendarKoyomiToolOpened else {
             return
@@ -131,23 +131,23 @@ public class CalendarKoyomiTool {
         
         if firstDayType == .monday {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: .three, locale: localeValue)
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays)
             )
         } else {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue)
+                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays)
             )
         }
         
@@ -256,7 +256,9 @@ public class CalendarKoyomiTool {
         window?.bringSubviewToFront(mainViewContainer)
         
         calendarKoyomi?.display(in: .current)
-        calendarKoyomi?.select(date: Date())
+        if calendarSelectCurrentDay {
+            calendarKoyomi?.select(date: Date())
+        }
         
         // MARK: CONSTRAINTS
         mainViewContainer.widthAnchor.constraint(equalToConstant: window!.bounds.width).isActive = true
@@ -320,7 +322,7 @@ public class CalendarKoyomiTool {
                 break
             }
         } else {
-            stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -5).isActive = true
+            stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -10).isActive = true
         }
         
         stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 16).isActive = true
@@ -508,6 +510,9 @@ extension CalendarKoyomiTool {
     public func setButtonPreviousMonthAttributedText(attributedText: NSAttributedString) {
         previousMonth?.setAttributedTitle(attributedText, for: .normal)
     }
+    public func setButtonPreviousMonthImage(image: UIImage) {
+        previousMonth?.setImage(image, for: .normal)
+    }
     
     public func setButtonCurrentMonthBackground(color: UIColor) {
         currentMonth?.backgroundColor = color
@@ -524,6 +529,9 @@ extension CalendarKoyomiTool {
     public func setButtonCurrentMonthAttributedText(attributedText: NSAttributedString) {
         currentMonth?.setAttributedTitle(attributedText, for: .normal)
     }
+    public func setButtonCurrentMonthImage(image: UIImage) {
+        currentMonth?.setImage(image, for: .normal)
+    }
     
     public func setButtonNextMonthBackground(color: UIColor) {
         nextMonth?.backgroundColor = color
@@ -539,6 +547,9 @@ extension CalendarKoyomiTool {
     }
     public func setButtonNextMonthAttributedText(attributedText: NSAttributedString) {
         nextMonth?.setAttributedTitle(attributedText, for: .normal)
+    }
+    public func setButtonNextMonthImage(image: UIImage) {
+        nextMonth?.setImage(image, for: .normal)
     }
     
     // MARK: CALENDAR KOYOMI
@@ -557,7 +568,7 @@ extension CalendarKoyomiTool {
         calendarKoyomi?.sectionSeparatorColor = color
     }
     public func setCalendarSeparator(color: UIColor) {
-        calendarKoyomi?.sectionSeparatorColor = color
+        calendarKoyomi?.separatorColor = color
     }
     public func setCalendarDaysName(color: UIColor) {
         calendarKoyomi?.weekColor = color
@@ -579,6 +590,9 @@ extension CalendarKoyomiTool {
     }
     public func setWeekBackground(color: UIColor){
         calendarKoyomi?.weekBackgrondColor = color
+    }
+    public func setSectionSpace(value: CGFloat) {
+        calendarKoyomi?.sectionSpace = value
     }
     
 }

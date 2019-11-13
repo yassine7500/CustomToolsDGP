@@ -6,6 +6,13 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
+public enum CapitalizeString: Int {
+    case none = 0
+    case uppercased = 1
+    case lowercased = 2
+    case capitalized = 3
+}
+
 extension String {
     
     public var isNumeric: Bool {
