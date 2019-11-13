@@ -131,23 +131,23 @@ public class CalendarKoyomiTool {
         
         if firstDayType == .monday {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays)
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 7, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays)
             )
         } else {
             calendarKoyomi?.weeks = (
-                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays),
-                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: .three, locale: localeValue, capitalize: cacapitalizeDays)
+                dateTools.weekdayNameFrom(weekdayNumber: 0, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 1, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 2, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 3, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 4, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 5, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays),
+                dateTools.weekdayNameFrom(weekdayNumber: 6, shortedString: shortedString, locale: localeValue, capitalize: cacapitalizeDays)
             )
         }
         
