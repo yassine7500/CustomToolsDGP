@@ -245,13 +245,13 @@ public class DateTools {
     public func setGlobalStartDate(id: String = "") {
         globalStartDate = Date()
         globalIdDate = id
-        print("\n - - - - > [\(globalIdDate)] - STARTED AT: \t", globalStartDate)
+        print("\n ➡️ - - - - > [\(globalIdDate)] - STARTED AT: \t", globalStartDate)
     }
     
     public func setGlobalEndDate() {
         globalEndDate = Date()
-        print(" - - - - > [\(globalIdDate)] - FINISHED AT: \t", globalEndDate)
-        print(" - - - - > [\(globalIdDate)] - DIFFERENCE: \t", getDifferenceBetweenDatesInHours(dateStart: globalStartDate, dateEnd: globalEndDate), "\n")
+        print(" ⬅️ - - - - > [\(globalIdDate)] - FINISHED AT: \t", globalEndDate)
+        print(" 🕑 - - - - > [\(globalIdDate)] - DIFFERENCE: \t", getDifferenceBetweenDatesInHours(dateStart: globalStartDate, dateEnd: globalEndDate), "\n")
         globalIdDate = ""
     }
     
