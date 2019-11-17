@@ -26,7 +26,11 @@ extension UIViewController {
     }
     
     public func pleaseWait(_ text: String) {
-        SwfitNoticeTools.wait(text)
+        if !pleaseWaitActive {
+            pleaseWaitActive = true
+            self.view.isUserInteractionEnabled = false
+            SwfitNoticeTools.wait(text)
+        }
     }
     
     public func noticeOnlyText(_ text: String) {
