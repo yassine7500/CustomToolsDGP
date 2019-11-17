@@ -43,6 +43,7 @@
 		9673C9C922E4894F00BBA1DB /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C822E4894F00BBA1DB /* LocationTools.swift */; };
 		9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9CA22E491A400BBA1DB /* MapTools.swift */; };
 		9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */; };
+		96A3A4632381E3E400051F81 /* LoadingCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3A4622381E3E400051F81 /* LoadingCustom.swift */; };
 		96CB505022E5BC4A00C18D72 /* NavigationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */; };
 		96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505122E5BCC900C18D72 /* NumberTools.swift */; };
 		96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB505622E5C09400C18D72 /* RandomTools.swift */; };
@@ -108,6 +109,7 @@
 		9673C9C822E4894F00BBA1DB /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		9673C9CA22E491A400BBA1DB /* MapTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTools.swift; sourceTree = "<group>"; };
 		9690772622DF17FF00F3B2CA /* TextFieldObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObservers.swift; sourceTree = "<group>"; };
+		96A3A4622381E3E400051F81 /* LoadingCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCustom.swift; sourceTree = "<group>"; };
 		96CB504F22E5BC4A00C18D72 /* NavigationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTools.swift; sourceTree = "<group>"; };
 		96CB505122E5BCC900C18D72 /* NumberTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTools.swift; sourceTree = "<group>"; };
 		96CB505622E5C09400C18D72 /* RandomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTools.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
 				96F81EF4236EFD3D0053331F /* Calendar Koyomi files */,
+				96A3A4622381E3E400051F81 /* LoadingCustom.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				96F81EFD236EFD5A0053331F /* DateExtension.swift in Sources */,
 				96D2CCDE233B86AB002C1889 /* TextFieldContainerValuesTool.swift in Sources */,
 				96F7F74223464FBB00670E00 /* TableViewCellCustom.swift in Sources */,
+				96A3A4632381E3E400051F81 /* LoadingCustom.swift in Sources */,
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
