@@ -196,6 +196,7 @@
 				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
 				96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */,
 				9644129122E725190028A062 /* InternetConnectionTool.swift */,
+				96A3A4622381E3E400051F81 /* LoadingCustom.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
 				9644129322E725A50028A062 /* Md5hashTool.swift */,
@@ -221,7 +222,6 @@
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
 				96F81EF4236EFD3D0053331F /* Calendar Koyomi files */,
-				96A3A4622381E3E400051F81 /* LoadingCustom.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
