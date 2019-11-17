@@ -98,6 +98,7 @@ class SwfitNoticeTools: NSObject {
         
         let ai = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         ai.frame = CGRect(x: 27, y: 15, width: 36, height: 36)
+        ai.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         ai.startAnimating()
         mainView.addSubview(ai)
         
