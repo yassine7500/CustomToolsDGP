@@ -29,7 +29,7 @@ extension UIViewController {
 }
 
 
-class LoadingCustomTools: NSObject {
+public class LoadingCustomTools: NSObject {
     
     static let window: UIView = UIApplication.shared.windows.filter {$0.isKeyWindow}.first!
     static var mainViewContainer: UIView!
@@ -49,7 +49,7 @@ class LoadingCustomTools: NSObject {
         mainViewContainer.clipsToBounds = true
         mainViewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
         mainViewContainer.translatesAutoresizingMaskIntoConstraints = false
-
+        
         // View Container
         viewContainer = UIView()
         viewContainer.layer.cornerRadius = 6
@@ -58,8 +58,17 @@ class LoadingCustomTools: NSObject {
             viewContainer.layer.borderWidth = borderWidth!
             viewContainer.layer.borderColor = borderColor?.cgColor
         }
-        viewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        viewContainer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.95)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Stack View
+        stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.vertical
+        stackView.distribution = UIStackView.Distribution.fill
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing = 20
+        stackView.clipsToBounds = true
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // Indicator
         indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
@@ -73,7 +82,7 @@ class LoadingCustomTools: NSObject {
             textLabel = UILabel()
             textLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
             textLabel.text = text
-            textLabel.textAlignment = .left
+            textLabel.textAlignment = .center
             textLabel.numberOfLines = 0
             textLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             textLabel.adjustsFontSizeToFitWidth = true
@@ -81,11 +90,14 @@ class LoadingCustomTools: NSObject {
             textLabel.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        // Add items to containers
-        viewContainer.addSubview(indicator)
+        // Add items to stackView
+        stackView.addArrangedSubview(indicator)
         if text != nil {
-            viewContainer.addSubview(textLabel)
+            stackView.addArrangedSubview(textLabel)
         }
+        
+        // Add items to containers
+        viewContainer.addSubview(stackView)
         mainViewContainer.addSubview(viewContainer)
         
         // Add item to screen
@@ -105,23 +117,18 @@ class LoadingCustomTools: NSObject {
         viewContainer.centerYAnchor.constraint(equalTo: mainViewContainer.centerYAnchor).isActive = true
         viewContainer.centerXAnchor.constraint(equalTo: mainViewContainer.centerXAnchor).isActive = true
         
-        indicator.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 24).isActive = true
+        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 30).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -30).isActive = true
+       
         indicator.widthAnchor.constraint(equalToConstant: 30).isActive = true
         indicator.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         if text != nil {
-            indicator.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor).isActive = true
-            indicator.bottomAnchor.constraint(equalTo: textLabel.topAnchor, constant: -24).isActive = true
-            
-            textLabel.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 20).isActive = true
-            textLabel.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -20).isActive = true
-            textLabel.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -20).isActive = true
-            
-        } else {
-            indicator.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -24).isActive = true
-            indicator.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 24).isActive = true
-            indicator.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -24).isActive = true
+            textLabel.leadingAnchor.constraint(greaterThanOrEqualTo: stackView.leadingAnchor, constant: 0).isActive = true
+            textLabel.trailingAnchor.constraint(lessThanOrEqualTo: stackView.trailingAnchor, constant: 0).isActive = true
+            textLabel.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor).isActive = true
         }
     }
-    
 }
