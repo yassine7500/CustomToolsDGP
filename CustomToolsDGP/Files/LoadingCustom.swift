@@ -34,12 +34,6 @@ extension UIViewController {
         }
     }
     
-    public func setContainerBackground(color: UIColor) {
-        DispatchQueue.main.async {
-            LoadingCustomTools.viewContainer?.backgroundColor = color
-        }
-    }
-    
 }
 
 
