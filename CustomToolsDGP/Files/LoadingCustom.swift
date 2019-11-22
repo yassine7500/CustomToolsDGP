@@ -18,6 +18,14 @@ extension UIViewController {
         }
     }
     
+    public func loadingUpdateText(text: String) {
+        DispatchQueue.main.async {
+            if LoadingCustomTools.textLabel.text != nil {
+                LoadingCustomTools.textLabel.text = text
+            }
+        }
+    }
+    
     public func loadingOFF() {
         DispatchQueue.main.async {
             loadingActived = false
@@ -58,7 +66,7 @@ public class LoadingCustomTools: NSObject {
             viewContainer.layer.borderWidth = borderWidth!
             viewContainer.layer.borderColor = borderColor?.cgColor
         }
-        viewContainer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.95)
+        viewContainer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         // Stack View
