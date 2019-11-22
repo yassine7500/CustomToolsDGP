@@ -34,6 +34,12 @@ extension UIViewController {
         }
     }
     
+    public func setContainerBackground(color: UIColor) {
+        DispatchQueue.main.async {
+            LoadingCustomTools.viewContainer?.backgroundColor = color
+        }
+    }
+    
 }
 
 
@@ -125,10 +131,10 @@ public class LoadingCustomTools: NSObject {
         viewContainer?.centerYAnchor.constraint(equalTo: mainViewContainer!.centerYAnchor).isActive = true
         viewContainer?.centerXAnchor.constraint(equalTo: mainViewContainer!.centerXAnchor).isActive = true
         
-        stackView?.topAnchor.constraint(equalTo: viewContainer!.topAnchor, constant: 30).isActive = true
-        stackView?.bottomAnchor.constraint(equalTo: viewContainer!.bottomAnchor, constant: -30).isActive = true
-        stackView?.leadingAnchor.constraint(equalTo: viewContainer!.leadingAnchor, constant: 30).isActive = true
-        stackView?.trailingAnchor.constraint(equalTo: viewContainer!.trailingAnchor, constant: -30).isActive = true
+        stackView?.topAnchor.constraint(equalTo: viewContainer!.topAnchor, constant: 20).isActive = true
+        stackView?.bottomAnchor.constraint(equalTo: viewContainer!.bottomAnchor, constant: -20).isActive = true
+        stackView?.leadingAnchor.constraint(equalTo: viewContainer!.leadingAnchor, constant: 20).isActive = true
+        stackView?.trailingAnchor.constraint(equalTo: viewContainer!.trailingAnchor, constant: -20).isActive = true
        
         indicator?.widthAnchor.constraint(equalToConstant: 30).isActive = true
         indicator?.heightAnchor.constraint(equalToConstant: 30).isActive = true
