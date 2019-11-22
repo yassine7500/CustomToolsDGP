@@ -60,13 +60,13 @@ public class LoadingCustomTools: NSObject {
         
         // View Container
         viewContainer = UIView()
-        viewContainer?.layer.cornerRadius = 6
+        viewContainer?.layer.cornerRadius = 10
         viewContainer?.clipsToBounds = true
         if borderWidth != nil && borderColor != nil {
             viewContainer?.layer.borderWidth = borderWidth!
             viewContainer?.layer.borderColor = borderColor?.cgColor
         }
-        viewContainer?.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        viewContainer?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.75)
         viewContainer?.translatesAutoresizingMaskIntoConstraints = false
         
         // Stack View
