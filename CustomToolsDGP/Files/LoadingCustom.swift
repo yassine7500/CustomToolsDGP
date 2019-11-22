@@ -20,8 +20,8 @@ extension UIViewController {
     
     public func loadingUpdateText(text: String) {
         DispatchQueue.main.async {
-            if LoadingCustomTools.textLabel.text != nil {
-                LoadingCustomTools.textLabel.text = text
+            if LoadingCustomTools.textLabel?.text != nil {
+                LoadingCustomTools.textLabel?.text = text
             }
         }
     }
@@ -40,103 +40,103 @@ extension UIViewController {
 public class LoadingCustomTools: NSObject {
     
     static let window: UIView = UIApplication.shared.windows.filter {$0.isKeyWindow}.first!
-    static var mainViewContainer: UIView!
-    static var viewContainer: UIView!
-    static var stackView: UIStackView!
-    static var indicator: UIActivityIndicatorView!
-    static var textLabel: UILabel!
+    static var mainViewContainer: UIView?
+    static var viewContainer: UIView?
+    static var stackView: UIStackView?
+    static var indicator: UIActivityIndicatorView?
+    static var textLabel: UILabel?
     
     static func clear() {
-        mainViewContainer.removeFromSuperview()
+        mainViewContainer?.removeFromSuperview()
     }
     
     static func customWait(text: String?, borderWidth: CGFloat?, borderColor: UIColor?) {
         
         // View Container Main
         mainViewContainer = UIView()
-        mainViewContainer.clipsToBounds = true
-        mainViewContainer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
-        mainViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        mainViewContainer?.clipsToBounds = true
+        mainViewContainer?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
+        mainViewContainer?.translatesAutoresizingMaskIntoConstraints = false
         
         // View Container
         viewContainer = UIView()
-        viewContainer.layer.cornerRadius = 6
-        viewContainer.clipsToBounds = true
+        viewContainer?.layer.cornerRadius = 6
+        viewContainer?.clipsToBounds = true
         if borderWidth != nil && borderColor != nil {
-            viewContainer.layer.borderWidth = borderWidth!
-            viewContainer.layer.borderColor = borderColor?.cgColor
+            viewContainer?.layer.borderWidth = borderWidth!
+            viewContainer?.layer.borderColor = borderColor?.cgColor
         }
-        viewContainer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        viewContainer?.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        viewContainer?.translatesAutoresizingMaskIntoConstraints = false
         
         // Stack View
         stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.fill
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing = 20
-        stackView.clipsToBounds = true
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView?.axis = NSLayoutConstraint.Axis.vertical
+        stackView?.distribution = UIStackView.Distribution.fill
+        stackView?.alignment = UIStackView.Alignment.center
+        stackView?.spacing = 20
+        stackView?.clipsToBounds = true
+        stackView?.translatesAutoresizingMaskIntoConstraints = false
         
         // Indicator
         indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
-        indicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        indicator.frame = .zero
-        indicator.startAnimating()
-        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator?.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        indicator?.frame = .zero
+        indicator?.startAnimating()
+        indicator?.translatesAutoresizingMaskIntoConstraints = false
         
         if text != nil {
             // Label
             textLabel = UILabel()
-            textLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-            textLabel.text = text
-            textLabel.textAlignment = .center
-            textLabel.numberOfLines = 0
-            textLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            textLabel.adjustsFontSizeToFitWidth = true
-            textLabel.minimumScaleFactor = 0.5
-            textLabel.translatesAutoresizingMaskIntoConstraints = false
+            textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+            textLabel?.text = text
+            textLabel?.textAlignment = .center
+            textLabel?.numberOfLines = 0
+            textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            textLabel?.adjustsFontSizeToFitWidth = true
+            textLabel?.minimumScaleFactor = 0.5
+            textLabel?.translatesAutoresizingMaskIntoConstraints = false
         }
         
         // Add items to stackView
-        stackView.addArrangedSubview(indicator)
+        stackView?.addArrangedSubview(indicator!)
         if text != nil {
-            stackView.addArrangedSubview(textLabel)
+            stackView?.addArrangedSubview(textLabel!)
         }
         
         // Add items to containers
-        viewContainer.addSubview(stackView)
-        mainViewContainer.addSubview(viewContainer)
+        viewContainer?.addSubview(stackView!)
+        mainViewContainer?.addSubview(viewContainer!)
         
         // Add item to screen
-        window.addSubview(mainViewContainer)
-        window.bringSubviewToFront(mainViewContainer)
+        window.addSubview(mainViewContainer!)
+        window.bringSubviewToFront(mainViewContainer!)
         
         // Add constraints
-        mainViewContainer.widthAnchor.constraint(equalToConstant: window.bounds.width).isActive = true
-        mainViewContainer.heightAnchor.constraint(equalToConstant: window.bounds.height).isActive = true
-        mainViewContainer.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
-        mainViewContainer.centerYAnchor.constraint(equalTo: window.centerYAnchor).isActive = true
+        mainViewContainer?.widthAnchor.constraint(equalToConstant: window.bounds.width).isActive = true
+        mainViewContainer?.heightAnchor.constraint(equalToConstant: window.bounds.height).isActive = true
+        mainViewContainer?.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
+        mainViewContainer?.centerYAnchor.constraint(equalTo: window.centerYAnchor).isActive = true
         
-        viewContainer.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.topAnchor, constant: 50).isActive = true
-        viewContainer.bottomAnchor.constraint(lessThanOrEqualTo: mainViewContainer.bottomAnchor, constant: 50).isActive = true
-        viewContainer.leadingAnchor.constraint(greaterThanOrEqualTo: mainViewContainer.leadingAnchor, constant: 30).isActive = true
-        viewContainer.trailingAnchor.constraint(lessThanOrEqualTo: mainViewContainer.trailingAnchor, constant: 30).isActive = true
-        viewContainer.centerYAnchor.constraint(equalTo: mainViewContainer.centerYAnchor).isActive = true
-        viewContainer.centerXAnchor.constraint(equalTo: mainViewContainer.centerXAnchor).isActive = true
+        viewContainer?.topAnchor.constraint(greaterThanOrEqualTo: mainViewContainer!.topAnchor, constant: 50).isActive = true
+        viewContainer?.bottomAnchor.constraint(lessThanOrEqualTo: mainViewContainer!.bottomAnchor, constant: 50).isActive = true
+        viewContainer?.leadingAnchor.constraint(greaterThanOrEqualTo: mainViewContainer!.leadingAnchor, constant: 30).isActive = true
+        viewContainer?.trailingAnchor.constraint(lessThanOrEqualTo: mainViewContainer!.trailingAnchor, constant: 30).isActive = true
+        viewContainer?.centerYAnchor.constraint(equalTo: mainViewContainer!.centerYAnchor).isActive = true
+        viewContainer?.centerXAnchor.constraint(equalTo: mainViewContainer!.centerXAnchor).isActive = true
         
-        stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 30).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -30).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -30).isActive = true
+        stackView?.topAnchor.constraint(equalTo: viewContainer!.topAnchor, constant: 30).isActive = true
+        stackView?.bottomAnchor.constraint(equalTo: viewContainer!.bottomAnchor, constant: -30).isActive = true
+        stackView?.leadingAnchor.constraint(equalTo: viewContainer!.leadingAnchor, constant: 30).isActive = true
+        stackView?.trailingAnchor.constraint(equalTo: viewContainer!.trailingAnchor, constant: -30).isActive = true
        
-        indicator.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        indicator.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        indicator?.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        indicator?.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         if text != nil {
-            textLabel.leadingAnchor.constraint(greaterThanOrEqualTo: stackView.leadingAnchor, constant: 0).isActive = true
-            textLabel.trailingAnchor.constraint(lessThanOrEqualTo: stackView.trailingAnchor, constant: 0).isActive = true
-            textLabel.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor).isActive = true
+            textLabel?.leadingAnchor.constraint(greaterThanOrEqualTo: stackView!.leadingAnchor, constant: 0).isActive = true
+            textLabel?.trailingAnchor.constraint(lessThanOrEqualTo: stackView!.trailingAnchor, constant: 0).isActive = true
+            textLabel?.centerXAnchor.constraint(equalTo: viewContainer!.centerXAnchor).isActive = true
         }
     }
 }
