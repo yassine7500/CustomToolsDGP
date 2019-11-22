@@ -66,7 +66,7 @@ public class LoadingCustomTools: NSObject {
         
         // View Container
         viewContainer = UIView()
-        viewContainer?.layer.cornerRadius = 10
+        viewContainer?.layer.cornerRadius = 16
         viewContainer?.clipsToBounds = true
         if borderWidth != nil && borderColor != nil {
             viewContainer?.layer.borderWidth = borderWidth!
