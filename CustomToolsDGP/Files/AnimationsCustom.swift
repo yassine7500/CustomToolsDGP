@@ -60,14 +60,14 @@ public class AnimationsCustom {
         })
     }
     
-    public func disolveView(viewContainer: UIView, _ action: @escaping ()->Void) {
+    public func disolveView(viewContainer: UIView, animateDuration: TimeInterval, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
         viewContainer.alpha = 1
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: animateDuration, animations: {
             viewContainer.alpha = 0
             self.delegate?.view.layoutIfNeeded()
         }, completion: { _ in
