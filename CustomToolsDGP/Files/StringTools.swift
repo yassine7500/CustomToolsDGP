@@ -53,21 +53,6 @@ extension String {
         return passowrdTest.evaluate(with: self)
     }
     
-    public func getStringValue(value: Any) -> String {
-        
-        var result = ""
-        
-        if let value: String = value as? String {
-            result = value
-        } else if let value: Int = value as? Int {
-            result = "\(value)"
-        } else if let value: Double = value as? Double {
-            result = "\(value)"
-        }
-        
-        return result
-    }
-    
 }
 
 public class StringTools {
@@ -145,6 +130,21 @@ public class StringTools {
         messageText.append(textB)
         
         return messageText
+    }
+    
+    public func getStringValue(value: Any) -> String {
+        
+        var result = ""
+        
+        if let value: String = value as? String {
+            result = value
+        } else if let value: Int = value as? Int {
+            result = "\(value)"
+        } else if let value: Double = value as? Double {
+            result = "\(value)"
+        }
+        
+        return result
     }
     
 }
