@@ -9,7 +9,7 @@
 import CoreLocation
 
 public protocol LocationDeciveProtocol {
-    func passLocationResult(latitude: Double, longitude: Double)
+    func passLocationResult(latitude: Double?, longitude: Double?)
 }
 
 public class LocationTools: NSObject, CLLocationManagerDelegate {
@@ -18,23 +18,52 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var delegateLocationDevice: LocationDeciveProtocol?
+    var locationSaved = false
     
-    public func startService(delegate: LocationDeciveProtocol) {
+    public func startService(delegate: LocationDeciveProtocol, completionError: @escaping (Bool) -> ()) {
         
-        if CLLocationManager.locationServicesEnabled() {
-            self.delegateLocationDevice = delegate
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
+        PermissionTools().checkLocationPermission { (status) in
+            
+            if status == 1 {
+                self.askLocationPermission()
+                completionError(false)
+                
+            } else if status == 2 {
+                self.delegateLocationDevice = delegate
+                self.locationManager.delegate = self
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.locationManager.startUpdatingLocation()
+                completionError(false)
+                
+            } else {
+                completionError(true)
+                
+            }
         }
+    }
+    
+    public func askLocationPermission() {
+        // Authorizations
+        locationManager.requestAlwaysAuthorization() // Ask for Authorization from the User.
+        locationManager.requestWhenInUseAuthorization() // For use in foreground
     }
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let locValue: CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        locationManager.stopUpdatingLocation()
-        self.delegateLocationDevice?.passLocationResult(latitude: locValue.latitude, longitude: locValue.longitude)
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else {
+            
+            self.locationManager.stopUpdatingLocation()
+            print(text: "[ERROR] User Location: nil - nil", type: .error)
+            self.delegateLocationDevice?.passLocationResult(latitude: nil, longitude: nil)
+            return
+        }
+        
+        if !self.locationSaved {
+            print(text: "User Location: \(locValue.latitude) - \(locValue.longitude)", type: .address)
+            self.locationSaved = true
+            self.locationManager.stopUpdatingLocation()
+            self.delegateLocationDevice?.passLocationResult(latitude: locValue.latitude, longitude: locValue.longitude)
+        }
     }
 
 }
