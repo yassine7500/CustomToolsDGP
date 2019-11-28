@@ -40,10 +40,11 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
     
-    public func underlineText() ->  NSMutableAttributedString {
+    public func underlineText(color: UIColor) ->  NSMutableAttributedString {
         let textRange = NSMakeRange(0, self.count)
         let attributedText = NSMutableAttributedString(string: self)
-        attributedText.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: textRange)
+        attributedText.addAttribute(.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: textRange)
+        attributedText.addAttribute(.foregroundColor, value: color, range: textRange)
         return attributedText
     }
     
