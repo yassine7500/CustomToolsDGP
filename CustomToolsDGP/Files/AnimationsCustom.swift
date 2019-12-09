@@ -16,7 +16,7 @@ public class AnimationsCustom {
     }
     
     // Standard animation for init popup.
-    public func animationScalePopup(viewContainer: UIView, _ action: @escaping ()->Void) {
+    public func animationScalePopup(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
@@ -24,7 +24,7 @@ public class AnimationsCustom {
         viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [.curveEaseInOut], animations: {
             viewContainer.alpha = 1
             viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.delegate?.view.layoutIfNeeded()
@@ -38,7 +38,7 @@ public class AnimationsCustom {
         })
     }
     
-    public func animationAppearFromBottom(viewContainer: UIView, _ action: @escaping ()->Void) {
+    public func animationAppearFromBottom(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
@@ -46,7 +46,7 @@ public class AnimationsCustom {
         viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
             viewContainer.alpha = 1
             viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
             self.delegate?.view.layoutIfNeeded()
@@ -60,14 +60,14 @@ public class AnimationsCustom {
         })
     }
     
-    public func disolveView(viewContainer: UIView, animateDuration: TimeInterval, _ action: @escaping ()->Void) {
+    public func disolveView(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
         viewContainer.alpha = 1
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: animateDuration, animations: {
+        UIView.animate(withDuration: withDuration, animations: {
             viewContainer.alpha = 0
             self.delegate?.view.layoutIfNeeded()
         }, completion: { _ in
