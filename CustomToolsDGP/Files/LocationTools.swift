@@ -30,6 +30,7 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
                 
             } else if status == 2 {
                 self.delegateLocationDevice = delegate
+                self.locationSaved = false
                 self.locationManager.delegate = self
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
                 self.locationManager.startUpdatingLocation()
