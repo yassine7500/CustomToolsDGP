@@ -70,12 +70,12 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
     public func getDistanceBetweenTwoLocations(firstLocation: CLLocation, secondLocation: CLLocation) -> String {
         
         let distance = firstLocation.distance(from: secondLocation)/1000
-        let distanceFormatted = distance.formatCustomDecimal()
+        let distanceFormatted = distance.formatCustomNumberDecimal() ?? 0.0
         
-        if distance < 1 {
-            return "\(Int(distance*1000)) m"
+        if Int(truncating: distanceFormatted) < 1 {
+            return "\(Int(Int(truncating: distanceFormatted)*1000)) m"
         } else {
-            return "\(distance) Km"
+            return "\(distanceFormatted) Km"
         }
     }
 
