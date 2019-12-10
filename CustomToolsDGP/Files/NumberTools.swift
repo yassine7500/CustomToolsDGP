@@ -137,11 +137,11 @@ extension Numeric {
         return ""
     }
     
-    public func formatCustomNumberDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> NSNumber? {
+    public func formatCustomNumberDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> Double? {
         return formatCustomNumber(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomNumber(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> NSNumber? {
+    public func formatCustomNumber(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> Double? {
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
@@ -152,7 +152,9 @@ extension Numeric {
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
             }
-            return num
+            
+            let result = formater.string(from: num) ?? "0.0"            
+            return Double(result)
         }
         return 0.0
     }

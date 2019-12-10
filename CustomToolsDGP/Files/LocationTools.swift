@@ -72,8 +72,8 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
         let distance = firstLocation.distance(from: secondLocation)/1000
         let distanceFormatted = distance.formatCustomNumberDecimal() ?? 0.0
         
-        if Int(truncating: distanceFormatted) < 1 {
-            return "\(Int(Int(truncating: distanceFormatted)*1000)) m"
+        if distanceFormatted < 1 {
+            return "\(Int(distanceFormatted*1000)) m"
         } else {
             return "\(distanceFormatted) Km"
         }
