@@ -96,6 +96,8 @@ extension Numeric {
         return nil
     }
     
+    
+    
     public func formatCustomDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> String? {
         return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
@@ -133,6 +135,26 @@ extension Numeric {
             return formater.string(from: num)
         }
         return ""
+    }
+    
+    public func formatCustomNumberDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> NSNumber? {
+        return formatCustomNumber(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
+    }
+    
+    public func formatCustomNumber(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> NSNumber? {
+        if let num = self as? NSNumber {
+            let formater = NumberFormatter()
+            formater.numberStyle = numberStyle
+            formater.locale = Locale(identifier: currencyType.rawValue)
+            
+            if !withoutDecimals {
+                formater.minimumFractionDigits = 2
+                formater.maximumFractionDigits = 2
+                formater.multiplier = 1
+            }
+            return num
+        }
+        return 0.0
     }
     
 }
