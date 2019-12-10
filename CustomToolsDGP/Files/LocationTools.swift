@@ -66,5 +66,16 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
             self.delegateLocationDevice?.passLocationResult(latitude: locValue.latitude, longitude: locValue.longitude)
         }
     }
+    
+    public func getDistanceBetweenTwoLocations(firstLocation: CLLocation, secondLocation: CLLocation) -> String {
+        
+        let distance = firstLocation.distance(from: secondLocation)/1000
+        
+        if distance < 1 {
+            return "\(Int(distance*1000)) m"
+        } else {
+            return "\(distance) Km"
+        }
+    }
 
 }
