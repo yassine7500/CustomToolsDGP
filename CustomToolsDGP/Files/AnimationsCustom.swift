@@ -11,6 +11,9 @@ public class AnimationsCustom {
     
     private var delegate: UIViewController?
     
+    public init() {
+    }
+    
     public init(delegate: UIViewController) {
         self.delegate = delegate
     }
@@ -77,6 +80,16 @@ public class AnimationsCustom {
             if let actions = completionAction {
                 actions()
             }
+        })
+    }
+    
+    public func createSelectedCellAnimation(isSelectedCell: Bool, tableView: UITableView, cellViewContainer: UIView?, indexPath: IndexPath, withDuration: TimeInterval = 0.05) {
+                
+        var valueAnimation: CGFloat = 1.0
+        isSelectedCell == true ? (valueAnimation = 0.95) : (valueAnimation = 1.0)
+        
+        UIView.animate(withDuration: withDuration, animations: {
+            cellViewContainer?.transform = CGAffineTransform(scaleX: valueAnimation, y: valueAnimation)
         })
     }
     
