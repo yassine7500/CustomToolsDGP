@@ -93,13 +93,22 @@ public class AnimationsCustom {
         })
     }
     
-    public func createSelectedViewAnimation(isCellSelected: Bool, viewContainer: UIView?, withDuration: TimeInterval = 0.05) {
+    public func createSelectedViewAnimation(isCellSelected: Bool, viewContainer: UIView?, withDuration: TimeInterval = 0.05, _ action: @escaping ()->Void) {
                 
+        var completionAction: ( ()->Void )?
+        
         var valueAnimation: CGFloat = 1.0
         isCellSelected == true ? (valueAnimation = 0.95) : (valueAnimation = 1.0)
         
         UIView.animate(withDuration: withDuration, animations: {
             viewContainer?.transform = CGAffineTransform(scaleX: valueAnimation, y: valueAnimation)
+        }, completion: { _ in
+            
+            completionAction = action
+            
+            if let actions = completionAction {
+                actions()
+            }
         })
     }
     
