@@ -93,4 +93,14 @@ public class AnimationsCustom {
         })
     }
     
+    public func createSelectedViewAnimation(isCellSelected: Bool, viewContainer: UIView?, withDuration: TimeInterval = 0.05) {
+                
+        var valueAnimation: CGFloat = 1.0
+        isCellSelected == true ? (valueAnimation = 0.95) : (valueAnimation = 1.0)
+        
+        UIView.animate(withDuration: withDuration, animations: {
+            viewContainer?.transform = CGAffineTransform(scaleX: valueAnimation, y: valueAnimation)
+        })
+    }
+    
 }
