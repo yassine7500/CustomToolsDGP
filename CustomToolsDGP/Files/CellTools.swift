@@ -21,4 +21,23 @@ public class CellTools {
         }
     }
     
+    public func setCellCornerRadius(cell: UITableViewCell, indexPath: IndexPath, viewSeparator: UIView?, dataCount: Int) {
+        
+        if indexPath.row == 0 {
+            cell.roundSpecificsCorners(corners: [.topLeft, .topRight], radius: 16)
+            viewSeparator?.isHidden = false
+        } else if indexPath.row == dataCount-1 {
+            cell.roundSpecificsCorners(corners: [.bottomLeft, .bottomRight], radius: 16)
+            viewSeparator?.isHidden = true
+        } else {
+            cell.roundSpecificsCorners(corners: [.bottomLeft, .bottomRight], radius: 0)
+            viewSeparator?.isHidden = false
+        }
+        
+        if dataCount == 1 {
+            cell.roundSpecificsCorners(corners: [.bottomLeft, .bottomRight], radius: 16)
+            viewSeparator?.isHidden = true
+        }
+    }
+    
 }
