@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9607BEFD23AF8C56008781CE /* LoadingCustomStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607BEFC23AF8C56008781CE /* LoadingCustomStandard.swift */; };
+		9607BEFF23AF8C64008781CE /* LoadingCustomPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607BEFE23AF8C64008781CE /* LoadingCustomPulse.swift */; };
 		960E6F172333CF5100489066 /* PermissionTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6F162333CF5100489066 /* PermissionTools.swift */; };
 		96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */; };
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9607BEFC23AF8C56008781CE /* LoadingCustomStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCustomStandard.swift; sourceTree = "<group>"; };
+		9607BEFE23AF8C64008781CE /* LoadingCustomPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCustomPulse.swift; sourceTree = "<group>"; };
 		960E6F162333CF5100489066 /* PermissionTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionTools.swift; sourceTree = "<group>"; };
 		96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageTool.swift; sourceTree = "<group>"; };
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9607BEFB23AF8C21008781CE /* LoadingCustomTools files */ = {
+			isa = PBXGroup;
+			children = (
+				96A3A4622381E3E400051F81 /* LoadingCustom.swift */,
+				9607BEFC23AF8C56008781CE /* LoadingCustomStandard.swift */,
+				9607BEFE23AF8C64008781CE /* LoadingCustomPulse.swift */,
+			);
+			path = "LoadingCustomTools files";
+			sourceTree = "<group>";
+		};
 		96317BA522AD325E00AC830B = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +210,6 @@
 				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
 				96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */,
 				9644129122E725190028A062 /* InternetConnectionTool.swift */,
-				96A3A4622381E3E400051F81 /* LoadingCustom.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
 				9644129322E725A50028A062 /* Md5hashTool.swift */,
@@ -222,6 +235,7 @@
 				96CB505E22E5C56C00C18D72 /* UrlTools.swift */,
 				967257DB22E73F4B00263560 /* API */,
 				96F81EF4236EFD3D0053331F /* Calendar Koyomi files */,
+				9607BEFB23AF8C21008781CE /* LoadingCustomTools files */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -362,6 +376,7 @@
 				9673C9CB22E491A400BBA1DB /* MapTools.swift in Sources */,
 				967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */,
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
+				9607BEFF23AF8C64008781CE /* LoadingCustomPulse.swift in Sources */,
 				9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */,
 				96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
@@ -385,6 +400,7 @@
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,
 				9644129C22E72BD10028A062 /* UITextFieldPaddingSample.swift in Sources */,
+				9607BEFD23AF8C56008781CE /* LoadingCustomStandard.swift in Sources */,
 				96CB505922E5C10000C18D72 /* SegueTools.swift in Sources */,
 				9673C9C322E4819D00BBA1DB /* HtmlToStringFormatter.swift in Sources */,
 				9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */,
