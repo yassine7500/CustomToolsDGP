@@ -56,6 +56,8 @@ public enum PrintType: String {
     
     /// 🅿️
     case parking = "🅿️"
+    /// 🚗
+    case car = "🚗"
     /// 🏠
     case address = "🏠"
     /// ☎️
@@ -68,6 +70,10 @@ public enum PrintType: String {
     case clip = "📎"
     /// 🔑
     case token = "🔑"
+    /// 🔋
+    case battery = "🔋"
+    
+    
 }
 
 public func print(text: String, type: PrintType = .warning) {
