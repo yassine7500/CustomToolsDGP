@@ -20,7 +20,7 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
     var delegateLocationDevice: LocationDeciveProtocol?
     var locationSaved = false
     
-    public func startService(delegate: LocationDeciveProtocol, completionError: @escaping (Bool) -> ()) {
+    public func startService(delegate: LocationDeciveProtocol, desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest, completionError: @escaping (Bool) -> ()) {
         
         PermissionTools().checkLocationPermission { (status) in
             
@@ -32,7 +32,7 @@ public class LocationTools: NSObject, CLLocationManagerDelegate {
                 self.delegateLocationDevice = delegate
                 self.locationSaved = false
                 self.locationManager.delegate = self
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.locationManager.desiredAccuracy = desiredAccuracy
                 self.locationManager.startUpdatingLocation()
                 completionError(false)
                 
