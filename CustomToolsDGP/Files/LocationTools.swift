@@ -13,8 +13,6 @@ public protocol LocationDeciveProtocol {
 }
 
 public class LocationTools: NSObject, CLLocationManagerDelegate {
-
-//    public static let sharedInstance = LocationTools()
     
     let locationManager = CLLocationManager()
     var delegateLocationDevice: LocationDeciveProtocol?
