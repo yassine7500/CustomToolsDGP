@@ -14,11 +14,14 @@ public protocol LocationDeciveProtocol {
 
 public class LocationTools: NSObject, CLLocationManagerDelegate {
 
-    public static let sharedInstance = LocationTools()
+//    public static let sharedInstance = LocationTools()
     
     let locationManager = CLLocationManager()
     var delegateLocationDevice: LocationDeciveProtocol?
     var locationSaved = false
+    
+    public override init() {
+    }
     
     public func startService(delegate: LocationDeciveProtocol, desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest, completionError: @escaping (Bool) -> ()) {
         
