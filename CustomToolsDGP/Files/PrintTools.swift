@@ -73,9 +73,40 @@ public enum PrintType: String {
     /// 🔋
     case battery = "🔋"
     
+    /// ➡️
+    case arrowRight = "➡️"
+    /// ⬅️
+    case arrowLeft = "⬅️"
+    /// ⬆️
+    case arrowUp = "⬆️"
+    /// ⬇️
+    case arrowDown = "⬇️"
+    
+    
+    /// 🔄
+    case update = "🔄"
+    /// 💾
+    case save = "💾"
+    /// 💛
+    case favYellow = "💛"
+    /// 🆔
+    case id = "🆔"
+    /// 🆘
+    case sos = "🆘"
+    /// ⛔️
+    case forbidden = "⛔️"
+    /// ℹ️
+    case information = "ℹ️"
+    /// ⤴️
+    case upload = "⤴️"
+    /// ⤵️
+    case download = "⤵️"
+    /// 🚀
+    case rocket = "🚀"
+    
     
 }
 
 public func print(text: String, type: PrintType = .warning) {
-    print("\t\(type.rawValue) : \(text)\n")
+    print("\n\t\(type.rawValue) : \(text)\n")
 }
