@@ -104,6 +104,22 @@ public enum PrintType: String {
     /// 🚀
     case rocket = "🚀"
     
+    /// 🗄
+    case database = "🗄"
+    /// 📄
+    case file = "📄"
+    /// 📊
+    case grafic = "📊"
+    /// 📝
+    case note = "📝"
+    /// 🔍
+    case search = "🔍"
+    /// 🛠
+    case tools = "🛠"
+    /// ⚙️
+    case configuration = "⚙️"
+    
+    
     
 }
 
