@@ -123,16 +123,29 @@ extension Numeric {
     
     public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> String? {
         if let num = self as? NSNumber {
+            
+            var valueReturn = ""
+            
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
-            formater.locale = Locale(identifier: currencyType.rawValue)
+            formater.groupingSeparator = "."
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
             }
-            return formater.string(from: num)
+            
+            valueReturn = formater.string(from: num) ?? ""
+            
+            switch currencyType {
+            case .none:
+                return valueReturn
+            case .spain:
+                return "\(valueReturn) €"
+            case .chile:
+                return "$\(valueReturn)"
+            }
         }
         return ""
     }
@@ -163,6 +176,7 @@ extension Numeric {
 }
 
 public enum CurrencyType: String {
+    case none = ""
     /// Spain
     case spain = "es-ES"
     /// Chile
