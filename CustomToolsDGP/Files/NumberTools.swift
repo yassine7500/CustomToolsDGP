@@ -167,7 +167,7 @@ extension Numeric {
                 formater.multiplier = 1
             }
             
-            let result = formater.string(from: num) ?? "0.0"            
+            let result = formater.string(from: num) ?? "0.0"
             return Double(result)
         }
         return 0.0
