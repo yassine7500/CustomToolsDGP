@@ -32,4 +32,10 @@ extension UIViewController {
         }
         return canPerform
     }
+    
+    public func performSegueCustom(withIdentifier identifier: String, sender: Any? = nil) {
+        if canPerformSegue(withIdentifier: identifier) {
+            self.performSegue(withIdentifier: identifier, sender: sender)
+        }
+    }
 }
