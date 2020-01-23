@@ -103,7 +103,7 @@ extension Numeric {
     }
     
     public func formatCustomCurrency(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
-        return formatCustom(numberStyle: .currency, currencyType: currencyType, withoutDecimals: withoutDecimals)
+        return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
     public func formatCustomPercent(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
