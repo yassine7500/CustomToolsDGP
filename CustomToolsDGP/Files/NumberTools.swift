@@ -146,6 +146,7 @@ extension Numeric {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
             formater.locale = Locale(identifier: currencyType.rawValue)
+            formater.groupingSeparator = "."
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
