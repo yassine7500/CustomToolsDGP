@@ -85,88 +85,58 @@ public class NumberTools {
 
 extension Numeric {
     
-    // create numeric format according to device region
-    public func format(numberStyle: NumberFormatter.Style = NumberFormatter.Style.decimal, locale: Locale = Locale.current) -> String? {
-        if let num = self as? NSNumber {
-            let formater = NumberFormatter()
-            formater.numberStyle = numberStyle
-            formater.locale = locale
-            return formater.string(from: num)
-        }
-        return nil
-    }
-    
-    
-    
-    public func formatCustomDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> String? {
+    // MARK: NUMBER FORMAT, RETURN STRING
+    public func formatCustomDecimal(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
         return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
     public func formatCustomCurrency(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
-        return formatCustom(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
+        return formatCustom(numberStyle: .currency, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
     
-    public func formatCustomPercent(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
-        return formatCustom(numberStyle: .percent, currencyType: currencyType, withoutDecimals: withoutDecimals)
-    }
-    
-    public func formatCustomCurrencyNoSymbol(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> String? {
-        
-        var value: String = formatCustom(numberStyle: .currency, currencyType: currencyType, withoutDecimals: withoutDecimals) ?? ""
-        
-        if value.count > 2 {
-            value.removeLast(2)
-        }
-        
-        return value
+    public func formatCustomPercent(currencyType: CurrencyType = .spain) -> String? {
+        return formatCustom(numberStyle: .percent, currencyType: currencyType, withoutDecimals: false)
     }
     
     public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> String? {
         if let num = self as? NSNumber {
-            
-            var valueReturn = ""
-            
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
-            formater.groupingSeparator = "."
+            
+            if currencyType != .none {
+                formater.locale = Locale(identifier: currencyType.rawValue)
+            }
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
             }
-            
-            valueReturn = formater.string(from: num) ?? ""
-            
-            switch currencyType {
-            case .none:
-                return valueReturn
-            case .spain:
-                return "\(valueReturn) €"
-            case .chile:
-                return "$\(valueReturn)"
-            }
+            return formater.string(from: num)
         }
         return ""
     }
     
-    public func formatCustomNumberDecimal(withoutDecimals: Bool = false, currencyType: CurrencyType = .spain) -> Double? {
+    // MARK: NUMBER FORMAT, RETURN DOUBLE
+    public func formatCustomNumberDecimal(currencyType: CurrencyType = .spain, withoutDecimals: Bool = false) -> Double? {
         return formatCustomNumber(numberStyle: .decimal, currencyType: currencyType, withoutDecimals: withoutDecimals)
     }
-    
-    public func formatCustomNumber(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> Double? {
+
+    public func formatCustomNumber(numberStyle: NumberFormatter.Style, currencyType: CurrencyType = .none, withoutDecimals: Bool) -> Double? {
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
-            formater.locale = Locale(identifier: currencyType.rawValue)
-            formater.groupingSeparator = "."
+            
+            if currencyType != .none {
+                formater.locale = Locale(identifier: currencyType.rawValue)
+            }
             
             if !withoutDecimals {
                 formater.minimumFractionDigits = 2
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
             }
-            
+
             let result = formater.string(from: num) ?? "0.0"
             return Double(result)
         }
