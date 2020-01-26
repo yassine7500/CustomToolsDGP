@@ -120,7 +120,7 @@ public class DateTools {
     public init() {
         
     }
-
+    
     public var dateFormatter = DateFormatter()
     
     // MARK: CUSTOM DATE
@@ -129,21 +129,24 @@ public class DateTools {
         return dateFormatter.string(from: date)
     }
     
-    public func getDateFromString(date: String, dateFormatIn: DateFormatType) -> Date {
+    public func getDateFromString(date: String, dateFormatIn: DateFormatType) -> Date? {
         
         dateFormatter.dateFormat = dateFormatIn.rawValue
         
         if dateFormatter.date(from: date) != nil {
             return dateFormatter.date(from: date)!
         } else {
-            return Date(timeIntervalSince1970: 0)
+            return nil
         }
     }
     
     public func getStringDateFromString(date: String, dateFormatIn: DateFormatType, dateFormatOut: DateFormatType) -> String {
-        
         let value = getDateFromString(date: date, dateFormatIn: dateFormatIn)
-        return getStringDateFromDate(date: value, dateFormatOut: dateFormatOut)
+        if value != nil {
+            return getStringDateFromDate(date: value!, dateFormatOut: dateFormatOut)
+        } else {
+            return "?"
+        }
     }
     
     // MARK: TODAY DATE
@@ -174,11 +177,17 @@ public class DateTools {
     
     // MARK: COMPARE
     public func compareTwoDatesString(dateReference: String, dateToCompare: String, dateFormatIn: DateFormatType) -> Int {
-        
         let referenceDate = getDateFromString(date: dateReference, dateFormatIn: dateFormatIn)
-        let compareDate = getDateFromString(date: dateToCompare, dateFormatIn: dateFormatIn)
-        
-        return compareTwoDates(dateReference: referenceDate, dateToCompare: compareDate)
+        if referenceDate != nil {
+            let compareDate = getDateFromString(date: dateToCompare, dateFormatIn: dateFormatIn)
+            if compareDate != nil {
+                return compareTwoDates(dateReference: referenceDate!, dateToCompare: compareDate!)
+            } else {
+                return -333
+            }
+        } else {
+            return -333
+        }
     }
     
     public func compareTwoDates(dateReference: Date, dateToCompare: Date) -> Int {
@@ -210,11 +219,11 @@ public class DateTools {
     
     public func getSecondsFromHourMinutesSecondsDate(date: String, dateFormat: DateFormatType) -> Int {
         
-        var totalSeconds = 0
+        var totalSeconds = -333
         
-        let hour = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justHour)
-        let minutes = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justMinutes)
-        let seconds = DateTools().getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justSeconds)
+        let hour = getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justHour)
+        let minutes = getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justMinutes)
+        let seconds = getStringDateFromString(date: date, dateFormatIn: dateFormat, dateFormatOut: .justSeconds)
         
         guard hour.isNumeric && minutes.isNumeric && seconds.isNumeric else {
             return totalSeconds
@@ -241,8 +250,16 @@ public class DateTools {
     public func getDifferenceBetweenDatesInHours(dateStart: String, dateEnd: String, dateFormatIn: DateFormatType) -> String {
         
         let startTimeDate = getDateFromString(date: dateStart, dateFormatIn: dateFormatIn)
-        let endTimeDate = getDateFromString(date: dateEnd, dateFormatIn: dateFormatIn)
-        return getDifferenceBetweenDatesInHours(dateStart: startTimeDate, dateEnd: endTimeDate)
+        if startTimeDate != nil {
+            let endTimeDate = getDateFromString(date: dateEnd, dateFormatIn: dateFormatIn)
+            if endTimeDate != nil {
+                return getDifferenceBetweenDatesInHours(dateStart: startTimeDate!, dateEnd: endTimeDate!)
+            } else {
+                return "?"
+            }
+        } else {
+            return "?"
+        }
     }
     
     // MARK: LOG DATES
@@ -284,7 +301,7 @@ public class DateTools {
             return valueReturn.capitalized
         }
     }
-  
+    
 }
 
 // MARK: VALIDATOR
