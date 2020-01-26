@@ -98,10 +98,13 @@ extension Numeric {
         return formatCustom(numberStyle: .percent, currencyType: currencyType, withoutDecimals: false)
     }
     
-    public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool) -> String? {
+    public func formatCustom(numberStyle: NumberFormatter.Style, currencyType: CurrencyType, withoutDecimals: Bool, groupingSeparatorType: GroupingSeparatorType = .dot, beforeText: String = "", afterText: String = "") -> String? {
+        
         if let num = self as? NSNumber {
             let formater = NumberFormatter()
             formater.numberStyle = numberStyle
+            
+            formater.groupingSeparator = groupingSeparatorType.rawValue
             
             if currencyType != .none {
                 formater.locale = Locale(identifier: currencyType.rawValue)
@@ -112,7 +115,8 @@ extension Numeric {
                 formater.maximumFractionDigits = 2
                 formater.multiplier = 1
             }
-            return formater.string(from: num)
+
+            return "\(beforeText)\(formater.string(from: num) ?? "?")\(afterText)"
         }
         return ""
     }
@@ -151,7 +155,12 @@ public enum CurrencyType: String {
     case spain = "es-ES"
     /// Chile
     case chile = "es-CL"
-    
+}
+
+public enum GroupingSeparatorType: String {
+    case none = ""
+    case dot = "."
+    case comma = ","
 }
 
 
