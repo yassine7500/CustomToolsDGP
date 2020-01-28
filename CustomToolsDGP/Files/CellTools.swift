@@ -21,7 +21,7 @@ public class CellTools {
         }
     }
     
-    public func setCellCornerRadius(cell: UITableViewCell, indexPath: IndexPath, viewSeparator: UIView?, cornerRadius: CGFloat, dataCount: Int) {
+    public func setCellCornerRadius(cell: UIView, indexPath: IndexPath, viewSeparator: UIView?, cornerRadius: CGFloat, dataCount: Int) {
         
         if indexPath.row == 0 {
             cell.roundSpecificsCorners(corners: [.topLeft, .topRight], radius: cornerRadius)
