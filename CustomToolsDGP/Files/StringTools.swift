@@ -125,12 +125,12 @@ public class StringTools {
     }
     
     
-    public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String, colorA: UIColor?, colorBold: UIColor?, colorB: UIColor?, withJumpSpace: Bool) -> NSMutableAttributedString {
+    public func setCustomTextBoldBetweenTexts(textA: String, textBold: String, textB: String, colorA: UIColor?, colorBold: UIColor?, colorB: UIColor?, withJumpSpace: Bool, sizeA: CGFloat = 20, sizeBold: CGFloat = 20, sizeB: CGFloat = 20, weightA: UIFont.Weight = .regular, weightBold: UIFont.Weight = .bold, weightB: UIFont.Weight = .regular) -> NSMutableAttributedString {
         
         let messageText = NSMutableAttributedString()
-        let textA = setCustomText(text: textA, size: 20, weight: .regular, color: colorA, jumpSpace: withJumpSpace)
-        let textBold = setCustomText(text: textBold, size: 20, weight: .bold, color: colorBold, jumpSpace: withJumpSpace)
-        let textB = setCustomText(text: textB, size: 20, weight: .regular, color: colorB, jumpSpace: withJumpSpace)
+        let textA = setCustomText(text: textA, size: sizeA, weight: weightA, color: colorA, jumpSpace: withJumpSpace)
+        let textBold = setCustomText(text: textBold, size: sizeBold, weight: weightBold, color: colorBold, jumpSpace: withJumpSpace)
+        let textB = setCustomText(text: textB, size: sizeB, weight: weightB, color: colorB, jumpSpace: withJumpSpace)
         
         messageText.append(textA)
         messageText.append(textBold)
