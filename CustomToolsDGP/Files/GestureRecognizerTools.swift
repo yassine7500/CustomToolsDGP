@@ -64,6 +64,13 @@ public class GestureRecognizerTools {
         object.addGestureRecognizer(tapGesture)
     }
     
+    // set tap gesture recognizer for button
+    public func setTapGestureRecognizer(object: UITextField, target: Any?, action: Selector?) {
+        let tapGesture = UITapGestureRecognizer(target: target, action: action)
+        object.isUserInteractionEnabled = true
+        object.addGestureRecognizer(tapGesture)
+    }
+    
 }
 
 
