@@ -14,7 +14,7 @@ public class InternetConnectionTool {
         
     }
     
-    public func isConnectedToNetwork(vc: UIViewController?) -> Bool {
+    public func isConnectedToNetwork() -> Bool {
         
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
@@ -36,15 +36,7 @@ public class InternetConnectionTool {
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
         
-        let value = (isReachable && !needsConnection)
-        
-        if !value && vc != nil {
-            DispatchQueue.main.async {
-                vc?.clearAllNotice()
-            }
-        }
-        
-        return value
+        return (isReachable && !needsConnection)
     }
     
 }
