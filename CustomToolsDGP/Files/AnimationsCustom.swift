@@ -19,17 +19,30 @@ public class AnimationsCustom {
     }
     
     // Standard animation for init popup.
-    public func animationScalePopup(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationScalePopup(viewContainer: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
-        viewContainer.alpha = 0
-        viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+        if outAction {
+            viewContainer.alpha = 1
+            viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else {
+            viewContainer.alpha = 0
+            viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+        }
+        
         delegate?.view.layoutIfNeeded()
         
         UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [.curveEaseInOut], animations: {
-            viewContainer.alpha = 1
-            viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+            if outAction {
+                viewContainer.alpha = 0
+                viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+            } else {
+                viewContainer.alpha = 1
+                viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+            
             self.delegate?.view.layoutIfNeeded()
         }, completion: { _ in
             
@@ -51,7 +64,7 @@ public class AnimationsCustom {
         } else {
             viewContainer.alpha = 0
             viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
-        }        
+        }
         
         delegate?.view.layoutIfNeeded()
         
@@ -77,15 +90,26 @@ public class AnimationsCustom {
         })
     }
     
-    public func disolveView(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func disolveView(viewContainer: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
-        viewContainer.alpha = 1
+        if outAction {
+            viewContainer.alpha = 0
+        } else {
+            viewContainer.alpha = 1
+        }
+        
         delegate?.view.layoutIfNeeded()
         
         UIView.animate(withDuration: withDuration, animations: {
-            viewContainer.alpha = 0
+            
+            if outAction {
+                viewContainer.alpha = 1
+            } else {
+                viewContainer.alpha = 0
+            }
+            
             self.delegate?.view.layoutIfNeeded()
         }, completion: { _ in
             
@@ -98,7 +122,7 @@ public class AnimationsCustom {
     }
     
     public func createSelectedCellAnimation(isCellSelected: Bool, tableView: UITableView, cellViewContainer: UIView?, indexPath: IndexPath, withDuration: TimeInterval = 0.05) {
-                
+        
         var valueAnimation: CGFloat = 1.0
         isCellSelected == true ? (valueAnimation = 0.95) : (valueAnimation = 1.0)
         
@@ -108,7 +132,7 @@ public class AnimationsCustom {
     }
     
     public func createSelectedViewAnimation(isCellSelected: Bool, viewContainer: UIView?, withDuration: TimeInterval = 0.05, _ action: @escaping ()->Void) {
-                
+        
         var completionAction: ( ()->Void )?
         
         var valueAnimation: CGFloat = 1.0
