@@ -41,18 +41,32 @@ public class AnimationsCustom {
         })
     }
     
-    public func animationAppearFromBottom(viewContainer: UIView, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationAppearFromBottom(viewContainer: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
-        viewContainer.alpha = 0
-        viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
+        if outAction {
+            viewContainer.alpha = 1
+            viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+        } else {
+            viewContainer.alpha = 0
+            viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
+        }        
+        
         delegate?.view.layoutIfNeeded()
         
         UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
-            viewContainer.alpha = 1
-            viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+            if outAction {
+                viewContainer.alpha = 0
+                viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
+            } else {
+                viewContainer.alpha = 1
+                viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+            }
+            
             self.delegate?.view.layoutIfNeeded()
+            
         }, completion: { _ in
             
             completionAction = action
