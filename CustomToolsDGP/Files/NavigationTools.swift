@@ -26,38 +26,46 @@ extension UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    public func openPopupView(viewController: UIViewController, alphaComponent: CGFloat) {
-        viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaComponent)
+    public func openPopupView(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+        if alphaBlackComponent != nil {
+            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+        }
         self.addChild(viewController)
         self.view.addSubview(viewController.view)
     }
     
-    public func openPopupViewInFrontNavigation(viewController: UIViewController, alphaComponent: CGFloat) {
-        viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaComponent)
+    public func openPopupViewInFrontNavigation(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+        if alphaBlackComponent != nil {
+            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+        }
         self.navigationController?.addChild(viewController)
         self.navigationController?.view.addSubview(viewController.view)
     }
     
-    public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaComponent: CGFloat) {
-        viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaComponent)
+    public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+        if alphaBlackComponent != nil {
+            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+        }
         self.tabBarController?.addChild(viewController)
         self.tabBarController?.view.addSubview(viewController.view)
     }
     
-    public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaComponent: CGFloat) {
+    public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaBlackComponent: CGFloat?) {
         
         let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
-        
         let vc = storyboard.instantiateViewController(withIdentifier: viewIdentifier)
         
-        vc.view.backgroundColor = UIColor.black.withAlphaComponent(alphaComponent)
+        if alphaBlackComponent != nil {
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+        }
+        
         self.addChild(vc)
         self.view.addSubview(vc.view)
     }
     
     public func openVieWithConstraintsStandard(customView: UIViewController) {
         
-        self.openPopupView(viewController: customView, alphaComponent: 0.0)
+        self.openPopupView(viewController: customView, alphaBlackComponent: 0.0)
         
         customView.view.translatesAutoresizingMaskIntoConstraints = false
         customView.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
