@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9607BEFD23AF8C56008781CE /* LoadingCustomStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607BEFC23AF8C56008781CE /* LoadingCustomStandard.swift */; };
 		9607BEFF23AF8C64008781CE /* LoadingCustomPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607BEFE23AF8C64008781CE /* LoadingCustomPulse.swift */; };
+		96085D9A23F9615900C9EB71 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96085D9923F9615900C9EB71 /* ImageTools.swift */; };
 		960E6F172333CF5100489066 /* PermissionTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6F162333CF5100489066 /* PermissionTools.swift */; };
 		96229A4922F0C1F30098CAA0 /* ToastMessageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */; };
 		96317BB422AD325E00AC830B /* CustomToolsDGP.h in Headers */ = {isa = PBXBuildFile; fileRef = 96317BB222AD325E00AC830B /* CustomToolsDGP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		9607BEFC23AF8C56008781CE /* LoadingCustomStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCustomStandard.swift; sourceTree = "<group>"; };
 		9607BEFE23AF8C64008781CE /* LoadingCustomPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCustomPulse.swift; sourceTree = "<group>"; };
+		96085D9923F9615900C9EB71 /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		960E6F162333CF5100489066 /* PermissionTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionTools.swift; sourceTree = "<group>"; };
 		96229A4822F0C1F30098CAA0 /* ToastMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageTool.swift; sourceTree = "<group>"; };
 		96317BAF22AD325E00AC830B /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +211,7 @@
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
 				9644129722E729250028A062 /* IdentifyingDocumentsValidator.swift */,
 				96F3B7A823561657003DC2E5 /* ImageAlertTool.swift */,
+				96085D9923F9615900C9EB71 /* ImageTools.swift */,
 				9644129122E725190028A062 /* InternetConnectionTool.swift */,
 				9673C9C822E4894F00BBA1DB /* LocationTools.swift */,
 				9673C9CA22E491A400BBA1DB /* MapTools.swift */,
@@ -396,6 +399,7 @@
 				96F81F03236EFD5A0053331F /* UIColorExtension.swift in Sources */,
 				96F81F00236EFD5A0053331F /* KoyomiLayout.swift in Sources */,
 				960E6F172333CF5100489066 /* PermissionTools.swift in Sources */,
+				96085D9A23F9615900C9EB71 /* ImageTools.swift in Sources */,
 				96F81F01236EFD5A0053331F /* Koyomi.swift in Sources */,
 				9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */,
 				96CB505B22E5C15900C18D72 /* ShadowTools.swift in Sources */,

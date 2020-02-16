@@ -6,18 +6,14 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
+import UIKit
+
 public class ImageAlertTool {
-    
-    public enum GestureOptions {
-        case none
-        case zoom
-        case rotate
-        case zoomAndRotate
-    }
     
     // MARK: OBJECTS
     var mainViewContainer: UIView!
     
+    var imageTools: ImageTools?
     var imageViewScale: CGFloat = 1.0
     let maxScale: CGFloat = 100.0
     let minScale: CGFloat = 1.0
@@ -28,7 +24,7 @@ public class ImageAlertTool {
     }
     
     
-    public func loadImageAsync(url: String, gestureOptions: GestureOptions, completion: @escaping (Bool) -> ()) {
+    public func loadImageAsync(url: String, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         if url == "" {
             completion(false)
@@ -55,7 +51,7 @@ public class ImageAlertTool {
         }).resume()
     }
     
-    public func loadImageFromAssets(image: UIImage?, gestureOptions: GestureOptions, completion: @escaping (Bool) -> ()) {
+    public func loadImageFromAssets(image: UIImage?, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         guard image != nil else {
             completion(false)
@@ -69,7 +65,7 @@ public class ImageAlertTool {
         }
     }
     
-    private func loadImageActions(image: UIImage, gestureOptions: GestureOptions, completion: @escaping (Bool) -> ()) {
+    private func loadImageActions(image: UIImage, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         let window = UIApplication.shared.keyWindow
         
@@ -119,7 +115,8 @@ public class ImageAlertTool {
         imageToLoad.centerXAnchor.constraint(equalTo: self.mainViewContainer.centerXAnchor).isActive = true
         
         if gestureOptions != .none {
-            setupGestureOptions(image: imageToLoad, gestureOptions: gestureOptions)
+            imageTools = ImageTools()
+            imageTools?.setupGestureOptions(image: imageToLoad, gestureOptions: gestureOptions)
         }
         
         // Create animation
@@ -137,66 +134,6 @@ public class ImageAlertTool {
         })
         
     }
-    
-    // SETUP GESTURE OPTIONS
-    private func setupGestureOptions(image: UIImageView, gestureOptions: GestureOptions) {
-        
-        var pinchGesture: UIPinchGestureRecognizer?
-        var rotationGesture: UIRotationGestureRecognizer?
-        
-        switch gestureOptions {
-        case .none:
-            break
-        case .zoom:
-            pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
-        case .rotate:
-            rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
-        case .zoomAndRotate:
-            pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
-            rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
-        }
-        
-        pinchGesture?.delegate = self as? UIGestureRecognizerDelegate
-        rotationGesture?.delegate = self as? UIGestureRecognizerDelegate
-        
-        image.isUserInteractionEnabled = true
-        
-        if pinchGesture != nil {
-            image.addGestureRecognizer(pinchGesture!)
-        }
-        
-        if rotationGesture != nil {
-            image.addGestureRecognizer(rotationGesture!)
-        }
-    }
-    
-    @objc private func pinchGestureCustom(_ recognizer: UIPinchGestureRecognizer) {
-        
-        guard let recognizerView = recognizer.view else {
-            return
-        }
-        
-        if recognizer.state == .began || recognizer.state == .changed {
-            let pinchScale: CGFloat = recognizer.scale
-            
-            if imageViewScale * pinchScale < maxScale && imageViewScale * pinchScale > minScale {
-                imageViewScale *= pinchScale
-                recognizerView.transform = (recognizerView.transform.scaledBy(x: pinchScale, y: pinchScale))
-            }
-            recognizer.scale = 1.0
-        }
-    }
-    
-    @objc private func rotationGestureCustom(_ recognizer: UIRotationGestureRecognizer) {
-        
-        guard let recognizerView = recognizer.view else {
-            return
-        }
-        
-        recognizerView.transform = recognizerView.transform.rotated(by: recognizer.rotation)
-        recognizer.rotation = 0
-    }
-    
     
     // BUTTON ACTION METHODS
     @objc func buttonMainContainerAction() {
