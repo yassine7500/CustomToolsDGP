@@ -19,16 +19,16 @@ public class AnimationsCustom {
     }
     
     // Standard animation for init popup.
-    public func animationScalePopup(viewContainer: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationScalePopup(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
         if outAction {
-            viewContainer.alpha = 1
-            viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+            viewMainContainer.alpha = 1
+            viewContainerAnimated.transform = CGAffineTransform(scaleX: 1, y: 1)
         } else {
-            viewContainer.alpha = 0
-            viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+            viewMainContainer.alpha = 0
+            viewContainerAnimated.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
         }
         
         delegate?.view.layoutIfNeeded()
@@ -36,11 +36,11 @@ public class AnimationsCustom {
         UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [.curveEaseInOut], animations: {
             
             if outAction {
-                viewContainer.alpha = 0
-                viewContainer.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+                viewMainContainer.alpha = 0
+                viewContainerAnimated.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
             } else {
-                viewContainer.alpha = 1
-                viewContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+                viewMainContainer.alpha = 1
+                viewContainerAnimated.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
             
             self.delegate?.view.layoutIfNeeded()
@@ -54,16 +54,16 @@ public class AnimationsCustom {
         })
     }
     
-    public func animationAppearFromBottom(viewContainer: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationAppearFromBottom(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
         if outAction {
-            viewContainer.alpha = 1
-            viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+            viewMainContainer.alpha = 1
+            viewContainerAnimated.transform = CGAffineTransform(translationX: 0, y: 0)
         } else {
-            viewContainer.alpha = 0
-            viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
+            viewMainContainer.alpha = 0
+            viewContainerAnimated.transform = CGAffineTransform(translationX: 0, y: 100)
         }
         
         delegate?.view.layoutIfNeeded()
@@ -71,11 +71,11 @@ public class AnimationsCustom {
         UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
             
             if outAction {
-                viewContainer.alpha = 0
-                viewContainer.transform = CGAffineTransform(translationX: 0, y: 100)
+                viewMainContainer.alpha = 0
+                viewContainerAnimated.transform = CGAffineTransform(translationX: 0, y: 100)
             } else {
-                viewContainer.alpha = 1
-                viewContainer.transform = CGAffineTransform(translationX: 0, y: 0)
+                viewMainContainer.alpha = 1
+                viewContainerAnimated.transform = CGAffineTransform(translationX: 0, y: 0)
             }
             
             self.delegate?.view.layoutIfNeeded()
