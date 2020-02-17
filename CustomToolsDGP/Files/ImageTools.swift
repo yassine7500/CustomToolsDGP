@@ -87,6 +87,31 @@ public class ImageTools {
         recognizer.rotation = 0
         
     }
+    
+    
+    public func getRatioCustom(ratioW: CGFloat, ratioH: CGFloat, width: CGFloat?, height: CGFloat?) -> CGFloat? {
+    
+        guard width != nil || height != nil else {
+            return nil
+        }
+        
+        if width == nil {
+            
+            let result: CGFloat = (height! * ratioW) / ratioH
+            return result
+            
+        } else if height == nil {
+            
+            let result: CGFloat = (width! * ratioH) / ratioW
+            return result
+            
+        } else {
+            return nil
+        }
+    }
+    
+    
+    
 }
  
 
