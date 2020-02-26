@@ -9,9 +9,9 @@
 
 extension UIView {
     
-    public func roundSpecificsCorners(corners: UIRectCorner, radius: CGFloat) {
+    public func roundSpecificsCorners(corners: UIRectCorner, radius: CGFloat, clipsToBoundsValue: Bool = true) {
         if #available(iOS 11.0, *) {
-            clipsToBounds = true
+            clipsToBounds = clipsToBoundsValue
             layer.cornerRadius = radius
             layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
         } else {
