@@ -48,10 +48,14 @@ public class ColorTools {
         return result
     }
     
-    public func getColorBetweenRange(colorA: UIColor, colorB: UIColor, colorDivisions: CGFloat, colorPosition: Int ) -> UIColor? {
+    public func getColorBetweenRange(lightColor: UIColor, darkColor: UIColor, colorDivisions: CGFloat, colorPosition: CGFloat) -> UIColor? {
+        
+        guard colorPosition < colorDivisions else {
+            return nil
+        }
         
         // COLOR ONE
-        let colorA = colorA
+        let colorA = lightColor
         _ = colorA.coreImageColor
         let redValueOne: CGFloat = colorA.components.red
         let greenValueOne: CGFloat = colorA.components.green
@@ -59,7 +63,7 @@ public class ColorTools {
         let alphaValueOne: CGFloat = colorA.components.alpha
         
         // COLOR TWO
-        let colorB = colorB
+        let colorB = darkColor
         _ = colorB.coreImageColor
         let redValueTwo: CGFloat = colorB.components.red
         let greenValueTwo: CGFloat = colorB.components.green
