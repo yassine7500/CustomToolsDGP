@@ -48,6 +48,66 @@ public class ColorTools {
         return result
     }
     
+    public func getColorBetweenRange(colorA: UIColor, colorB: UIColor, colorDivisions: CGFloat, colorPosition: Int ) -> UIColor? {
+        
+        // COLOR ONE
+        let colorA = colorA
+        _ = colorA.coreImageColor
+        let redValueOne: CGFloat = colorA.components.red
+        let greenValueOne: CGFloat = colorA.components.green
+        let blueValueOne: CGFloat = colorA.components.blue
+        let alphaValueOne: CGFloat = colorA.components.alpha
+        
+        // COLOR TWO
+        let colorB = colorB
+        _ = colorB.coreImageColor
+        let redValueTwo: CGFloat = colorB.components.red
+        let greenValueTwo: CGFloat = colorB.components.green
+        let blueValueTwo: CGFloat = colorB.components.blue
+        let alphaValueTwo: CGFloat = colorB.components.alpha
+            
+        let redDifference = abs(redValueOne - redValueTwo)
+        let greenDifference = abs(greenValueOne - greenValueTwo)
+        let blueDifference = abs(blueValueOne - blueValueTwo)
+        let alphaDifference = abs(alphaValueOne - alphaValueTwo)
+        
+        let redProportion = redDifference/colorDivisions
+        let greenProportion = greenDifference/colorDivisions
+        let blueProportion = blueDifference/colorDivisions
+        let alphaProportion = alphaDifference/colorDivisions
+        
+        var redResult: CGFloat = 0
+        var greenResult: CGFloat = 0
+        var blueResult: CGFloat = 0
+        var alphaResult: CGFloat = 1.0
+        
+        if redValueOne < redValueTwo {
+            redResult = redValueOne + (redProportion*CGFloat(colorPosition))
+        } else {
+            redResult = redValueOne - (redProportion*CGFloat(colorPosition))
+        }
+        
+        if greenValueOne < greenValueTwo {
+            greenResult = greenValueOne + greenProportion*CGFloat(colorPosition)
+        } else {
+            greenResult = greenValueOne - greenProportion*CGFloat(colorPosition)
+        }
+        
+        if blueValueOne < blueValueTwo {
+            blueResult = blueValueOne + blueProportion*CGFloat(colorPosition)
+        } else {
+            blueResult = blueValueOne - blueProportion*CGFloat(colorPosition)
+        }
+        
+        if alphaValueOne < alphaValueTwo {
+            alphaResult = alphaValueOne + alphaProportion*CGFloat(colorPosition)
+        } else {
+            alphaResult = alphaValueOne - alphaProportion*CGFloat(colorPosition)
+        }
+        
+        return UIColor(red: redResult, green: greenResult, blue: blueResult, alpha: alphaResult)
+    }
+    
 }
 
 extension UIColor {
@@ -115,5 +175,13 @@ extension UIColor {
     
 }
 
-
+extension UIColor {
+    public var coreImageColor: CIColor {
+        return CIColor(color: self)
+    }
+    public var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        let coreImageColor = self.coreImageColor
+        return (coreImageColor.red, coreImageColor.green, coreImageColor.blue, coreImageColor.alpha)
+    }
+}
 
