@@ -79,6 +79,9 @@ public class MapTools {
             if title != "" {
                 destinyAnnotation.title = title
             }
+            if subtitle != "" {
+                destinyAnnotation.subtitle = subtitle
+            }
             self.mapView?.addAnnotation(destinyAnnotation)
             
         }
