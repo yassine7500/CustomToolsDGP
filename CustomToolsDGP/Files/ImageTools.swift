@@ -117,7 +117,7 @@ public class ImageTools {
 
 extension UIView {
 
-    func asImage() -> UIImage? {
+    public func asImage() -> UIImage? {
         if #available(iOS 10.0, *) {
             let renderer = UIGraphicsImageRenderer(bounds: bounds)
             return renderer.image { rendererContext in
