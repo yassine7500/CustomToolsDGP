@@ -243,3 +243,14 @@ public extension UIDevice {
 }
 
 
+extension UIViewController {
+
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist)
+     */
+
+    public var topbarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.size.height +
+        (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+}
