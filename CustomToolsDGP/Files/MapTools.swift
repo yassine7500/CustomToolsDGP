@@ -94,7 +94,7 @@ public class MapTools {
         }
     }
     
-    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false) -> MKAnnotationView? {
+    public func setMapViewCustomAnnotation(mapView: MKMapView, viewFor annotation: MKAnnotation, activeCluster: Bool? = false, canShowCallout: Bool = true) -> MKAnnotationView? {
         
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -115,7 +115,7 @@ public class MapTools {
         
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            anView!.canShowCallout = true
+            anView!.canShowCallout = canShowCallout
         } else {
             anView!.annotation = annotation
         }
