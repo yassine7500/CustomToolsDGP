@@ -25,7 +25,7 @@ public class MapTools {
     }
     
     public func goToPositionInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, setRegionAnimated: Bool = true) {
-        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: locationDregrees, longitudeDelta: locationDregrees)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
         self.mapView?.setRegion(region, animated: setRegionAnimated)
