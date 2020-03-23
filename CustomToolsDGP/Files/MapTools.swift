@@ -31,7 +31,7 @@ public class MapTools {
         self.mapView?.setRegion(region, animated: setRegionAnimated)
     }
     
-    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", setRegionAnimated: Bool = true, withEyeCoordinate: Bool = false, eyeCoordinateValue: Double = 0.001, eyeAltitudeValue: Double = 200, setCameraAnimated: Bool = true, setCenterValue: Bool = false, setCenterAnimated: Bool = true, disableCenterCamera: Bool = false) {
+    public func setAnnotationInMap(latitude: Double, longitude: Double, locationDregrees: Double = 0.001, customAnnotation: Bool, title: String = "", subtitle: String = "", imageName: String = "", setRegionAnimated: Bool = true, withEyeCoordinate: Bool = false, eyeCoordinateValue: Double = 0.001, eyeAltitudeValue: Double = 200, setCameraAnimated: Bool = true, setCenterValue: Bool = false, setCenterAnimated: Bool = true, disableCenterCamera: Bool = false, disableCenterCameraDispatchQueue: Bool = false) {
         
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: locationDregrees, longitudeDelta: locationDregrees)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
@@ -71,8 +71,13 @@ public class MapTools {
                 let mapCamera = MKMapCamera(lookingAtCenter: location, fromEyeCoordinate: eyeCoordinate, eyeAltitude: eyeAltitudeValue)
                 
                 if !disableCenterCamera {
-                    DispatchQueue.main.async {
+                    
+                    if disableCenterCameraDispatchQueue {
                         self.mapView?.setCamera(mapCamera, animated: setCameraAnimated)
+                    } else {
+                        DispatchQueue.main.async {
+                            self.mapView?.setCamera(mapCamera, animated: setCameraAnimated)
+                        }
                     }
                 }
             }
