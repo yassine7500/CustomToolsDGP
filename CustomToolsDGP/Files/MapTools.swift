@@ -39,11 +39,20 @@ public class MapTools {
         
         
         if !disableCenterCamera {
-            DispatchQueue.main.async {
+            
+            if disableCenterCameraDispatchQueue {
                 if setCenterValue {
                     self.mapView?.setCenter(location, animated: setCenterAnimated)
                 } else {
                     self.mapView?.setRegion(region, animated: setRegionAnimated)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    if setCenterValue {
+                        self.mapView?.setCenter(location, animated: setCenterAnimated)
+                    } else {
+                        self.mapView?.setRegion(region, animated: setRegionAnimated)
+                    }
                 }
             }
         }
