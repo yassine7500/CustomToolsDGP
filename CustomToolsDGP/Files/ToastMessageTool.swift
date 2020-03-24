@@ -100,8 +100,11 @@ public class ToastMessage {
 
         stackView.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 16).isActive = true
         stackView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -16).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -20).isActive = true
+//        stackView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 20).isActive = true
+//        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -20).isActive = true
+        
+        stackView.leadingAnchor.constraint(greaterThanOrEqualTo: viewContainer.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(greaterThanOrEqualTo: viewContainer.trailingAnchor, constant: 20).isActive = true
         
         // Create animation
         UIView.animate(withDuration: timeTransition, animations: {
