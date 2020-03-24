@@ -104,7 +104,7 @@ public class ToastMessage {
 //        stackView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -20).isActive = true
         
         stackView.leadingAnchor.constraint(greaterThanOrEqualTo: viewContainer.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(greaterThanOrEqualTo: viewContainer.trailingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(greaterThanOrEqualTo: viewContainer.trailingAnchor, constant: -20).isActive = true
         
         // Create animation
         UIView.animate(withDuration: timeTransition, animations: {
