@@ -19,7 +19,7 @@ public class AnimationsCustom {
     }
     
     // Standard animation for init popup.
-    public func animationScalePopup(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationScalePopup(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.8, initialSpringVelocity: CGFloat = 8, options: UIView.AnimationOptions = [.curveEaseInOut], _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
@@ -33,7 +33,7 @@ public class AnimationsCustom {
         
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: withDuration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: {
             
             if outAction {
                 viewMainContainer.alpha = 0
@@ -54,7 +54,7 @@ public class AnimationsCustom {
         })
     }
     
-    public func animationAppearFromBottom(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, _ action: @escaping ()->Void) {
+    public func animationAppearFromBottom(viewMainContainer: UIView, viewContainerAnimated: UIView, outAction: Bool = false, withDuration: TimeInterval = 0.4, delay: TimeInterval = 0, usingSpringWithDamping: CGFloat = 0.6, initialSpringVelocity: CGFloat = 1, options: UIView.AnimationOptions = [.curveEaseInOut], _ action: @escaping ()->Void) {
         
         var completionAction: ( ()->Void )?
         
@@ -68,7 +68,7 @@ public class AnimationsCustom {
         
         delegate?.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: withDuration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: withDuration, delay: delay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: options, animations: {
             
             if outAction {
                 viewMainContainer.alpha = 0
