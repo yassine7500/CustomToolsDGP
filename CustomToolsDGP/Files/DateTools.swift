@@ -78,6 +78,8 @@ public enum DateFormatType: String {
     case hourSeconds = "HH:mm:ss"
     /// HH:mm
     case hour = "HH:mm"
+    /// mm:ss
+    case minutesSeconds = "mm:ss"
     
     /// dd
     case justDay = "dd"
@@ -101,6 +103,8 @@ public enum DateFormatType: String {
     case justMinutes = "mm"
     /// ss
     case justSeconds = "ss"
+    
+    
 }
 
 
