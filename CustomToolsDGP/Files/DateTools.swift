@@ -80,8 +80,7 @@ public enum DateFormatType: String {
     case hour = "HH:mm"
     /// mm:ss
     case minutesSeconds = "mm:ss"
-    
-    /// TEST CODE TO DELETE IT
+
     
     /// dd
     case justDay = "dd"
