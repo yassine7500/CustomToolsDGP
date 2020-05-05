@@ -81,6 +81,8 @@ public enum DateFormatType: String {
     /// mm:ss
     case minutesSeconds = "mm:ss"
     
+    /// TEST CODE TO DELETE IT
+    
     /// dd
     case justDay = "dd"
     /// EEEE
