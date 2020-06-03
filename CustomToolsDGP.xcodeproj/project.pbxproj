@@ -36,6 +36,7 @@
 		9657EF9822E5ECEF002A9196 /* SubstringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9722E5ECEF002A9196 /* SubstringTools.swift */; };
 		9657EF9A22E5ED41002A9196 /* PhoneTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9922E5ED41002A9196 /* PhoneTools.swift */; };
 		9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9B22E5EDD2002A9196 /* EmailTools.swift */; };
+		96581BDF2487C2C40024A20F /* AddressTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96581BDE2487C2C40024A20F /* AddressTools.swift */; };
 		965EF0692323C235009B7D3B /* PrintTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EF0682323C235009B7D3B /* PrintTools.swift */; };
 		967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DC22E73F5D00263560 /* ApiServiceTool.swift */; };
 		967257DF22E740B900263560 /* JsonDecoderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DE22E740B900263560 /* JsonDecoderTool.swift */; };
@@ -105,6 +106,7 @@
 		9657EF9722E5ECEF002A9196 /* SubstringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringTools.swift; sourceTree = "<group>"; };
 		9657EF9922E5ED41002A9196 /* PhoneTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTools.swift; sourceTree = "<group>"; };
 		9657EF9B22E5EDD2002A9196 /* EmailTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTools.swift; sourceTree = "<group>"; };
+		96581BDE2487C2C40024A20F /* AddressTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTools.swift; sourceTree = "<group>"; };
 		965EF0682323C235009B7D3B /* PrintTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTools.swift; sourceTree = "<group>"; };
 		967257DC22E73F5D00263560 /* ApiServiceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTool.swift; sourceTree = "<group>"; };
 		967257DE22E740B900263560 /* JsonDecoderTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoderTool.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		96317BBA22AD326500AC830B /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				96581BDE2487C2C40024A20F /* AddressTools.swift */,
 				963906EC22F6C6ED0000CC2A /* AlertCustomTool.swift */,
 				96D2CCDB233B8587002C1889 /* AlertTableViewCustomTool.swift */,
 				963E082A22E323270053BD47 /* AnimationsCustom.swift */,
@@ -424,6 +427,7 @@
 				964C641122FC346D0075ACB7 /* ContactTool.swift in Sources */,
 				96F81F02236EFD5A0053331F /* UIViewExtension.swift in Sources */,
 				963E083122E32B640053BD47 /* ColorTools.swift in Sources */,
+				96581BDF2487C2C40024A20F /* AddressTools.swift in Sources */,
 				9644129022E7243C0028A062 /* CellTools.swift in Sources */,
 				963E083522E32DB80053BD47 /* DateTools.swift in Sources */,
 				96CB506322E5C66500C18D72 /* AlertCustomVCSample.swift in Sources */,
