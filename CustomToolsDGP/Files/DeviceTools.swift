@@ -17,7 +17,11 @@ public class DeviceTools {
     }
     
     public func getAppVersion() -> String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "?"
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? ""
+    }
+    
+    public func getAppBuildVersion() -> String {
+        return Bundle.main.infoDictionary!["CFBundleVersion"] as? String ?? ""
     }
     
     public func openAppSystemConfiguration() {
