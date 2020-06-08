@@ -11,10 +11,12 @@ var loadingActived = false
 extension UIViewController {
     
     public func loadingON(typeLoading: LoadingCustomTools.LoadingCustomType = .standard, text: String? = nil, textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), textSize: CGFloat = 14, borderWidth: CGFloat? = nil, borderColor: UIColor? = nil, customImage: UIImage? = nil) {
-        if !loadingActived {
-            loadingActived = true
-            self.view.isUserInteractionEnabled = false
-            LoadingCustomTools.customWait(typeLoading: typeLoading, text: text, textColor: textColor, textSize: textSize, borderWidth: borderWidth, borderColor: borderColor, customImage: customImage)
+        DispatchQueue.main.async {
+            if !loadingActived {
+                loadingActived = true
+                self.view.isUserInteractionEnabled = false
+                LoadingCustomTools.customWait(typeLoading: typeLoading, text: text, textColor: textColor, textSize: textSize, borderWidth: borderWidth, borderColor: borderColor, customImage: customImage)
+            }
         }
     }
     

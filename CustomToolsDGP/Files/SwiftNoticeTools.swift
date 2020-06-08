@@ -18,23 +18,29 @@ extension UIViewController {
     }
     
     public func pleaseWait() {
-        if !pleaseWaitActive {
-            pleaseWaitActive = true
-            self.view.isUserInteractionEnabled = false
-            SwfitNoticeTools.wait()
+        DispatchQueue.main.async {
+            if !pleaseWaitActive {
+                pleaseWaitActive = true
+                self.view.isUserInteractionEnabled = false
+                SwfitNoticeTools.wait()
+            }
         }
     }
     
     public func pleaseWait(_ text: String) {
-        if !pleaseWaitActive {
-            pleaseWaitActive = true
-            self.view.isUserInteractionEnabled = false
-            SwfitNoticeTools.wait(text)
+        DispatchQueue.main.async {
+            if !pleaseWaitActive {
+                pleaseWaitActive = true
+                self.view.isUserInteractionEnabled = false
+                SwfitNoticeTools.wait(text)
+            }
         }
     }
     
     public func noticeOnlyText(_ text: String) {
-        SwfitNoticeTools.showText(text)
+        DispatchQueue.main.async {
+            SwfitNoticeTools.showText(text)
+        }
     }
     
     public func clearAllNotice() {        
