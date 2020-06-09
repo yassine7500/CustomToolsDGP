@@ -13,7 +13,7 @@ public class IdentifyingDocumentsValidator {
     }
     
     //Sum digits values for Int <= 100
-    public static func digitsSum(_ value: Int) -> Int {
+    public func digitsSum(_ value: Int) -> Int {
         var currentResult : Int = 0
         var currentValue = value
         
@@ -36,7 +36,7 @@ public class IdentifyingDocumentsValidator {
      * Tiene que recibir el dni sin espacios ni guiones
      * Esta funcion es llamada
      */
-    public static func validateDNI(candidateDNI: String) -> Bool {
+    public func validateDNI(candidateDNI: String) -> Bool {
         
         if (candidateDNI.count != 9) {
             return false
@@ -74,7 +74,7 @@ public class IdentifyingDocumentsValidator {
         
     }
     
-    public static func validateCIF(cifCandidate: String) -> Bool {
+    public func validateCIF(cifCandidate: String) -> Bool {
         if(cifCandidate.count != 9) {
             return false
         }
