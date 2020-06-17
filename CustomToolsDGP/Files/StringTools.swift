@@ -17,7 +17,10 @@ extension String {
     
     public var isNumeric: Bool {
         
-        if Int(self) != nil || Double(self) != nil || Float(self) != nil {
+        var value = self
+        value = value.replacingOccurrences(of: ",", with: ".")
+        
+        if Int(value) != nil || Double(value) != nil || Float(value) != nil {
             return true
         } else {
             return false
