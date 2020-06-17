@@ -195,19 +195,19 @@ extension NumberTools {
                 
             case .Int:
                 if resultString.isNumeric {
-                    return Int(resultString) as! T
+                    return Int(resultString.replacingOccurrences(of: ",", with: ".")) as! T
                 } else {
                     return Int(-1) as! T
                 }
             case .Float:
                 if resultString.isNumeric {
-                    return Float(resultString) as! T
+                    return Float(resultString.replacingOccurrences(of: ",", with: ".")) as! T
                 } else {
                     return Float(-1.0) as! T
                 }
             case .Double:
                 if resultString.isNumeric {
-                    return Double(resultString) as! T
+                    return Double(resultString.replacingOccurrences(of: ",", with: ".")) as! T
                 } else {
                     return Double(-1.0) as! T
                 }
