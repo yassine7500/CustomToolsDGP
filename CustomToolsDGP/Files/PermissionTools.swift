@@ -16,6 +16,7 @@ public class PermissionTools {
         
     }
     
+    // MARK: NOTIFICATIONS PERMISSION STATUS
     public func checkNotificationPermission(completion: @escaping (Bool) -> ()) {
         
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
@@ -30,6 +31,8 @@ public class PermissionTools {
         }
     }
     
+    
+    // MARK: CAMERA PERMISSION STATUS
     public func checkCameraPermission(completion: @escaping (Bool) -> ()) {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if response {
@@ -43,6 +46,7 @@ public class PermissionTools {
         }
     }
     
+    // MARK: LOCATION PERMISSION STATUS
     public func checkLocationPermission(completion: @escaping (Int) -> ()) {
         
         if CLLocationManager.locationServicesEnabled() {
@@ -66,6 +70,51 @@ public class PermissionTools {
             print(text: "Location permission disables", type: .warning)
             completion(0)
         }
+    }
+    
+    // MARK: MICROPHONE PERMISSION STATUS
+    public enum MicrophonePermissionStatus {
+        case granted
+        case denied
+        case undetermined
+    }
+    
+    public func checkMicrophonePermission(completionStatus: @escaping (MicrophonePermissionStatus) -> ()) {
+        
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSessionRecordPermission.granted:
+            completionStatus(.granted)
+        case AVAudioSessionRecordPermission.denied:
+            completionStatus(.denied)
+        case AVAudioSessionRecordPermission.undetermined:
+            
+            self.askMicrophonePermission { (granted) in
+                
+                if granted {
+                    completionStatus(.granted)
+                } else {
+                    completionStatus(.denied)
+                }
+            }
+            
+        default:
+            completionStatus(.denied)
+            break
+        }
+        
+    }
+    
+    public func askMicrophonePermission(grantedValue: @escaping (Bool) -> ()) {
+        
+        AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+            if granted {
+                print(text: "Microphone permission: TRUE", type: .success)
+                grantedValue(true)
+            } else {
+                print(text: "Microphone permission: FALSE", type: .warning)
+                grantedValue(false)
+            }
+        })
     }
     
 }
