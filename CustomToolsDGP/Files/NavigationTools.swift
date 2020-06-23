@@ -43,27 +43,29 @@ extension UIViewController {
         }
     }
     
-    public func openPopupViewInFrontNavigation(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+    public func openPopupViewInFrontNavigation(viewController: UIViewController, alphaBlackComponent: CGFloat?, completion: @escaping () -> ()) {
         DispatchQueue.main.async {
             if alphaBlackComponent != nil {
                 viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
             }
             self.navigationController?.addChild(viewController)
             self.navigationController?.view.addSubview(viewController.view)
+            completion()
         }
     }
     
-    public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+    public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaBlackComponent: CGFloat?, completion: @escaping () -> ()) {
         DispatchQueue.main.async {
             if alphaBlackComponent != nil {
                 viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
             }
             self.tabBarController?.addChild(viewController)
             self.tabBarController?.view.addSubview(viewController.view)
+            completion()
         }
     }
     
-    public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaBlackComponent: CGFloat?) {
+    public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaBlackComponent: CGFloat?, completion: @escaping () -> ()) {
         
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
@@ -75,6 +77,7 @@ extension UIViewController {
             
             self.addChild(vc)
             self.view.addSubview(vc.view)
+            completion()
         }
     }
     
@@ -87,7 +90,7 @@ extension UIViewController {
                 customView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
                 customView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
                 customView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
-            })            
+            })
         }
         
     }

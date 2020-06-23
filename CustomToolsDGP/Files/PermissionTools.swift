@@ -31,21 +31,6 @@ public class PermissionTools {
         }
     }
     
-    
-    // MARK: CAMERA PERMISSION STATUS
-    public func checkCameraPermission(completion: @escaping (Bool) -> ()) {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
-            if response {
-                //access granted
-                print(text: "CAMERA access granted", type: .success)
-                completion(true)
-            } else {
-                print(text: "CAMERA access rejected", type: .warning)
-                completion(false)
-            }
-        }
-    }
-    
     // MARK: LOCATION PERMISSION STATUS
     public func checkLocationPermission(completion: @escaping (Int) -> ()) {
         
@@ -117,4 +102,52 @@ public class PermissionTools {
         })
     }
     
+    // MARK: CAMERA PERMISSION STATUS
+    public enum VideoPermissionStatus {
+        case granted
+        case denied
+        case restricted
+        case notDetermined
+    }
+    
+    public func checkCameraPermission(completionStatus: @escaping (VideoPermissionStatus) -> ()) {
+        
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+            
+        case .notDetermined:
+            
+            self.askCameraPermission { (granted) in
+                if granted {
+                    completionStatus(.granted)
+                } else {
+                    completionStatus(.denied)
+                }
+            }
+            
+        case .restricted:
+            completionStatus(.restricted)
+        case .denied:
+            completionStatus(.denied)
+        case .authorized:
+            completionStatus(.granted)
+        @unknown default:
+            completionStatus(.denied)
+        }
+        
+    }
+    
+    public func askCameraPermission(grantedValue: @escaping (Bool) -> ()) {
+        
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+            if granted {
+                print(text: "Microphone permission: TRUE", type: .success)
+                grantedValue(true)
+            } else {
+                print(text: "Microphone permission: FALSE", type: .warning)
+                grantedValue(false)
+            }
+        })
+        
+    }
+
 }
