@@ -32,13 +32,14 @@ extension UIViewController {
         }
     }
     
-    public func openPopupView(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
+    public func openPopupView(viewController: UIViewController, alphaBlackComponent: CGFloat?, completion: @escaping () -> ()) {
         DispatchQueue.main.async {
             if alphaBlackComponent != nil {
                 viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
             }
             self.addChild(viewController)
             self.view.addSubview(viewController.view)
+            completion()
         }
     }
     
@@ -80,13 +81,13 @@ extension UIViewController {
     public func openVieWithConstraintsStandard(customView: UIViewController) {
         
         DispatchQueue.main.async {
-            self.openPopupView(viewController: customView, alphaBlackComponent: 0.0)
-            
-            customView.view.translatesAutoresizingMaskIntoConstraints = false
-            customView.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
-            customView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-            customView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-            customView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+            self.openPopupView(viewController: customView, alphaBlackComponent: 0.0, completion: {
+                customView.view.translatesAutoresizingMaskIntoConstraints = false
+                customView.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+                customView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+                customView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+                customView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+            })            
         }
         
     }
