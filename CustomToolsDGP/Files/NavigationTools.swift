@@ -75,8 +75,10 @@ extension UIViewController {
     }
     
     public func closePopupView() {
-        self.removeFromParent()
-        self.view.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.removeFromParent()
+            self.view.removeFromSuperview()
+        }
     }
     
 }
