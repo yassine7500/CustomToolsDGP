@@ -33,33 +33,30 @@ extension UIViewController {
     }
     
     public func openPopupView(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
-        if alphaBlackComponent != nil {
-            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
-        }
-        
         DispatchQueue.main.async {
+            if alphaBlackComponent != nil {
+                viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+            }
             self.addChild(viewController)
             self.view.addSubview(viewController.view)
         }
     }
     
     public func openPopupViewInFrontNavigation(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
-        if alphaBlackComponent != nil {
-            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
-        }
-        
         DispatchQueue.main.async {
+            if alphaBlackComponent != nil {
+                viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+            }
             self.navigationController?.addChild(viewController)
             self.navigationController?.view.addSubview(viewController.view)
         }
     }
     
     public func openPopupViewInFrontTabBar(viewController: UIViewController, alphaBlackComponent: CGFloat?) {
-        if alphaBlackComponent != nil {
-            viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
-        }
-        
         DispatchQueue.main.async {
+            if alphaBlackComponent != nil {
+                viewController.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+            }
             self.tabBarController?.addChild(viewController)
             self.tabBarController?.view.addSubview(viewController.view)
         }
@@ -67,14 +64,14 @@ extension UIViewController {
     
     public func openPopupView(storyBoardName: String, viewIdentifier: String, alphaBlackComponent: CGFloat?) {
         
-        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: viewIdentifier)
-        
-        if alphaBlackComponent != nil {
-            vc.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
-        }
-        
         DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: viewIdentifier)
+            
+            if alphaBlackComponent != nil {
+                vc.view.backgroundColor = UIColor.black.withAlphaComponent(alphaBlackComponent!)
+            }
+            
             self.addChild(vc)
             self.view.addSubview(vc.view)
         }
