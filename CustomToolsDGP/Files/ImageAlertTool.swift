@@ -94,51 +94,57 @@ public class ImageAlertTool {
         self.mainViewContainer.addSubview(buttonMainContainer)
         self.mainViewContainer.addSubview(imageToLoad)
         
-        // Add item to screen
-        window?.addSubview(self.mainViewContainer)
-        window?.bringSubviewToFront(self.mainViewContainer)
-        
-        // Add constraints
-        self.mainViewContainer.widthAnchor.constraint(equalToConstant: window!.bounds.width).isActive = true
-        self.mainViewContainer.heightAnchor.constraint(equalToConstant: window!.bounds.height).isActive = true
-        self.mainViewContainer.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
-        self.mainViewContainer.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
-        
-        buttonMainContainer.topAnchor.constraint(equalTo: self.mainViewContainer.topAnchor).isActive = true
-        buttonMainContainer.bottomAnchor.constraint(equalTo: self.mainViewContainer.bottomAnchor).isActive = true
-        buttonMainContainer.leadingAnchor.constraint(equalTo: self.mainViewContainer.leadingAnchor).isActive = true
-        buttonMainContainer.trailingAnchor.constraint(equalTo: self.mainViewContainer.trailingAnchor).isActive = true
-        
-        imageToLoad.widthAnchor.constraint(equalToConstant: window!.bounds.width - 40).isActive = true
-        imageToLoad.heightAnchor.constraint(equalToConstant: window!.bounds.width - 40).isActive = true
-        imageToLoad.centerYAnchor.constraint(equalTo: self.mainViewContainer.centerYAnchor).isActive = true
-        imageToLoad.centerXAnchor.constraint(equalTo: self.mainViewContainer.centerXAnchor).isActive = true
-        
-        if gestureOptions != .none {
-            imageTools = ImageTools()
-            imageTools?.setupGestureOptions(image: imageToLoad, gestureOptions: gestureOptions)
+        DispatchQueue.main.async {
+            
+            // Add item to screen
+            window?.addSubview(self.mainViewContainer)
+            window?.bringSubviewToFront(self.mainViewContainer)
+            
+            // Add constraints
+            self.mainViewContainer.widthAnchor.constraint(equalToConstant: window!.bounds.width).isActive = true
+            self.mainViewContainer.heightAnchor.constraint(equalToConstant: window!.bounds.height).isActive = true
+            self.mainViewContainer.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+            self.mainViewContainer.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
+            
+            buttonMainContainer.topAnchor.constraint(equalTo: self.mainViewContainer.topAnchor).isActive = true
+            buttonMainContainer.bottomAnchor.constraint(equalTo: self.mainViewContainer.bottomAnchor).isActive = true
+            buttonMainContainer.leadingAnchor.constraint(equalTo: self.mainViewContainer.leadingAnchor).isActive = true
+            buttonMainContainer.trailingAnchor.constraint(equalTo: self.mainViewContainer.trailingAnchor).isActive = true
+            
+            imageToLoad.widthAnchor.constraint(equalToConstant: window!.bounds.width - 40).isActive = true
+            imageToLoad.heightAnchor.constraint(equalToConstant: window!.bounds.width - 40).isActive = true
+            imageToLoad.centerYAnchor.constraint(equalTo: self.mainViewContainer.centerYAnchor).isActive = true
+            imageToLoad.centerXAnchor.constraint(equalTo: self.mainViewContainer.centerXAnchor).isActive = true
+            
+            if gestureOptions != .none {
+                self.imageTools = ImageTools()
+                self.imageTools?.setupGestureOptions(image: imageToLoad, gestureOptions: gestureOptions)
+            }
+            
+            // Create animation
+            imageToLoad.alpha = 0
+            imageToLoad.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+            self.mainViewContainer.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 6, options: [.curveEaseOut], animations: {
+                imageToLoad.alpha = 1
+                imageToLoad.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.mainViewContainer.layoutIfNeeded()
+            }, completion: { _ in
+                print(" 🌇 [ImageAlertTool] Image successfully loaded.")
+                completion(true)
+            })
         }
         
-        // Create animation
-        imageToLoad.alpha = 0
-        imageToLoad.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
-        self.mainViewContainer.layoutIfNeeded()
-
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 6, options: [.curveEaseOut], animations: {
-            imageToLoad.alpha = 1
-            imageToLoad.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.mainViewContainer.layoutIfNeeded()
-        }, completion: { _ in
-            print(" 🌇 [ImageAlertTool] Image successfully loaded.")
-            completion(true)
-        })
         
     }
     
     // BUTTON ACTION METHODS
     @objc func buttonMainContainerAction() {
         print("ImageAlertTool: buttonMainContainerAction")
-        mainViewContainer.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.mainViewContainer.removeFromSuperview()            
+        }
     }
     
 }
