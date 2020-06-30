@@ -108,8 +108,11 @@ extension LoadingCustomTools {
 extension LoadingCustomTools {
     
     public static func setPulseColor(color: UIColor) {
-        LoadingCustomTools.animationView.backgroundColor = color
-        LoadingCustomTools.animatableLayer.fillColor = color.cgColor
+        
+        DispatchQueue.main.async {
+            LoadingCustomTools.animationView.backgroundColor = color
+            LoadingCustomTools.animatableLayer.fillColor = color.cgColor
+        }
     }
     
 }
