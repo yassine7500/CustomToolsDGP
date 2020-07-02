@@ -15,6 +15,18 @@ public enum CapitalizeString: Int {
 
 extension String {
     
+    public func deleteLastEmptyCharacter() -> String {
+     
+        if self.last == " " {
+            var result = self
+            result = String(result.dropLast())
+            return result
+        } else {
+            return self
+        }
+        
+    }
+    
     public var isNumeric: Bool {
         
         var value = self
