@@ -7,9 +7,12 @@
 //
 
 
-public func getNewViewController(storyBoardName: String, viewIdentifier: String) -> UIViewController {
-    let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
-    return storyboard.instantiateViewController(withIdentifier: viewIdentifier)
+public func getNewViewController(storyBoardName: String, viewIdentifier: String, completion: @escaping (UIViewController) -> ()) {
+    DispatchQueue.main.async {
+        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: viewIdentifier)
+        completion(viewController)
+    }
 }
 
 extension UIViewController {
