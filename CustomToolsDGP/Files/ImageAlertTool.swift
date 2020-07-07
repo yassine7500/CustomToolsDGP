@@ -17,6 +17,7 @@ public class ImageAlertTool {
     var imageViewScale: CGFloat = 1.0
     let maxScale: CGFloat = 100.0
     let minScale: CGFloat = 1.0
+    let buttonInFrontSize: CGFloat = 40.0
 
     
     // MARK: START METHODS
@@ -90,9 +91,19 @@ public class ImageAlertTool {
         imageToLoad.image = image
         imageToLoad.translatesAutoresizingMaskIntoConstraints = false
         
+        // Button Close in Front
+        let buttonCloseInFront = UIButton()
+        buttonCloseInFront.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.75)
+        buttonCloseInFront.clipsToBounds = true
+        buttonCloseInFront.layer.cornerRadius = buttonInFrontSize/2
+        buttonCloseInFront.setImage(UIImage(named: "close_fine_black"), for: .normal)
+        buttonCloseInFront.addTarget(self, action: #selector(self.buttonMainContainerAction), for: .touchUpInside)
+        buttonCloseInFront.translatesAutoresizingMaskIntoConstraints = false
+        
         // Add items to containers
         self.mainViewContainer.addSubview(buttonMainContainer)
         self.mainViewContainer.addSubview(imageToLoad)
+        self.mainViewContainer.addSubview(buttonCloseInFront)
         
         DispatchQueue.main.async {
             
@@ -115,6 +126,11 @@ public class ImageAlertTool {
             imageToLoad.heightAnchor.constraint(equalToConstant: window!.bounds.width - 40).isActive = true
             imageToLoad.centerYAnchor.constraint(equalTo: self.mainViewContainer.centerYAnchor).isActive = true
             imageToLoad.centerXAnchor.constraint(equalTo: self.mainViewContainer.centerXAnchor).isActive = true
+            
+            buttonCloseInFront.topAnchor.constraint(equalTo: self.mainViewContainer.topAnchor, constant: 14).isActive = true
+            buttonCloseInFront.trailingAnchor.constraint(equalTo: self.mainViewContainer.trailingAnchor, constant: -14).isActive = true
+            buttonCloseInFront.widthAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
+            buttonCloseInFront.heightAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
             
             if gestureOptions != .none {
                 self.imageTools = ImageTools()
@@ -143,8 +159,9 @@ public class ImageAlertTool {
     @objc func buttonMainContainerAction() {
         print("ImageAlertTool: buttonMainContainerAction")
         DispatchQueue.main.async {
-            self.mainViewContainer.removeFromSuperview()            
+            self.mainViewContainer.removeFromSuperview()
         }
     }
     
 }
+
