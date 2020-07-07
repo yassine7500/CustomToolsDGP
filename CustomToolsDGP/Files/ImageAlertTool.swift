@@ -12,6 +12,7 @@ public class ImageAlertTool {
     
     // MARK: OBJECTS
     var mainViewContainer: UIView!
+    public var buttonCloseInFront: UIButton!
     
     var imageTools: ImageTools?
     var imageViewScale: CGFloat = 1.0
@@ -92,7 +93,7 @@ public class ImageAlertTool {
         imageToLoad.translatesAutoresizingMaskIntoConstraints = false
         
         // Button Close in Front
-        let buttonCloseInFront = UIButton()
+        buttonCloseInFront = UIButton()
         buttonCloseInFront.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.75)
         buttonCloseInFront.clipsToBounds = true
         buttonCloseInFront.layer.cornerRadius = buttonInFrontSize/2
@@ -133,10 +134,10 @@ public class ImageAlertTool {
             imageToLoad.centerYAnchor.constraint(equalTo: self.mainViewContainer.centerYAnchor).isActive = true
             imageToLoad.centerXAnchor.constraint(equalTo: self.mainViewContainer.centerXAnchor).isActive = true
             
-            buttonCloseInFront.topAnchor.constraint(equalTo: self.mainViewContainer.topAnchor, constant: 14).isActive = true
-            buttonCloseInFront.trailingAnchor.constraint(equalTo: self.mainViewContainer.trailingAnchor, constant: -14).isActive = true
-            buttonCloseInFront.widthAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
-            buttonCloseInFront.heightAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
+            self.buttonCloseInFront.topAnchor.constraint(equalTo: self.mainViewContainer.topAnchor, constant: 14).isActive = true
+            self.buttonCloseInFront.trailingAnchor.constraint(equalTo: self.mainViewContainer.trailingAnchor, constant: -14).isActive = true
+            self.buttonCloseInFront.widthAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
+            self.buttonCloseInFront.heightAnchor.constraint(equalToConstant: self.buttonInFrontSize).isActive = true
             
             if gestureOptions != .none {
                 self.imageTools = ImageTools()
