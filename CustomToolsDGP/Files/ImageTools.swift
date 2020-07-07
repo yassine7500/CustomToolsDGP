@@ -12,10 +12,15 @@ public class ImageTools {
         case none
         case zoom
         case rotate
+        case pan
+        case panAndRotate
+        case zoomAndPan
         case zoomAndRotate
+        case zoomAndRotateAndPan
     }
     
     // MARK: PARAMETERS
+    var panGesture: UIPanGestureRecognizer?
     var pinchGesture: UIPinchGestureRecognizer?
     var rotationGesture: UIRotationGestureRecognizer?
     var imageViewScale: CGFloat = 1.0
@@ -30,9 +35,6 @@ public class ImageTools {
     // MARK: SETUP METHOD
     public func setupGestureOptions(image: UIImageView, gestureOptions: GestureOptions) {
         
-        var pinchGesture: UIPinchGestureRecognizer?
-        var rotationGesture: UIRotationGestureRecognizer?
-        
         switch gestureOptions {
         case .none:
             break
@@ -40,9 +42,21 @@ public class ImageTools {
             pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
         case .rotate:
             rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
+        case .pan:
+            panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureCustom(_:)))
+        case .panAndRotate:
+            panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureCustom(_:)))
+            rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
         case .zoomAndRotate:
             pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
             rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
+        case .zoomAndPan:
+            pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
+            panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureCustom(_:)))
+        case .zoomAndRotateAndPan:
+            pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureCustom(_:)))
+            rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureCustom(_:)))
+            panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureCustom(_:)))
         }
         
         pinchGesture?.delegate = self as? UIGestureRecognizerDelegate
@@ -57,6 +71,25 @@ public class ImageTools {
         if rotationGesture != nil {
             image.addGestureRecognizer(rotationGesture!)
         }
+        
+        if panGesture != nil {
+            image.addGestureRecognizer(panGesture!)
+        }
+    }
+    
+    @objc private func panGestureCustom(_ recognizer: UIPanGestureRecognizer) {
+        
+        guard let recognizerView = recognizer.view else {
+            return
+        }
+        
+        if recognizer.state == .began || recognizer.state == .changed {
+            
+            let translation = recognizer.translation(in: recognizerView)
+            recognizer.view!.center = CGPoint(x: recognizerView.center.x + translation.x, y: recognizerView.center.y + translation.y)
+            recognizer.setTranslation(.zero, in: recognizerView)
+        }
+        
     }
     
     @objc private func pinchGestureCustom(_ recognizer: UIPinchGestureRecognizer) {
@@ -85,7 +118,6 @@ public class ImageTools {
         
         recognizerView.transform = recognizerView.transform.rotated(by: recognizer.rotation)
         recognizer.rotation = 0
-        
     }
     
     
