@@ -38,7 +38,6 @@
 		9657EF9C22E5EDD2002A9196 /* EmailTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657EF9B22E5EDD2002A9196 /* EmailTools.swift */; };
 		96581BDF2487C2C40024A20F /* AddressTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96581BDE2487C2C40024A20F /* AddressTools.swift */; };
 		965EF0692323C235009B7D3B /* PrintTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EF0682323C235009B7D3B /* PrintTools.swift */; };
-		966332D224B4BC5400B9C4D5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966332D124B4BC5400B9C4D5 /* Media.xcassets */; };
 		967257DD22E73F5D00263560 /* ApiServiceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DC22E73F5D00263560 /* ApiServiceTool.swift */; };
 		967257DF22E740B900263560 /* JsonDecoderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967257DE22E740B900263560 /* JsonDecoderTool.swift */; };
 		9673C9C122E47BA500BBA1DB /* GradientTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673C9C022E47BA500BBA1DB /* GradientTools.swift */; };
@@ -109,7 +108,6 @@
 		9657EF9B22E5EDD2002A9196 /* EmailTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTools.swift; sourceTree = "<group>"; };
 		96581BDE2487C2C40024A20F /* AddressTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTools.swift; sourceTree = "<group>"; };
 		965EF0682323C235009B7D3B /* PrintTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTools.swift; sourceTree = "<group>"; };
-		966332D124B4BC5400B9C4D5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		967257DC22E73F5D00263560 /* ApiServiceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTool.swift; sourceTree = "<group>"; };
 		967257DE22E740B900263560 /* JsonDecoderTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoderTool.swift; sourceTree = "<group>"; };
 		9673C9C022E47BA500BBA1DB /* GradientTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTools.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			children = (
 				96317BB222AD325E00AC830B /* CustomToolsDGP.h */,
 				96317BB322AD325E00AC830B /* Info.plist */,
-				966332D124B4BC5400B9C4D5 /* Media.xcassets */,
 				9690C4C022F8391D0010D1C4 /* Class files */,
 				96317BBA22AD326500AC830B /* Files */,
 				96CB505522E5C03D00C18D72 /* Samples */,
@@ -365,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966332D224B4BC5400B9C4D5 /* Media.xcassets in Resources */,
 				96CB506122E5C5E000C18D72 /* AlertCustomSample.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

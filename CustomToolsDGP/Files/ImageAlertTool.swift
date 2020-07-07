@@ -96,7 +96,13 @@ public class ImageAlertTool {
         buttonCloseInFront.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.75)
         buttonCloseInFront.clipsToBounds = true
         buttonCloseInFront.layer.cornerRadius = buttonInFrontSize/2
-        buttonCloseInFront.setImage(UIImage(named: "close_fine_black"), for: .normal)
+        if #available(iOS 13.0, *) {
+            let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .medium, scale: .small)
+            buttonCloseInFront.setImage(UIImage(systemName: "xmark", withConfiguration: config), for: .normal)
+        } else {
+            buttonCloseInFront.setTitle("X", for: .normal)
+            buttonCloseInFront.setTitleColor(.black, for: .normal)
+        }
         buttonCloseInFront.addTarget(self, action: #selector(self.buttonMainContainerAction), for: .touchUpInside)
         buttonCloseInFront.translatesAutoresizingMaskIntoConstraints = false
         
