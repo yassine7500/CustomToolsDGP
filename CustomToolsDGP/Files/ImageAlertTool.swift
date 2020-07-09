@@ -8,6 +8,8 @@
 
 import UIKit
 
+public var isImageAlertToolOpened = false
+
 public class ImageAlertTool {
     
     // MARK: OBJECTS
@@ -28,7 +30,11 @@ public class ImageAlertTool {
     
     public func loadImageAsync(url: String, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
+        guard !isImageAlertToolOpened else { return }
+        isImageAlertToolOpened = true
+        
         if url == "" {
+            isImageAlertToolOpened = false
             completion(false)
             return
         }
@@ -36,6 +42,7 @@ public class ImageAlertTool {
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
+                isImageAlertToolOpened = false
                 completion(false)
                 return
             }
@@ -43,9 +50,11 @@ public class ImageAlertTool {
             DispatchQueue.main.async {
                 if let imageData = UIImage(data: data!) {
                     self.loadImageActions(image: imageData, gestureOptions: gestureOptions) { (success) in
+                        isImageAlertToolOpened = false
                         completion(success)
                     }
                 } else {
+                    isImageAlertToolOpened = false
                     completion(false)
                     return
                 }
@@ -55,13 +64,18 @@ public class ImageAlertTool {
     
     public func loadImageFromAssets(image: UIImage?, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
+        guard !isImageAlertToolOpened else { return }
+        isImageAlertToolOpened = true
+        
         guard image != nil else {
+            isImageAlertToolOpened = false
             completion(false)
             return
         }
         
         DispatchQueue.main.async {
             self.loadImageActions(image: image!, gestureOptions: gestureOptions) { (success) in
+                isImageAlertToolOpened = false
                 completion(success)
             }
         }

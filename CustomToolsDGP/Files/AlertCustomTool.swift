@@ -41,9 +41,7 @@ public class AlertCustomTool {
     
     public func show(title: String, message: String, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, onlyOneButton: Bool, activeExtraButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, topCloseButtonImage: UIImage? = nil) {
         
-        guard !isAlertCustomToolOpened else {
-            return
-        }
+        guard !isAlertCustomToolOpened else { return }
         
         isAlertCustomToolOpened = true
         
