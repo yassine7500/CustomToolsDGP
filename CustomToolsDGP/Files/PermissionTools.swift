@@ -9,6 +9,7 @@
 import UserNotifications
 import AVFoundation
 import CoreLocation
+import Photos
 
 public class PermissionTools {
     
@@ -147,6 +148,21 @@ public class PermissionTools {
                 grantedValue(false)
             }
         })
+        
+    }
+    
+    public func photoLibraryPermission(grantedValue: @escaping (Bool) -> ()) {
+        
+        PHPhotoLibrary.requestAuthorization { (status) in
+
+            if status.rawValue == 3 {
+                print(text: "Photo library permission: TRUE", type: .success)
+                grantedValue(true)
+            } else {
+                print(text: "Photo library permission: FALSE", type: .warning)
+                grantedValue(false)
+            }
+        }
         
     }
 
