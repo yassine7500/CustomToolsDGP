@@ -6,6 +6,8 @@
 //  Copyright © 2019 David Galán. All rights reserved.
 //
 
+import AVKit
+
 /// Date Format type
 public enum DateFormatType: String {
     
@@ -220,6 +222,18 @@ public class DateTools {
     }
     
     // MARK: GET SECONDS
+    public func getSecondsFromAudioUrl(url: String, completion: @escaping (Double?) -> ()) {
+        DispatchQueue.main.async {
+            if let urlValue = URL(string: url) {
+                let audioAsset = AVURLAsset.init(url: urlValue, options: nil)
+                let duration = audioAsset.duration.seconds
+                completion(duration)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
     public func getSecondsToHoursMinutesSeconds (seconds: Int) -> String {
         let (h, m, s) = secondsToHoursMinutesSeconds (seconds: seconds)
         return ("\(String(format: "%02d", h)):\(String(format: "%02d", m)):\(String(format: "%02d", s))")
