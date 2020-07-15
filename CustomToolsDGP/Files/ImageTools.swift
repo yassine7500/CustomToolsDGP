@@ -148,22 +148,23 @@ public class ImageTools {
         
         if let urlValue = URL(string: url) {
             
-            let asset = AVAsset(url: urlValue)
-            let assetImgGenerate = AVAssetImageGenerator(asset: asset)
-            assetImgGenerate.appliesPreferredTrackTransform = true
-            //Can set this to improve performance if target size is known before hand
-            //assetImgGenerate.maximumSize = CGSize(width,height)
-            let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
-            
-            do {
-                let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
-                let thumbnail = UIImage(cgImage: img)
-                completion(thumbnail)
-            } catch {
-                print(error.localizedDescription)
-                completion(nil)
+            DispatchQueue.main.async {
+                let asset = AVAsset(url: urlValue)
+                let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+                assetImgGenerate.appliesPreferredTrackTransform = true
+                //Can set this to improve performance if target size is known before hand
+                //assetImgGenerate.maximumSize = CGSize(width,height)
+                let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
+                
+                do {
+                    let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+                    let thumbnail = UIImage(cgImage: img)
+                    completion(thumbnail)
+                } catch {
+                    print(error.localizedDescription)
+                    completion(nil)
+                }
             }
-            
         } else {
             completion(nil)
         }
