@@ -172,11 +172,19 @@ public class DateTools {
         return dateFormatter.string(from: todayData)
     }
     
-    //Date to milliseconds
+    //MARK: Date to milliseconds
     public func currentTimeInMiliseconds() -> Int {
         let currentDate = Date()
         let since1970 = currentDate.timeIntervalSince1970
         return Int(since1970 * 1000)
+    }
+    
+    public func getStringDateFromTimeStamp(timeStamp: Double, dateFormatOut: DateFormatType) -> String {
+        let date = Date(timeIntervalSince1970: timeStamp)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = dateFormatOut.rawValue
+        return dateFormatter.string(from: date)
     }
     
     // MARK: COMPARE

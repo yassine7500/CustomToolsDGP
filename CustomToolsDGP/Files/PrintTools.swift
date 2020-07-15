@@ -87,8 +87,6 @@ public enum PrintType: String {
     case update = "🔄"
     /// 💾
     case save = "💾"
-    /// 💛
-    case favYellow = "💛"
     /// 🆔
     case id = "🆔"
     /// 🆘
@@ -119,6 +117,34 @@ public enum PrintType: String {
     /// ⚙️
     case configuration = "⚙️"
     
+    /// 🚧
+    case works = "🚧"
+    /// 📱
+    case mobile = "📱"
+    /// 🎉
+    case celebrate = "🎉"
+    /// ✂️
+    case scissors = "✂️"
+    /// ✏️
+    case pencil = "✏️"
+
+    /// 💛
+    case favYellow = "💛"
+    /// ❤️
+    case favRed = "❤️"
+    /// 🖤
+    case favBlack = "🖤"
+    /// 🤍
+    case favWhite = "🤍"
+    /// 💚
+    case favGreen = "💚"
+    /// 🧡
+    case favOrange = "🧡"
+    /// 💜
+    case favPurple = "💜"
+    /// 🤎
+    case favBrown = "🤎"
+
     
     
 }
