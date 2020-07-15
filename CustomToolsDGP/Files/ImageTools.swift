@@ -144,7 +144,7 @@ public class ImageTools {
         }
     }
     
-    public func getThumbnailOfVideoFromRemoteUrl(url: String, completion: @escaping (UIImage?) -> ()) {
+    public func getThumbnailOfVideoFromRemoteUrl(url: String, width: CGFloat, height: CGFloat, completion: @escaping (UIImage?) -> ()) {
         
         if let urlValue = URL(string: url) {
             
@@ -152,8 +152,7 @@ public class ImageTools {
                 let asset = AVAsset(url: urlValue)
                 let assetImgGenerate = AVAssetImageGenerator(asset: asset)
                 assetImgGenerate.appliesPreferredTrackTransform = true
-                //Can set this to improve performance if target size is known before hand
-                //assetImgGenerate.maximumSize = CGSize(width,height)
+                assetImgGenerate.maximumSize = CGSize(width: width, height: height)
                 let time = CMTimeMakeWithSeconds(0.0, preferredTimescale: 600)
                 
                 do {
