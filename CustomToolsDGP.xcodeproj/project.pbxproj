@@ -29,6 +29,7 @@
 		9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */; };
 		964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */; };
 		964412A222E72CBC0028A062 /* RadialGradientToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */; };
+		964698AB24C988600067EF80 /* ScrollViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964698AA24C988600067EF80 /* ScrollViewTools.swift */; };
 		964C640D22FC12690075ACB7 /* ShareTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C640C22FC12690075ACB7 /* ShareTool.swift */; };
 		964C641122FC346D0075ACB7 /* ContactTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C641022FC346D0075ACB7 /* ContactTool.swift */; };
 		964C641322FC42780075ACB7 /* QrTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C641222FC42780075ACB7 /* QrTool.swift */; };
@@ -99,6 +100,7 @@
 		9644129D22E72BFC0028A062 /* UITextViewPaddingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPaddingSample.swift; sourceTree = "<group>"; };
 		9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGlossGradientViewSample.swift; sourceTree = "<group>"; };
 		964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientToolsSample.swift; sourceTree = "<group>"; };
+		964698AA24C988600067EF80 /* ScrollViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTools.swift; sourceTree = "<group>"; };
 		964C640C22FC12690075ACB7 /* ShareTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTool.swift; sourceTree = "<group>"; };
 		964C641022FC346D0075ACB7 /* ContactTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTool.swift; sourceTree = "<group>"; };
 		964C641222FC42780075ACB7 /* QrTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTool.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				965EF0682323C235009B7D3B /* PrintTools.swift */,
 				964C641222FC42780075ACB7 /* QrTool.swift */,
 				96CB505622E5C09400C18D72 /* RandomTools.swift */,
+				964698AA24C988600067EF80 /* ScrollViewTools.swift */,
 				96CB505822E5C10000C18D72 /* SegueTools.swift */,
 				96CB505A22E5C15900C18D72 /* ShadowTools.swift */,
 				964C640C22FC12690075ACB7 /* ShareTool.swift */,
@@ -384,6 +387,7 @@
 				963E082F22E328C50053BD47 /* CornerTools.swift in Sources */,
 				9607BEFF23AF8C64008781CE /* LoadingCustomPulse.swift in Sources */,
 				9644129E22E72BFC0028A062 /* UITextViewPaddingSample.swift in Sources */,
+				964698AB24C988600067EF80 /* ScrollViewTools.swift in Sources */,
 				96D2CCDC233B8587002C1889 /* AlertTableViewCustomTool.swift in Sources */,
 				9690772722DF17FF00F3B2CA /* TextFieldObservers.swift in Sources */,
 				96F81EF3236EFD2E0053331F /* CalendarKoyomiTool.swift in Sources */,
