@@ -42,6 +42,7 @@ extension UIViewController {
             }
             self.addChild(viewController)
             self.view.addSubview(viewController.view)
+            self.view.bringSubviewToFront(viewController.view)
             completion()
         }
     }
@@ -53,6 +54,7 @@ extension UIViewController {
             }
             self.navigationController?.addChild(viewController)
             self.navigationController?.view.addSubview(viewController.view)
+            self.navigationController?.view.bringSubviewToFront(viewController.view)
             completion()
         }
     }
@@ -64,6 +66,7 @@ extension UIViewController {
             }
             self.tabBarController?.addChild(viewController)
             self.tabBarController?.view.addSubview(viewController.view)
+            self.tabBarController?.view.bringSubviewToFront(viewController.view)
             completion()
         }
     }
@@ -80,6 +83,7 @@ extension UIViewController {
             
             self.addChild(vc)
             self.view.addSubview(vc.view)
+            self.view.bringSubviewToFront(vc.view)
             completion()
         }
     }
