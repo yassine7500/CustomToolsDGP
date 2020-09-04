@@ -6,7 +6,7 @@
 //  Copyright © 2020 David Galán. All rights reserved.
 //
 
-class FileDownloaderCustom {
+public class FileDownloaderCustom {
 
     public static func loadFileAsync(url: URL, completion: @escaping (String?, Error?) -> Void) {
         
