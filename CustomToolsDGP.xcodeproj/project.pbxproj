@@ -30,6 +30,7 @@
 		964412A022E72CA20028A062 /* LinearGlossGradientViewSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */; };
 		964412A222E72CBC0028A062 /* RadialGradientToolsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */; };
 		964698AB24C988600067EF80 /* ScrollViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964698AA24C988600067EF80 /* ScrollViewTools.swift */; };
+		9648B172250240FB005FD148 /* FileDownloaderCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9648B171250240FB005FD148 /* FileDownloaderCustom.swift */; };
 		964C640D22FC12690075ACB7 /* ShareTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C640C22FC12690075ACB7 /* ShareTool.swift */; };
 		964C641122FC346D0075ACB7 /* ContactTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C641022FC346D0075ACB7 /* ContactTool.swift */; };
 		964C641322FC42780075ACB7 /* QrTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C641222FC42780075ACB7 /* QrTool.swift */; };
@@ -101,6 +102,7 @@
 		9644129F22E72CA20028A062 /* LinearGlossGradientViewSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGlossGradientViewSample.swift; sourceTree = "<group>"; };
 		964412A122E72CBC0028A062 /* RadialGradientToolsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientToolsSample.swift; sourceTree = "<group>"; };
 		964698AA24C988600067EF80 /* ScrollViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTools.swift; sourceTree = "<group>"; };
+		9648B171250240FB005FD148 /* FileDownloaderCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloaderCustom.swift; sourceTree = "<group>"; };
 		964C640C22FC12690075ACB7 /* ShareTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTool.swift; sourceTree = "<group>"; };
 		964C641022FC346D0075ACB7 /* ContactTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTool.swift; sourceTree = "<group>"; };
 		964C641222FC42780075ACB7 /* QrTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTool.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				963E083422E32DB80053BD47 /* DateTools.swift */,
 				963E083222E32C830053BD47 /* DeviceTools.swift */,
 				9657EF9B22E5EDD2002A9196 /* EmailTools.swift */,
+				9648B171250240FB005FD148 /* FileDownloaderCustom.swift */,
 				963E083622E332F00053BD47 /* GestureRecognizerTools.swift */,
 				9673C9C022E47BA500BBA1DB /* GradientTools.swift */,
 				9673C9C222E4819D00BBA1DB /* HtmlToStringFormatter.swift */,
@@ -394,6 +397,7 @@
 				963E083322E32C830053BD47 /* DeviceTools.swift in Sources */,
 				96F81EFF236EFD5A0053331F /* KoyomiCell.swift in Sources */,
 				9673C9C722E485F200BBA1DB /* LanguageToolsSample.swift in Sources */,
+				9648B172250240FB005FD148 /* FileDownloaderCustom.swift in Sources */,
 				96CB505722E5C09400C18D72 /* RandomTools.swift in Sources */,
 				96CB505222E5BCC900C18D72 /* NumberTools.swift in Sources */,
 				96CB506522E5C73E00C18D72 /* SwiftNoticeTools.swift in Sources */,
