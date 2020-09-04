@@ -8,7 +8,7 @@
 
 class FileDownloaderCustom {
 
-    static func loadFileAsync(fileName: String, url: URL, completion: @escaping (String?, Error?) -> Void) {
+    public static func loadFileAsync(fileName: String, url: URL, completion: @escaping (String?, Error?) -> Void) {
         
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
