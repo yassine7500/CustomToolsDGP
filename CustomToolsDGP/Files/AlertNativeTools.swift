@@ -1,5 +1,9 @@
 //
-//  AlertTools.swift
+//  AlertNativeTools.swift
+//  CustomToolsDGP
+//
+//  Created by David Galán on 12/12/2020.
+//  Copyright © 2020 David Galán. All rights reserved.
 //
 
 import UIKit
