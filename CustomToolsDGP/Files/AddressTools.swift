@@ -9,7 +9,6 @@
 import Foundation
 import MapKit
 
-
 extension String {
     
     public func openAddress(typeAddressResult: AddressTools.TypeAddressResult, completion: @escaping (Bool) -> ()) {
