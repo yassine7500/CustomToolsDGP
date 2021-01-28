@@ -21,10 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		OBJ_24 /* CustomToolsDGP.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CustomToolsDGP.swift */; };
-		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_42 /* CustomToolsDGPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CustomToolsDGPTests.swift */; };
-		OBJ_43 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
 		OBJ_45 /* CustomToolsDGP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CustomToolsDGP::CustomToolsDGP::Product" /* CustomToolsDGP.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,13 +43,9 @@
 
 /* Begin PBXFileReference section */
 		"CustomToolsDGP::CustomToolsDGP::Product" /* CustomToolsDGP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CustomToolsDGP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"CustomToolsDGP::CustomToolsDGPTests::Product" /* CustomToolsDGPTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomToolsDGPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_12 /* CustomToolsDGPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolsDGPTests.swift; sourceTree = "<group>"; };
-		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		"CustomToolsDGP::CustomToolsDGPTests::Product" /* CustomToolsDGPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CustomToolsDGPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_17 /* CustomToolsDGP */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomToolsDGP; sourceTree = SOURCE_ROOT; };
 		OBJ_18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* CustomToolsDGP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolsDGP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,24 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_10 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_11 /* CustomToolsDGPTests */,
-			);
-			name = Tests;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_11 /* CustomToolsDGPTests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_12 /* CustomToolsDGPTests.swift */,
-				OBJ_13 /* XCTestManifests.swift */,
-			);
-			name = CustomToolsDGPTests;
-			path = Tests/CustomToolsDGPTests;
-			sourceTree = SOURCE_ROOT;
-		};
 		OBJ_14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,35 +76,14 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				OBJ_6 /* Package.swift */,
-				OBJ_7 /* Sources */,
-				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,
 				OBJ_17 /* CustomToolsDGP */,
 				OBJ_18 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
-		};
-		OBJ_7 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_8 /* CustomToolsDGP */,
-			);
-			name = Sources;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_8 /* CustomToolsDGP */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_9 /* CustomToolsDGP.swift */,
-			);
-			name = CustomToolsDGP;
-			path = Sources/CustomToolsDGP;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -198,7 +151,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -216,7 +169,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_24 /* CustomToolsDGP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +176,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_31 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,8 +183,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_42 /* CustomToolsDGPTests.swift in Sources */,
-				OBJ_43 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
